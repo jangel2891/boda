@@ -5,47 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentina &amp; Sebasti&aacute;n &middot; Nuestra Boda</title>
 
-<!-- ──────────────────────────────────────────────────────────────────
-     GUÍA RÁPIDA PARA EDITAR:
-     1) Nombres .......... busca   data-edit="nombres"
-     2) Iniciales ........ busca   data-edit="iniciales"
-     3) Fecha/hora ....... busca   const FECHA_BODA
-     4) Lugares y horas .. busca   data-edit="evento"
-     5) Programa del día . busca   data-edit="programa"
-     6) WhatsApp RSVP .... busca   const WHATSAPP
-     7) Hashtag .......... busca   data-edit="hashtag"
-     ────────────────────────────────────────────────────────────────── -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Italiana&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --white:   #ffffff;
-    --pearl:   #faf8f5;
-    --silk:    #f3ede4;
-    --linen:   #e8e0d4;
-    --champagne: #b8916a;
+    --white:      #ffffff;
+    --pearl:      #faf8f5;
+    --silk:       #f3ede4;
+    --linen:      #e8e0d4;
+    --champagne:  #b8916a;
     --champ-soft: #d4b08a;
     --champ-pale: #ecdec8;
-    --charcoal: #2c2825;
-    --ash:     #6b6460;
-    --mist:    #a09890;
+    --charcoal:   #2c2825;
+    --ash:        #6b6460;
+    --mist:       #a09890;
     --serif:   'Cormorant Garamond', serif;
     --display: 'Italiana', serif;
     --script:  'Pinyon Script', cursive;
     --sans:    'Jost', sans-serif;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: var(--sans); color: var(--charcoal); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
   img, svg { display: block; max-width: 100%; }
   a { color: inherit; }
 
-  /* ── utilidades ── */
-  .eyebrow { font-family: var(--sans); font-weight: 300; font-size: .65rem; letter-spacing: .5em; text-transform: uppercase; color: var(--champagne); }
+  .eyebrow { font-family: var(--sans); font-weight: 300; font-size: .63rem; letter-spacing: .5em; text-transform: uppercase; color: var(--champagne); }
   .divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem auto; }
   .divider .l { height: 1px; width: 52px; background: var(--champ-pale); }
   .divider .d { width: 6px; height: 6px; transform: rotate(45deg); border: 1px solid var(--champagne); }
@@ -53,18 +40,18 @@
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
 
-  section { padding: clamp(5rem, 11vw, 9rem) clamp(1.4rem, 5vw, 3rem); }
-  .wrap { max-width: 940px; margin: 0 auto; text-align: center; }
+  section { padding: clamp(4.5rem, 10vw, 8rem) clamp(1.4rem, 5vw, 3rem); }
+  .wrap { max-width: 960px; margin: 0 auto; text-align: center; }
 
-  /* ── nav ── */
+  /* ── NAV ── */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 60;
-    display: flex; justify-content: center; gap: clamp(1.2rem, 4vw, 2.8rem);
-    padding: 1.2rem; font-size: .62rem; letter-spacing: .3em; text-transform: uppercase;
+    display: flex; justify-content: center; gap: clamp(1rem, 3.5vw, 2.6rem);
+    padding: 1.1rem; font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
     background: transparent; transition: background .5s, padding .4s, box-shadow .4s;
   }
-  .nav.solid { background: rgba(255,255,255,.94); backdrop-filter: blur(14px); padding: .8rem 1rem; box-shadow: 0 1px 0 var(--linen); }
-  .nav a { color: var(--charcoal); text-decoration: none; opacity: .6; transition: opacity .25s, color .25s; }
+  .nav.solid { background: rgba(255,255,255,.95); backdrop-filter: blur(14px); padding: .75rem 1rem; box-shadow: 0 1px 0 var(--linen); }
+  .nav a { color: var(--charcoal); text-decoration: none; opacity: .55; transition: opacity .25s, color .25s; }
   .nav a:hover, .nav a:focus-visible { opacity: 1; color: var(--champagne); outline: none; }
 
   /* ── HERO ── */
@@ -76,318 +63,512 @@
     color: var(--charcoal); padding: 6rem 1.6rem 5rem;
     overflow: hidden;
   }
-
-  /* marco ornamental SVG como fondo */
   .hero::before {
-    content: "";
-    position: absolute; inset: clamp(16px, 3vw, 36px);
-    border: 1px solid var(--champ-pale);
-    pointer-events: none;
+    content: ""; position: absolute; inset: clamp(14px,2.5vw,32px);
+    border: 1px solid var(--champ-pale); pointer-events: none; z-index: 0;
   }
   .hero::after {
-    content: "";
-    position: absolute; inset: clamp(22px, 4vw, 48px);
-    border: 1px solid rgba(184,145,106,.18);
-    pointer-events: none;
+    content: ""; position: absolute; inset: clamp(22px,4vw,50px);
+    border: 1px solid rgba(184,145,106,.15); pointer-events: none; z-index: 0;
   }
   .hero > * { position: relative; z-index: 1; }
-  .hero .eyebrow { margin-bottom: 2rem; }
+  .hero .eyebrow { margin-bottom: 1.4rem; }
 
-  .monogram { width: clamp(110px, 22vw, 150px); margin: 0 auto 1.8rem; }
+  /* corner ornaments */
+  .corner { position: absolute; z-index: 2; width: clamp(40px,7vw,64px); height: clamp(40px,7vw,64px); }
+  .corner svg { width: 100%; height: 100%; }
+  .corner.tl { top: clamp(8px,1.5vw,18px); left: clamp(8px,1.5vw,18px); }
+  .corner.tr { top: clamp(8px,1.5vw,18px); right: clamp(8px,1.5vw,18px); transform: scaleX(-1); }
+  .corner.bl { bottom: clamp(8px,1.5vw,18px); left: clamp(8px,1.5vw,18px); transform: scaleY(-1); }
+  .corner.br { bottom: clamp(8px,1.5vw,18px); right: clamp(8px,1.5vw,18px); transform: scale(-1); }
+
+  .monogram { width: clamp(100px,20vw,140px); margin: 0 auto 1.6rem; }
+
+  .hero .parents-block { margin-bottom: 1.8rem; }
+  .hero .parents-block p { font-family: var(--serif); font-size: clamp(.88rem,1.8vw,1.05rem); color: var(--ash); line-height: 1.9; }
+  .hero .parents-block .parent-names { font-family: var(--serif); font-style: italic; font-size: clamp(.9rem,1.9vw,1.08rem); color: var(--charcoal); }
+  .hero .parents-block .padrinos-label { font-family: var(--sans); font-weight: 300; font-size: .6rem; letter-spacing: .4em; text-transform: uppercase; color: var(--champagne); margin-top: .8rem; display: block; }
 
   .hero .names {
     font-family: var(--script); color: var(--charcoal);
-    font-size: clamp(3.8rem, 16vw, 7.8rem); line-height: .88; margin: .2rem 0;
+    font-size: clamp(3.8rem,16vw,7.6rem); line-height: .88; margin: .2rem 0;
   }
   .hero .names .amp { color: var(--champagne); font-size: .65em; }
-
   .hero .date {
-    font-family: var(--display); font-size: clamp(.9rem, 3vw, 1.2rem);
-    letter-spacing: .38em; text-transform: uppercase; margin-top: 1.6rem; color: var(--ash);
+    font-family: var(--display); font-size: clamp(.9rem,3vw,1.2rem);
+    letter-spacing: .38em; text-transform: uppercase; margin-top: 1.4rem; color: var(--ash);
   }
-  .hero .place { font-family: var(--serif); font-style: italic; font-size: 1.1rem; margin-top: .5rem; color: var(--champagne); }
+  .hero .place { font-family: var(--serif); font-style: italic; font-size: 1.1rem; margin-top: .45rem; color: var(--champagne); }
 
-  .scrollcue {
-    position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%);
-    color: var(--mist); font-size: .58rem; letter-spacing: .35em; text-transform: uppercase; z-index: 1;
-  }
-  .scrollcue span {
-    display: block; width: 1px; height: 32px; background: var(--champ-pale);
-    margin: .6rem auto 0; animation: drop 2.2s ease-in-out infinite;
-  }
-  @keyframes drop { 0%,100% { transform: scaleY(.35); opacity: .3; } 55% { transform: scaleY(1); opacity: .8; } }
+  .scrollcue { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: var(--mist); font-size: .56rem; letter-spacing: .35em; text-transform: uppercase; z-index: 2; }
+  .scrollcue span { display: block; width: 1px; height: 30px; background: var(--champ-pale);
+    margin: .5rem auto 0; animation: drop 2.2s ease-in-out infinite; }
+  @keyframes drop { 0%,100% { transform: scaleY(.3); opacity: .3; } 55% { transform: scaleY(1); opacity: .75; } }
+
+  /* ── ILUSTRACIÓN HERO ── */
+  .art-rings { width: clamp(60px,12vw,90px); margin: 1.4rem auto .2rem; }
 
   /* ── INTRO ── */
   .intro { background: var(--white); border-top: 1px solid var(--linen); }
-  .intro .lead { font-family: var(--script); font-size: clamp(2.2rem, 7vw, 3.4rem); color: var(--champagne); line-height: 1; }
-  .intro p { font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.85; max-width: 36ch; margin: 1.4rem auto 0; color: var(--ash); }
+  .intro .art-bouquet { width: clamp(70px,13vw,100px); margin: 0 auto 1.4rem; }
+  .intro .lead { font-family: var(--script); font-size: clamp(2.2rem,7vw,3.4rem); color: var(--champagne); line-height: 1; }
+  .intro p { font-family: var(--serif); font-size: clamp(1.1rem,2.2vw,1.35rem); line-height: 1.85; max-width: 36ch; margin: 1.4rem auto 0; color: var(--ash); }
 
   /* ── CUENTA REGRESIVA ── */
   .count { background: var(--pearl); border-top: 1px solid var(--linen); border-bottom: 1px solid var(--linen); }
-  .count h2 { font-family: var(--display); font-size: clamp(1.6rem, 4.5vw, 2.3rem); letter-spacing: .06em; color: var(--charcoal); margin: .6rem 0 2.6rem; }
-  .clock { display: flex; justify-content: center; gap: clamp(1rem, 5vw, 3.5rem); flex-wrap: wrap; }
-  .unit { min-width: 68px; }
-  .unit .num {
-    font-family: var(--display); font-size: clamp(2.6rem, 9vw, 4.2rem); color: var(--champagne); line-height: 1;
-  }
-  .unit .lab { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; margin-top: .55rem; color: var(--mist); }
-
-  /* separador elegante entre números */
-  .clock .sep { font-family: var(--serif); font-size: clamp(2rem, 6vw, 3rem); color: var(--champ-pale); align-self: center; line-height: 1; }
+  .count h2 { font-family: var(--display); font-size: clamp(1.5rem,4vw,2.2rem); letter-spacing: .06em; color: var(--charcoal); margin: .6rem 0 2.4rem; }
+  .clock { display: flex; justify-content: center; gap: clamp(.8rem,4vw,3rem); flex-wrap: wrap; align-items: center; }
+  .unit { min-width: 66px; }
+  .unit .num { font-family: var(--display); font-size: clamp(2.4rem,8vw,4rem); color: var(--champagne); line-height: 1; }
+  .unit .lab { font-size: .58rem; letter-spacing: .3em; text-transform: uppercase; margin-top: .5rem; color: var(--mist); }
+  .clock .sep { font-family: var(--serif); font-size: clamp(1.8rem,5vw,2.8rem); color: var(--champ-pale); line-height: 1; }
 
   /* ── EVENTO ── */
   .event { background: var(--white); }
-  .event h2 { font-family: var(--display); font-size: clamp(1.8rem, 5.5vw, 2.6rem); color: var(--charcoal); margin: .6rem 0 0; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(1.4rem, 4vw, 2.2rem); margin-top: 2.8rem; }
-  .ecard {
-    background: var(--pearl); border: 1px solid var(--linen);
-    padding: clamp(2.2rem, 5vw, 3.2rem) 1.8rem;
-    transition: box-shadow .35s, transform .35s;
-  }
+  .event .art-church { width: clamp(60px,11vw,84px); margin: 0 auto 1.4rem; }
+  .event h2 { font-family: var(--display); font-size: clamp(1.8rem,5vw,2.6rem); color: var(--charcoal); margin: .5rem 0 0; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: clamp(1.4rem,4vw,2.2rem); margin-top: 2.6rem; }
+  .ecard { background: var(--pearl); border: 1px solid var(--linen); padding: clamp(2.2rem,5vw,3.2rem) 1.8rem; transition: box-shadow .35s, transform .35s; }
   .ecard:hover { box-shadow: 0 16px 48px -16px rgba(184,145,106,.22); transform: translateY(-3px); }
   .ecard .ico { width: 40px; height: 40px; margin: 0 auto 1.2rem; color: var(--champ-soft); }
-  .ecard .kind { font-size: .64rem; letter-spacing: .38em; text-transform: uppercase; color: var(--champagne); font-weight: 400; }
+  .ecard .kind { font-size: .63rem; letter-spacing: .38em; text-transform: uppercase; color: var(--champagne); font-weight: 400; }
   .ecard .lugar { font-family: var(--display); font-size: 1.45rem; margin: .7rem 0 .2rem; color: var(--charcoal); }
   .ecard .dir { font-family: var(--serif); font-size: 1rem; color: var(--ash); line-height: 1.6; }
   .ecard .hora { font-family: var(--serif); font-style: italic; font-size: 1.15rem; margin-top: .8rem; color: var(--charcoal); }
-  .ecard .map {
-    display: inline-block; margin-top: 1.4rem; font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
-    text-decoration: none; color: var(--champagne); border-bottom: 1px solid var(--champ-pale);
-    padding-bottom: 3px; transition: border-color .25s, color .25s;
-  }
+  .ecard .map { display: inline-block; margin-top: 1.4rem; font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+    text-decoration: none; color: var(--champagne); border-bottom: 1px solid var(--champ-pale); padding-bottom: 3px; transition: border-color .25s; }
   .ecard .map:hover { border-color: var(--champagne); }
 
   /* ── PROGRAMA ── */
   .program { background: var(--silk); border-top: 1px solid var(--linen); }
-  .program h2 { font-family: var(--display); font-size: clamp(1.8rem, 5.5vw, 2.6rem); color: var(--charcoal); margin: .6rem 0 3rem; }
+  .program .art-dove { width: clamp(56px,10vw,76px); margin: 0 auto 1.4rem; }
+  .program h2 { font-family: var(--display); font-size: clamp(1.8rem,5vw,2.6rem); color: var(--charcoal); margin: .5rem 0 3rem; }
   .timeline { max-width: 500px; margin: 0 auto; text-align: left; position: relative; }
   .timeline::before { content: ""; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 1px; background: var(--champ-pale); }
   .tl { position: relative; padding: 0 0 2.2rem 2.6rem; }
   .tl:last-child { padding-bottom: 0; }
-  .tl::before {
-    content: ""; position: absolute; left: 4px; top: 5px; width: 13px; height: 13px;
-    transform: rotate(45deg); border: 1px solid var(--champagne); background: var(--silk);
-  }
+  .tl::before { content: ""; position: absolute; left: 4px; top: 5px; width: 13px; height: 13px;
+    transform: rotate(45deg); border: 1px solid var(--champagne); background: var(--silk); }
   .tl .t { font-family: var(--display); font-size: 1.15rem; color: var(--champagne); letter-spacing: .04em; }
   .tl .e { font-family: var(--serif); font-size: 1.12rem; margin-top: .15rem; color: var(--charcoal); }
   .tl .e small { display: block; font-family: var(--sans); font-weight: 300; font-size: .76rem; letter-spacing: .05em; color: var(--ash); margin-top: .2rem; }
 
-  /* ── VESTIR + REGALOS ── */
-  .extra { background: var(--white); border-top: 1px solid var(--linen); }
-  .duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: clamp(1.4rem, 4vw, 2.2rem); }
-  .duo .blk {
-    background: var(--pearl); border: 1px solid var(--linen);
-    padding: clamp(2.2rem, 5vw, 3.2rem) 1.8rem;
-    box-shadow: 0 8px 32px -16px rgba(184,145,106,.15);
-  }
-  .duo .blk h3 { font-family: var(--display); font-size: 1.8rem; color: var(--charcoal); margin-bottom: .4rem; }
-  .duo .blk .eyebrow { display: block; margin-bottom: 1rem; }
-  .duo .blk p { font-family: var(--serif); font-size: 1.08rem; line-height: 1.75; color: var(--ash); max-width: 32ch; margin: 0 auto; }
-  .swatches { display: flex; gap: .6rem; justify-content: center; margin-top: 1.4rem; }
-  .swatches i { width: 24px; height: 24px; border-radius: 50%; border: 1px solid rgba(0,0,0,.1); }
+  /* ── DRESS CODE ── */
+  .dress { background: var(--charcoal); color: var(--champ-pale); }
+  .dress .eyebrow { color: var(--champ-soft); }
+  .dress h2 { font-family: var(--display); font-size: clamp(1.8rem,5vw,2.6rem); margin: .6rem 0 1rem; }
+  .dress .art-tux { width: clamp(70px,12vw,96px); margin: 0 auto 1.6rem; }
+  .dress p { font-family: var(--serif); font-size: clamp(1.05rem,2vw,1.3rem); line-height: 1.75; max-width: 34ch; margin: 0 auto; color: rgba(236,222,200,.75); }
+  .dress-swatches { display: flex; gap: .7rem; justify-content: center; margin-top: 1.6rem; flex-wrap: wrap; }
+  .dress-swatches span { display: flex; align-items: center; gap: .5rem; font-family: var(--sans); font-weight: 300; font-size: .66rem; letter-spacing: .15em; text-transform: uppercase; color: var(--mist); }
+  .dress-swatches i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); flex-shrink: 0; }
+
+  /* ── REGALOS ── */
+  .gifts { background: var(--white); border-top: 1px solid var(--linen); }
+  .gifts h2 { font-family: var(--display); font-size: clamp(1.8rem,5vw,2.6rem); color: var(--charcoal); margin: .6rem 0 1rem; }
+  .gifts .art-rings2 { width: clamp(56px,10vw,76px); margin: 0 auto 1.4rem; }
+  .gifts p { font-family: var(--serif); font-size: clamp(1.05rem,2vw,1.3rem); line-height: 1.8; max-width: 36ch; margin: 0 auto; color: var(--ash); }
 
   /* ── RSVP ── */
-  .rsvp {
-    background: var(--pearl);
-    border-top: 1px solid var(--linen); border-bottom: 1px solid var(--linen);
-    position: relative; overflow: hidden;
-  }
-  .rsvp::before {
-    content: ""; position: absolute; inset: clamp(12px,2vw,24px);
-    border: 1px solid var(--champ-pale); pointer-events: none;
-  }
+  .rsvp { background: var(--pearl); border-top: 1px solid var(--linen); position: relative; overflow: hidden; }
+  .rsvp::before { content: ""; position: absolute; inset: clamp(12px,2vw,24px); border: 1px solid var(--champ-pale); pointer-events: none; }
   .rsvp > .wrap { position: relative; z-index: 1; }
-  .rsvp h2 { font-family: var(--script); font-size: clamp(2.8rem, 10vw, 4.4rem); color: var(--charcoal); line-height: 1; margin: .5rem 0 1.2rem; }
+  .rsvp .art-hearts { width: clamp(60px,11vw,84px); margin: 0 auto 1.4rem; }
+  .rsvp h2 { font-family: var(--script); font-size: clamp(2.8rem,10vw,4.4rem); color: var(--charcoal); line-height: 1; margin: .4rem 0 1.1rem; }
   .rsvp p { font-family: var(--serif); font-size: 1.15rem; line-height: 1.75; max-width: 38ch; margin: 0 auto 2.2rem; color: var(--ash); }
-  .btn {
-    display: inline-block; font-family: var(--sans); font-weight: 400; font-size: .7rem;
+  .btn { display: inline-block; font-family: var(--sans); font-weight: 400; font-size: .68rem;
     letter-spacing: .28em; text-transform: uppercase; color: var(--white);
     background: var(--champagne); padding: 1.1rem 2.8rem; text-decoration: none;
-    border: 1px solid var(--champagne); transition: background .3s, color .3s, transform .3s;
-  }
+    border: 1px solid var(--champagne); transition: background .3s, color .3s, transform .3s; }
   .btn:hover, .btn:focus-visible { background: transparent; color: var(--champagne); transform: translateY(-2px); outline: none; }
-  .rsvp .small { font-size: .76rem; letter-spacing: .04em; margin-top: 1.8rem; color: var(--mist); font-weight: 300; }
+  .rsvp .small { font-size: .74rem; letter-spacing: .04em; margin-top: 1.8rem; color: var(--mist); font-weight: 300; }
 
   /* ── FOOTER ── */
   .foot { background: var(--charcoal); color: var(--champ-pale); text-align: center; padding: 4rem 1.4rem 4.5rem; }
-  .foot .mono { width: 60px; margin: 0 auto 1.4rem; opacity: .85; }
+  .foot .art-laurel { width: clamp(100px,20vw,140px); margin: 0 auto 1.4rem; opacity: .7; }
   .foot .hash { font-family: var(--display); font-size: 1.4rem; letter-spacing: .14em; }
-  .foot .by { font-family: var(--sans); font-weight: 300; font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; margin-top: 1rem; opacity: .45; }
+  .foot .by { font-family: var(--sans); font-weight: 300; font-size: .63rem; letter-spacing: .22em; text-transform: uppercase; margin-top: 1rem; opacity: .4; }
 </style>
 </head>
 <body>
 
-  <nav class="nav" id="nav">
-    <a href="#inicio">Inicio</a>
-    <a href="#evento">Evento</a>
-    <a href="#programa">Programa</a>
-    <a href="#rsvp">Confirmar</a>
-  </nav>
+<nav class="nav" id="nav">
+  <a href="#inicio">Inicio</a>
+  <a href="#evento">Evento</a>
+  <a href="#programa">Programa</a>
+  <a href="#rsvp">Confirmar</a>
+</nav>
 
-  <!-- PORTADA -->
-  <header class="hero" id="inicio">
-    <svg class="monogram" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g stroke="#b8916a" stroke-width="1.2">
-        <path d="M100 18 l6 7 -6 7 -6 -7 z" fill="rgba(184,145,106,.12)"/>
-        <path d="M100 44 C62 52 42 88 46 132" fill="none" opacity=".7"/>
-        <path d="M100 44 C138 52 158 88 154 132" fill="none" opacity=".7"/>
-        <path d="M46 132 C52 150 72 163 100 165" fill="none" opacity=".7"/>
-        <path d="M154 132 C148 150 128 163 100 165" fill="none" opacity=".7"/>
-      </g>
-      <g fill="#b8916a" opacity=".85">
-        <ellipse cx="57" cy="74"  rx="6" ry="2.5" transform="rotate(-38 57 74)"/>
-        <ellipse cx="49" cy="95"  rx="6" ry="2.5" transform="rotate(-18 49 95)"/>
-        <ellipse cx="47" cy="117" rx="6" ry="2.5" transform="rotate(2 47 117)"/>
-        <ellipse cx="55" cy="141" rx="6" ry="2.5" transform="rotate(28 55 141)"/>
-        <ellipse cx="73" cy="158" rx="6" ry="2.5" transform="rotate(52 73 158)"/>
-        <ellipse cx="143" cy="74"  rx="6" ry="2.5" transform="rotate(38 143 74)"/>
-        <ellipse cx="151" cy="95"  rx="6" ry="2.5" transform="rotate(18 151 95)"/>
-        <ellipse cx="153" cy="117" rx="6" ry="2.5" transform="rotate(-2 153 117)"/>
-        <ellipse cx="145" cy="141" rx="6" ry="2.5" transform="rotate(-28 145 141)"/>
-        <ellipse cx="127" cy="158" rx="6" ry="2.5" transform="rotate(-52 127 158)"/>
-      </g>
-      <text data-edit="iniciales" x="100" y="118" text-anchor="middle" font-family="Italiana, serif" font-size="50" fill="#2c2825">V<tspan fill="#b8916a" font-size="32" dx="-2">&amp;</tspan>S</text>
+<!-- ══════════════════ PORTADA ══════════════════ -->
+<header class="hero" id="inicio">
+
+  <!-- esquinas ornamentales -->
+  <div class="corner tl" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4 L4 28" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L28 4" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L18 18" stroke="#b8916a" stroke-width=".7" opacity=".35"/>
+      <circle cx="4" cy="4" r="2" fill="#b8916a" opacity=".5"/>
+      <circle cx="14" cy="4" r="1.2" fill="#b8916a" opacity=".3"/>
+      <circle cx="4" cy="14" r="1.2" fill="#b8916a" opacity=".3"/>
+      <!-- hojas -->
+      <ellipse cx="22" cy="10" rx="5" ry="2" transform="rotate(-40 22 10)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="10" cy="22" rx="5" ry="2" transform="rotate(-50 10 22)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="corner tr" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4 L4 28" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L28 4" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L18 18" stroke="#b8916a" stroke-width=".7" opacity=".35"/>
+      <circle cx="4" cy="4" r="2" fill="#b8916a" opacity=".5"/>
+      <circle cx="14" cy="4" r="1.2" fill="#b8916a" opacity=".3"/>
+      <circle cx="4" cy="14" r="1.2" fill="#b8916a" opacity=".3"/>
+      <ellipse cx="22" cy="10" rx="5" ry="2" transform="rotate(-40 22 10)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="10" cy="22" rx="5" ry="2" transform="rotate(-50 10 22)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="corner bl" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4 L4 28" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L28 4" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L18 18" stroke="#b8916a" stroke-width=".7" opacity=".35"/>
+      <circle cx="4" cy="4" r="2" fill="#b8916a" opacity=".5"/>
+      <circle cx="14" cy="4" r="1.2" fill="#b8916a" opacity=".3"/>
+      <circle cx="4" cy="14" r="1.2" fill="#b8916a" opacity=".3"/>
+      <ellipse cx="22" cy="10" rx="5" ry="2" transform="rotate(-40 22 10)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="10" cy="22" rx="5" ry="2" transform="rotate(-50 10 22)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+    </svg>
+  </div>
+  <div class="corner br" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 4 L4 28" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L28 4" stroke="#b8916a" stroke-width="1" opacity=".6"/>
+      <path d="M4 4 L18 18" stroke="#b8916a" stroke-width=".7" opacity=".35"/>
+      <circle cx="4" cy="4" r="2" fill="#b8916a" opacity=".5"/>
+      <circle cx="14" cy="4" r="1.2" fill="#b8916a" opacity=".3"/>
+      <circle cx="4" cy="14" r="1.2" fill="#b8916a" opacity=".3"/>
+      <ellipse cx="22" cy="10" rx="5" ry="2" transform="rotate(-40 22 10)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="10" cy="22" rx="5" ry="2" transform="rotate(-50 10 22)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+    </svg>
+  </div>
+
+  <!-- monograma -->
+  <svg class="monogram" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#b8916a" stroke-width="1.2">
+      <path d="M100 18 l6 7 -6 7 -6 -7 z" fill="rgba(184,145,106,.1)"/>
+      <path d="M100 44 C62 52 42 88 46 132" fill="none" opacity=".65"/>
+      <path d="M100 44 C138 52 158 88 154 132" fill="none" opacity=".65"/>
+      <path d="M46 132 C52 150 72 163 100 165" fill="none" opacity=".65"/>
+      <path d="M154 132 C148 150 128 163 100 165" fill="none" opacity=".65"/>
+    </g>
+    <g fill="#b8916a" opacity=".8">
+      <ellipse cx="57"  cy="74"  rx="6" ry="2.5" transform="rotate(-38 57 74)"/>
+      <ellipse cx="49"  cy="95"  rx="6" ry="2.5" transform="rotate(-18 49 95)"/>
+      <ellipse cx="47"  cy="117" rx="6" ry="2.5" transform="rotate(2 47 117)"/>
+      <ellipse cx="55"  cy="141" rx="6" ry="2.5" transform="rotate(28 55 141)"/>
+      <ellipse cx="73"  cy="158" rx="6" ry="2.5" transform="rotate(52 73 158)"/>
+      <ellipse cx="143" cy="74"  rx="6" ry="2.5" transform="rotate(38 143 74)"/>
+      <ellipse cx="151" cy="95"  rx="6" ry="2.5" transform="rotate(18 151 95)"/>
+      <ellipse cx="153" cy="117" rx="6" ry="2.5" transform="rotate(-2 153 117)"/>
+      <ellipse cx="145" cy="141" rx="6" ry="2.5" transform="rotate(-28 145 141)"/>
+      <ellipse cx="127" cy="158" rx="6" ry="2.5" transform="rotate(-52 127 158)"/>
+    </g>
+    <text x="100" y="118" text-anchor="middle" font-family="Italiana, serif" font-size="50" fill="#2c2825">V<tspan fill="#b8916a" font-size="32" dx="-2">&amp;</tspan>S</text>
+  </svg>
+
+  <!-- padres y padrinos -->
+  <div class="parents-block">
+    <p>Padres de la novia</p>
+    <p class="parent-names">Mar&iacute;a Cenelia &amp; Plinio Pe&ntilde;a</p>
+    <p style="margin-top:.55rem">Padres del novio</p>
+    <p class="parent-names">Nelly &Aacute;ngel Hidalgo</p>
+    <span class="padrinos-label">Padrinos</span>
+    <p class="parent-names">Alba Marina &amp; Jaime Castellanos</p>
+  </div>
+
+  <p class="eyebrow">tienen el honor de invitarles a su boda</p>
+
+  <h1 class="names" data-edit="nombres">Valentina <span class="amp">&amp;</span> Sebasti&aacute;n</h1>
+
+  <!-- anillos line art -->
+  <svg class="art-rings" viewBox="0 0 120 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="38" cy="26" r="22" stroke="#b8916a" stroke-width="1.4"/>
+    <circle cx="38" cy="26" r="17" stroke="#b8916a" stroke-width=".6" opacity=".4"/>
+    <circle cx="82" cy="26" r="22" stroke="#b8916a" stroke-width="1.4"/>
+    <circle cx="82" cy="26" r="17" stroke="#b8916a" stroke-width=".6" opacity=".4"/>
+    <path d="M55 18 Q60 26 55 34" stroke="#b8916a" stroke-width=".8" opacity=".5" fill="none"/>
+    <path d="M65 18 Q60 26 65 34" stroke="#b8916a" stroke-width=".8" opacity=".5" fill="none"/>
+    <ellipse cx="38" cy="10" rx="3" ry="1.5" fill="#b8916a" opacity=".4" transform="rotate(-20 38 10)"/>
+    <ellipse cx="82" cy="10" rx="3" ry="1.5" fill="#b8916a" opacity=".4" transform="rotate(20 82 10)"/>
+  </svg>
+
+  <p class="date">S&aacute;bado &middot; 18 de Octubre &middot; 2026</p>
+  <p class="place">Bogot&aacute;, Colombia</p>
+  <div class="scrollcue">Desliza<span></span></div>
+</header>
+
+<!-- ══════════════════ INTRO ══════════════════ -->
+<section class="intro">
+  <div class="wrap reveal">
+    <!-- ramo line art -->
+    <svg class="art-bouquet" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- tallo central -->
+      <path d="M50 110 C50 85 50 65 50 44" stroke="#b8916a" stroke-width="1.2"/>
+      <!-- tallos secundarios -->
+      <path d="M50 80 C40 72 28 68 22 58" stroke="#b8916a" stroke-width="1" opacity=".7"/>
+      <path d="M50 80 C60 72 72 68 78 58" stroke="#b8916a" stroke-width="1" opacity=".7"/>
+      <path d="M50 65 C42 56 34 52 28 42" stroke="#b8916a" stroke-width=".9" opacity=".6"/>
+      <path d="M50 65 C58 56 66 52 72 42" stroke="#b8916a" stroke-width=".9" opacity=".6"/>
+      <!-- hojas -->
+      <ellipse cx="36" cy="74" rx="8" ry="3.5" transform="rotate(-40 36 74)" fill="none" stroke="#b8916a" stroke-width=".9" opacity=".55"/>
+      <ellipse cx="64" cy="74" rx="8" ry="3.5" transform="rotate(40 64 74)" fill="none" stroke="#b8916a" stroke-width=".9" opacity=".55"/>
+      <ellipse cx="32" cy="58" rx="7" ry="3" transform="rotate(-50 32 58)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="68" cy="58" rx="7" ry="3" transform="rotate(50 68 58)" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <!-- flores -->
+      <circle cx="50" cy="28" r="9" stroke="#b8916a" stroke-width="1.1"/>
+      <circle cx="50" cy="28" r="4" fill="none" stroke="#b8916a" stroke-width=".8" opacity=".6"/>
+      <path d="M50 19 L51 24 L50 28 L49 24 Z" fill="#b8916a" opacity=".25"/>
+      <path d="M59 28 L54 29 L50 28 L54 27 Z" fill="#b8916a" opacity=".25"/>
+      <path d="M41 28 L46 29 L50 28 L46 27 Z" fill="#b8916a" opacity=".25"/>
+      <path d="M50 37 L51 32 L50 28 L49 32 Z" fill="#b8916a" opacity=".25"/>
+      <circle cx="25" cy="46" r="7" stroke="#b8916a" stroke-width="1" opacity=".8"/>
+      <circle cx="25" cy="46" r="3" fill="none" stroke="#b8916a" stroke-width=".7" opacity=".5"/>
+      <circle cx="75" cy="46" r="7" stroke="#b8916a" stroke-width="1" opacity=".8"/>
+      <circle cx="75" cy="46" r="3" fill="none" stroke="#b8916a" stroke-width=".7" opacity=".5"/>
+      <!-- lazo -->
+      <path d="M42 108 C38 104 34 106 36 110 C38 114 48 112 50 110 C52 112 62 114 64 110 C66 106 62 104 58 108" stroke="#b8916a" stroke-width="1.1" fill="none"/>
     </svg>
 
-    <p class="eyebrow">Con la bendici&oacute;n de Dios y nuestros padres</p>
-    <h1 class="names" data-edit="nombres">Valentina <span class="amp">&amp;</span> Sebasti&aacute;n</h1>
-    <p class="date">S&aacute;bado &middot; 18 de Octubre &middot; 2026</p>
-    <p class="place">Bogot&aacute;, Colombia</p>
-    <div class="scrollcue">Desliza<span></span></div>
-  </header>
+    <p class="lead">&iexcl;Nos casamos!</p>
+    <p>Despu&eacute;s de caminar juntos este tiempo, decidimos unir nuestras vidas para siempre. Nos har&iacute;a inmensamente felices que nos acompa&ntilde;es a celebrar este d&iacute;a tan especial.</p>
+    <div class="divider"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+  </div>
+</section>
 
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="wrap reveal">
-      <p class="lead">&iexcl;Nos casamos!</p>
-      <p>Despu&eacute;s de caminar juntos este tiempo, decidimos unir nuestras vidas para siempre. Nos har&iacute;a inmensamente felices que nos acompa&ntilde;es a celebrar este d&iacute;a tan especial.</p>
-      <div class="divider"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+<!-- ══════════════════ CUENTA REGRESIVA ══════════════════ -->
+<section class="count">
+  <div class="wrap reveal">
+    <p class="eyebrow">Falta poco</p>
+    <h2>Cuenta regresiva</h2>
+    <div class="clock" id="clock" role="timer" aria-live="off">
+      <div class="unit"><div class="num" id="d">--</div><div class="lab">D&iacute;as</div></div>
+      <span class="sep" aria-hidden="true">·</span>
+      <div class="unit"><div class="num" id="h">--</div><div class="lab">Horas</div></div>
+      <span class="sep" aria-hidden="true">·</span>
+      <div class="unit"><div class="num" id="m">--</div><div class="lab">Minutos</div></div>
+      <span class="sep" aria-hidden="true">·</span>
+      <div class="unit"><div class="num" id="s">--</div><div class="lab">Segundos</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CUENTA REGRESIVA -->
-  <section class="count">
-    <div class="wrap reveal">
-      <p class="eyebrow">Falta poco</p>
-      <h2>Cuenta regresiva</h2>
-      <div class="clock" id="clock" role="timer" aria-live="off">
-        <div class="unit"><div class="num" id="d">--</div><div class="lab">D&iacute;as</div></div>
-        <span class="sep">·</span>
-        <div class="unit"><div class="num" id="h">--</div><div class="lab">Horas</div></div>
-        <span class="sep">·</span>
-        <div class="unit"><div class="num" id="m">--</div><div class="lab">Minutos</div></div>
-        <span class="sep">·</span>
-        <div class="unit"><div class="num" id="s">--</div><div class="lab">Segundos</div></div>
-      </div>
-    </div>
-  </section>
+<!-- ══════════════════ EVENTO ══════════════════ -->
+<section class="event" id="evento">
+  <div class="wrap reveal">
+    <p class="eyebrow">Cu&aacute;ndo y d&oacute;nde</p>
 
-  <!-- EVENTO -->
-  <section class="event" id="evento">
-    <div class="wrap reveal">
-      <p class="eyebrow">Cu&aacute;ndo y d&oacute;nde</p>
-      <h2>El gran d&iacute;a</h2>
-      <div class="cards" data-edit="evento">
-
-        <div class="ecard">
-          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <path d="M24 6v8M14 22h20M10 42V22l14-9 14 9v20M19 42v-9h10v9"/>
-          </svg>
-          <p class="kind">Ceremonia</p>
-          <p class="lugar">Iglesia Santa Clara</p>
-          <p class="dir">Cra. 8 # 8-91, Centro<br>Bogot&aacute;</p>
-          <p class="hora">4:00 p.m.</p>
-          <a class="map" href="https://maps.google.com/?q=Iglesia+Santa+Clara+Bogota" target="_blank" rel="noopener">Ver mapa</a>
-        </div>
-
-        <div class="ecard">
-          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-            <path d="M24 5c5 0 9 4 9 9 0 7-9 17-9 17S15 21 15 14c0-5 4-9 9-9zM10 42h28"/>
-            <circle cx="24" cy="14" r="3"/>
-          </svg>
-          <p class="kind">Recepci&oacute;n</p>
-          <p class="lugar">Hacienda El Carmen</p>
-          <p class="dir">V&iacute;a La Calera, km 4<br>Bogot&aacute;</p>
-          <p class="hora">6:30 p.m.</p>
-          <a class="map" href="https://maps.google.com/?q=Hacienda+El+Carmen+La+Calera" target="_blank" rel="noopener">Ver mapa</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMA -->
-  <section class="program" id="programa">
-    <div class="wrap reveal">
-      <p class="eyebrow">Itinerario</p>
-      <h2>Programa del d&iacute;a</h2>
-      <div class="timeline" data-edit="programa">
-        <div class="tl"><p class="t">4:00 p.m.</p><p class="e">Ceremonia religiosa<small>Iglesia Santa Clara</small></p></div>
-        <div class="tl"><p class="t">6:30 p.m.</p><p class="e">C&oacute;ctel de bienvenida<small>Jard&iacute;n principal &middot; Hacienda El Carmen</small></p></div>
-        <div class="tl"><p class="t">7:30 p.m.</p><p class="e">Cena<small>Sal&oacute;n de los Olivos</small></p></div>
-        <div class="tl"><p class="t">9:00 p.m.</p><p class="e">Primer baile y brindis</p></div>
-        <div class="tl"><p class="t">10:00 p.m.</p><p class="e">&iexcl;Fiesta!<small>Hasta que el cuerpo aguante</small></p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VESTIR + REGALOS -->
-  <section class="extra">
-    <div class="wrap reveal">
-      <div class="duo">
-        <div class="blk">
-          <span class="eyebrow">C&oacute;digo de vestir</span>
-          <h3>Etiqueta negra</h3>
-          <p>Black tie. Los caballeros de esmoquin o vestido oscuro, y las damas de traje largo. Reservemos juntos el blanco para la novia.</p>
-          <div class="swatches" aria-hidden="true">
-            <i style="background:#1a1a1a"></i>
-            <i style="background:#3d3530"></i>
-            <i style="background:#6b6460"></i>
-            <i style="background:#b8916a"></i>
-          </div>
-        </div>
-        <div class="blk">
-          <span class="eyebrow">Mesa de regalos</span>
-          <h3>Tu presencia es el regalo</h3>
-          <p>Si adem&aacute;s deseas obsequiarnos algo, agradecemos un aporte para nuestra luna de miel. Te damos los datos al confirmar.</p>
-          <div class="divider" style="margin-top:1.6rem"><span class="l"></span><span class="d"></span><span class="l"></span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section class="rsvp" id="rsvp">
-    <div class="wrap reveal">
-      <p class="eyebrow">Confirma tu asistencia</p>
-      <h2>&iquest;Nos acompa&ntilde;as?</h2>
-      <p>Por favor conf&iacute;rmanos antes del <strong>30 de septiembre de 2026</strong>. Con un clic nos escribes por WhatsApp y reservamos tu lugar.</p>
-      <a class="btn" id="rsvpBtn" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
-      <p class="small">&iquest;Prefieres llamar? &nbsp;+57 300 000 0000</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="foot">
-    <svg class="mono" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <text x="50" y="44" text-anchor="middle" font-family="Italiana, serif" font-size="36" fill="#d4b08a">V&amp;S</text>
+    <!-- iglesia line art -->
+    <svg class="art-church" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- cruz -->
+      <path d="M40 5 V30" stroke="#b8916a" stroke-width="1.3"/>
+      <path d="M32 14 H48"  stroke="#b8916a" stroke-width="1.3"/>
+      <!-- campanario -->
+      <rect x="28" y="30" width="24" height="22" stroke="#b8916a" stroke-width="1.1"/>
+      <!-- arco campanario -->
+      <path d="M32 30 Q40 22 48 30" stroke="#b8916a" stroke-width="1" fill="none" opacity=".5"/>
+      <!-- campana -->
+      <path d="M36 38 Q40 34 44 38 L44 46 Q40 48 36 46 Z" stroke="#b8916a" stroke-width=".9" fill="none"/>
+      <line x1="40" y1="46" x2="40" y2="49" stroke="#b8916a" stroke-width=".9"/>
+      <!-- fachada -->
+      <rect x="14" y="52" width="52" height="40" stroke="#b8916a" stroke-width="1.1"/>
+      <!-- puerta arco -->
+      <path d="M32 92 L32 72 Q40 64 48 72 L48 92" stroke="#b8916a" stroke-width="1" fill="none"/>
+      <!-- ventanas -->
+      <rect x="18" y="60" width="8" height="10" rx="4" stroke="#b8916a" stroke-width=".8" opacity=".6"/>
+      <rect x="54" y="60" width="8" height="10" rx="4" stroke="#b8916a" stroke-width=".8" opacity=".6"/>
+      <!-- escalones -->
+      <path d="M10 92 H70" stroke="#b8916a" stroke-width="1.1"/>
+      <path d="M6 96 H74"  stroke="#b8916a" stroke-width="1.1"/>
     </svg>
-    <p class="hash" data-edit="hashtag">#ValentinaYSebastian2026</p>
-    <p class="by">Te esperamos con todo el coraz&oacute;n</p>
-  </footer>
+
+    <h2>El gran d&iacute;a</h2>
+    <div class="cards" data-edit="evento">
+
+      <div class="ecard">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M24 6v8M14 22h20M10 42V22l14-9 14 9v20M19 42v-9h10v9"/>
+        </svg>
+        <p class="kind">Ceremonia &amp; Recepci&oacute;n</p>
+        <p class="lugar">Hacienda Campestre San Sebasti&aacute;n</p>
+        <p class="dir">Bogot&aacute;, Colombia</p>
+        <p class="hora">Ceremonia: 4:00 p.m.</p>
+        <p class="hora" style="font-size:.98rem; margin-top:.3rem; color:var(--ash)">Recepci&oacute;n: 6:30 p.m.</p>
+        <a class="map" href="https://maps.google.com/?q=Hacienda+Campestre+San+Sebastian+Bogota" target="_blank" rel="noopener">Ver mapa</a>
+      </div>
+
+      <div class="ecard">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <rect x="8" y="12" width="32" height="26" rx="2" stroke="currentColor"/>
+          <path d="M8 20h32M16 8v8M32 8v8"/>
+        </svg>
+        <p class="kind">Fecha</p>
+        <p class="lugar">18 · X · 2026</p>
+        <p class="dir" style="margin-top:.5rem">S&aacute;bado 18 de octubre de 2026</p>
+        <p class="hora">Puertas: 3:30 p.m.</p>
+        <p class="hora" style="font-size:.92rem; margin-top:.3rem; color:var(--mist)">Por favor llegar 30 min antes</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PROGRAMA ══════════════════ -->
+<section class="program" id="programa">
+  <div class="wrap reveal">
+    <p class="eyebrow">Itinerario</p>
+
+    <!-- paloma line art -->
+    <svg class="art-dove" viewBox="0 0 90 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M10 38 C18 20 38 16 52 22 C60 10 74 8 82 14 C74 14 68 20 66 28 C74 26 80 28 82 34 C76 32 68 34 62 40 C56 48 44 52 32 48 C22 44 14 46 10 38 Z" stroke="#b8916a" stroke-width="1.2" fill="none"/>
+      <!-- ojo -->
+      <circle cx="68" cy="22" r="2" stroke="#b8916a" stroke-width="1"/>
+      <!-- ala detalle -->
+      <path d="M30 36 C38 30 50 28 60 32" stroke="#b8916a" stroke-width=".8" opacity=".5"/>
+      <path d="M26 40 C34 34 46 32 56 36" stroke="#b8916a" stroke-width=".8" opacity=".4"/>
+      <!-- pico olivo -->
+      <path d="M82 34 L88 32 L84 36 Z" stroke="#b8916a" stroke-width=".9" fill="none"/>
+    </svg>
+
+    <h2>Programa del d&iacute;a</h2>
+    <div class="timeline" data-edit="programa">
+      <div class="tl"><p class="t">3:30 p.m.</p><p class="e">Llegada de invitados<small>Hacienda Campestre San Sebasti&aacute;n</small></p></div>
+      <div class="tl"><p class="t">4:00 p.m.</p><p class="e">Ceremonia<small>Hacienda Campestre San Sebasti&aacute;n</small></p></div>
+      <div class="tl"><p class="t">6:30 p.m.</p><p class="e">C&oacute;ctel de bienvenida<small>Jard&iacute;n principal</small></p></div>
+      <div class="tl"><p class="t">7:30 p.m.</p><p class="e">Cena</p></div>
+      <div class="tl"><p class="t">9:00 p.m.</p><p class="e">Primer baile y brindis</p></div>
+      <div class="tl"><p class="t">10:00 p.m.</p><p class="e">&iexcl;Fiesta!<small>Hasta que el cuerpo aguante</small></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ DRESS CODE ══════════════════ -->
+<section class="dress">
+  <div class="wrap reveal">
+    <p class="eyebrow">C&oacute;digo de vestir</p>
+
+    <!-- esmoquin / traje line art -->
+    <svg class="art-tux" viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- cuello camisa -->
+      <path d="M35 18 L45 28 L55 18" stroke="#d4b08a" stroke-width="1.2" fill="none"/>
+      <!-- solapa izq -->
+      <path d="M35 18 L18 40 L22 100 L45 100 L45 28" stroke="#d4b08a" stroke-width="1.2" fill="none"/>
+      <!-- solapa der -->
+      <path d="M55 18 L72 40 L68 100 L45 100 L45 28" stroke="#d4b08a" stroke-width="1.2" fill="none"/>
+      <!-- botón -->
+      <circle cx="45" cy="52" r="2" stroke="#d4b08a" stroke-width="1" opacity=".7"/>
+      <circle cx="45" cy="62" r="2" stroke="#d4b08a" stroke-width="1" opacity=".7"/>
+      <!-- pañuelo bolsillo -->
+      <path d="M58 42 L66 36 L68 44" stroke="#d4b08a" stroke-width=".9" fill="none" opacity=".6"/>
+      <!-- hombros -->
+      <path d="M22 40 C14 44 10 54 12 64" stroke="#d4b08a" stroke-width="1" opacity=".5"/>
+      <path d="M68 40 C76 44 80 54 78 64" stroke="#d4b08a" stroke-width="1" opacity=".5"/>
+      <!-- mariposa / bow tie -->
+      <path d="M38 22 C36 20 34 22 36 24 C38 26 44 24 45 23 C46 24 52 26 54 24 C56 22 54 20 52 22 C50 24 46 24 45 23 C44 22 40 20 38 22 Z" stroke="#d4b08a" stroke-width=".9" fill="none" opacity=".8"/>
+    </svg>
+
+    <h2>Total Black</h2>
+    <p>Vestimenta formal completa en negro. Caballeros de esmoquin o traje negro; damas de vestido largo negro. Hagamos de esta noche algo verdaderamente elegante.</p>
+    <div class="dress-swatches" aria-hidden="true">
+      <span><i style="background:#0a0a0a"></i>Negro</span>
+      <span><i style="background:#1e1e1e"></i>Charcoal</span>
+      <span><i style="background:#2c2825"></i>Carbón</span>
+      <span><i style="background:#b8916a"></i>Champagne</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ REGALOS ══════════════════ -->
+<section class="gifts">
+  <div class="wrap reveal">
+    <p class="eyebrow">Mesa de regalos</p>
+
+    <!-- anillos pequeños -->
+    <svg class="art-rings2" viewBox="0 0 90 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="28" cy="20" r="16" stroke="#b8916a" stroke-width="1.2"/>
+      <circle cx="28" cy="20" r="12" stroke="#b8916a" stroke-width=".6" opacity=".35"/>
+      <circle cx="62" cy="20" r="16" stroke="#b8916a" stroke-width="1.2"/>
+      <circle cx="62" cy="20" r="12" stroke="#b8916a" stroke-width=".6" opacity=".35"/>
+    </svg>
+
+    <h2>Tu presencia es el regalo</h2>
+    <p>Si adem&aacute;s deseas obsequiarnos algo, agradecemos un aporte para nuestra luna de miel. Te compartimos los detalles al confirmar tu asistencia.</p>
+    <div class="divider" style="margin-top:2rem"><span class="l"></span><span class="d"></span><span class="l"></span></div>
+  </div>
+</section>
+
+<!-- ══════════════════ RSVP ══════════════════ -->
+<section class="rsvp" id="rsvp">
+  <div class="wrap reveal">
+    <p class="eyebrow">Confirma tu asistencia</p>
+
+    <!-- corazones line art -->
+    <svg class="art-hearts" viewBox="0 0 90 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- corazón izq -->
+      <path d="M24 20 C24 14 16 10 12 16 C8 22 16 32 24 38 C32 32 40 22 36 16 C32 10 24 14 24 20 Z" stroke="#b8916a" stroke-width="1.2" fill="none"/>
+      <!-- corazón der -->
+      <path d="M66 20 C66 14 58 10 54 16 C50 22 58 32 66 38 C74 32 82 22 78 16 C74 10 66 14 66 20 Z" stroke="#b8916a" stroke-width="1.2" fill="none"/>
+      <!-- ampersand entre ellos -->
+      <path d="M42 24 C40 20 44 16 48 20 C52 24 46 30 42 34 C40 36 38 38 40 40 C42 42 50 40 52 38" stroke="#b8916a" stroke-width="1" fill="none" opacity=".55"/>
+    </svg>
+
+    <h2>&iquest;Nos acompa&ntilde;as?</h2>
+    <p>Por favor conf&iacute;rmanos antes del <strong>30 de septiembre de 2026</strong>. Con un clic nos escribes por WhatsApp y reservamos tu lugar.</p>
+    <a class="btn" id="rsvpBtn" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+    <p class="small">&iquest;Prefieres llamar?&nbsp; +57 300 000 0000</p>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="foot">
+
+  <!-- laureles line art -->
+  <svg class="art-laurel" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- rama izq -->
+    <path d="M80 72 C60 64 44 52 36 36" stroke="#d4b08a" stroke-width="1.1" opacity=".7"/>
+    <ellipse cx="50" cy="56" rx="9" ry="3.5" transform="rotate(-42 50 56)" fill="none" stroke="#d4b08a" stroke-width=".9" opacity=".6"/>
+    <ellipse cx="40" cy="46" rx="9" ry="3.5" transform="rotate(-55 40 46)" fill="none" stroke="#d4b08a" stroke-width=".9" opacity=".55"/>
+    <ellipse cx="36" cy="34" rx="9" ry="3.5" transform="rotate(-70 36 34)" fill="none" stroke="#d4b08a" stroke-width=".9" opacity=".5"/>
+    <ellipse cx="56" cy="66" rx="8" ry="3" transform="rotate(-30 56 66)" fill="none" stroke="#d4b08a" stroke-width=".8" opacity=".5"/>
+    <!-- rama der -->
+    <path d="M80 72 C100 64 116 52 124 36" stroke="#d4b08a" stroke-width="1.1" opacity=".7"/>
+    <ellipse cx="110" cy="56" rx="9" ry="3.5" transform="rotate(42 110 56)" fill="none" stroke="#d4b08a" stroke-width=".9" opacity=".6"/>
+    <ellipse cx="120" cy="46" rx="9" ry="3.5" transform="rotate(55 120 46)" fill="none" stroke="#d4b08a" stroke-width=".9" opacity=".55"/>
+    <ellipse cx="124" cy="34" rx="9" ry="3.5" transform="rotate(70 124 34)" fill="none" stroke="#d4b08a" stroke-width=".9" opacity=".5"/>
+    <ellipse cx="104" cy="66" rx="8" ry="3" transform="rotate(30 104 66)" fill="none" stroke="#d4b08a" stroke-width=".8" opacity=".5"/>
+    <!-- diamante central -->
+    <path d="M80 64 l5 6 -5 6 -5 -6 z" stroke="#d4b08a" stroke-width="1" fill="none" opacity=".6"/>
+    <!-- V&S -->
+    <text x="80" y="46" text-anchor="middle" font-family="Italiana, serif" font-size="28" fill="#d4b08a" opacity=".9">V&amp;S</text>
+  </svg>
+
+  <p class="hash" data-edit="hashtag">#ValentinaYSebastian2026</p>
+  <p class="by">Te esperamos con todo el coraz&oacute;n</p>
+</footer>
 
 <script>
   const FECHA_BODA = new Date(2026, 9, 18, 16, 0, 0);
   const $ = id => document.getElementById(id);
 
   function tick() {
-    const now = new Date();
-    let diff = Math.max(0, FECHA_BODA - now);
-    const d = Math.floor(diff / 86400000); diff -= d * 86400000;
-    const h = Math.floor(diff / 3600000);  diff -= h * 3600000;
-    const m = Math.floor(diff / 60000);    diff -= m * 60000;
-    const s = Math.floor(diff / 1000);
-    const pad = n => String(n).padStart(2, '0');
+    const now  = new Date();
+    let diff   = Math.max(0, FECHA_BODA - now);
+    const d    = Math.floor(diff / 86400000); diff -= d * 86400000;
+    const h    = Math.floor(diff / 3600000);  diff -= h * 3600000;
+    const m    = Math.floor(diff / 60000);    diff -= m * 60000;
+    const s    = Math.floor(diff / 1000);
+    const pad  = n => String(n).padStart(2, '0');
     $('d').textContent = d;
     $('h').textContent = pad(h);
     $('m').textContent = pad(m);
@@ -397,7 +578,7 @@
   setInterval(tick, 1000);
 
   const WHATSAPP = "573000000000";
-  const MENSAJE  = "Hola! Confirmo mi asistencia a la boda de Valentina y Sebastian.";
+  const MENSAJE  = "Hola! Confirmo mi asistencia a la boda de Valentina y Sebastian el 18 de octubre de 2026.";
   $('rsvpBtn').href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
 
   const nav = $('nav');
@@ -405,7 +586,7 @@
 
   const io = new IntersectionObserver(
     es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
-    { threshold: .13 }
+    { threshold: .12 }
   );
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
