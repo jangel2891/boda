@@ -132,7 +132,7 @@ img,svg{display:block;max-width:100%}
 /* ─── HERO ────────────────────────────────────────────── */
 .hero{
   position:relative;min-height:100vh;
-  display:grid;place-items:center;text-align:center;
+  display:flex;flex-direction:column;align-items:stretch;justify-content:center;text-align:center;
   overflow:visible;
   background:
     radial-gradient(ellipse 140% 70% at 50% -8%,#fff9f2 0%,var(--w) 42%,var(--ivory) 78%,var(--cream) 100%);
@@ -156,7 +156,7 @@ img,svg{display:block;max-width:100%}
 .hcorner.bl{bottom:clamp(7px,1.2vw,15px);left:clamp(7px,1.2vw,15px);transform:scaleY(-1)}
 .hcorner.br{bottom:clamp(7px,1.2vw,15px);right:clamp(7px,1.2vw,15px);transform:scale(-1,-1)}
 #petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:9}
-.hcontent{position:relative;z-index:3;max-width:840px;margin:0 auto;width:100%}
+.hcontent{position:relative;z-index:3;max-width:840px;margin:0 auto;width:100%;align-self:center}
 /* anillos hero */
 .hemblem{width:clamp(160px,28vw,220px);margin:0 auto 2.2rem}
 /* familia */
@@ -181,6 +181,7 @@ img,svg{display:block;max-width:100%}
   display:block;
   text-align:center;
   margin-bottom:.3rem;
+  padding-left:1.5em;
 }
 @keyframes nameShimmer{
   0%,100%{background-position:100% center}
