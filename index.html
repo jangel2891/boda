@@ -169,16 +169,28 @@ img,svg{display:block;max-width:100%}
 /* invita */
 .hinvite{font-family:var(--sans);font-weight:200;font-size:.56rem;letter-spacing:.55em;text-transform:uppercase;color:var(--mist);margin-bottom:1.2rem}
 /* nombres */
+/* Saca los nombres del max-width:840px para que los swashes no se corten */
+.hnameswrap{
+  position:relative;
+  width:100vw;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  overflow:visible;
+  margin:0.6rem 0;
+}
+.hnameswrap h1{display:flex;flex-direction:column;align-items:center;gap:0}
 .hnames{
   font-family:var(--gv);
-  font-size:clamp(4.2rem,17vw,8.8rem);
-  line-height:.84;
+  font-size:clamp(4.2rem,16vw,8.8rem);
+  line-height:.88;
   background:linear-gradient(110deg,var(--dark) 35%,var(--gold2) 50%,var(--dark) 65%);
   background-size:250%;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
   animation:nameShimmer 6s ease-in-out infinite;
-  display:inline-block;margin-bottom:.3rem;
+  display:block;
+  padding:0 5%;
 }
 @keyframes nameShimmer{
   0%,100%{background-position:100% center}
@@ -403,12 +415,14 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
 
     <p class="hinvite rv d2">tienen el honor de invitarles a la boda de</p>
 
-    <!-- nombres con shimmer -->
-    <h1 class="rv d2">
-      <span class="hnames">Valentina</span>
-      <span class="hamp">&amp;</span>
-      <span class="hnames">Sebasti&aacute;n</span>
-    </h1>
+    <!-- nombres con shimmer — full-bleed para evitar clip de swashes -->
+    <div class="hnameswrap rv d2">
+      <h1>
+        <span class="hnames">Valentina</span>
+        <span class="hamp">&amp;</span>
+        <span class="hnames">Sebasti&aacute;n</span>
+      </h1>
+    </div>
 
     <!-- anillos SVG -->
     <svg class="hrings rv d3" viewBox="0 0 140 58" fill="none" aria-hidden="true">
