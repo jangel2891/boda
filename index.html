@@ -157,8 +157,8 @@ img,svg{display:block;max-width:100%}
 .hcorner.br{bottom:clamp(7px,1.2vw,15px);right:clamp(7px,1.2vw,15px);transform:scale(-1,-1)}
 #petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:9}
 .hcontent{position:relative;z-index:3;max-width:840px;margin:0 auto}
-/* monograma */
-.hemblem{width:clamp(120px,22vw,168px);margin:0 auto 2.2rem}
+/* anillos hero */
+.hemblem{width:clamp(160px,28vw,220px);margin:0 auto 2.2rem}
 /* familia */
 .fblock{margin-bottom:2.2rem}
 .frole{font-family:var(--sans);font-weight:200;font-size:.54rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold2);display:block;margin-top:.9rem;margin-bottom:.15rem}
@@ -171,7 +171,7 @@ img,svg{display:block;max-width:100%}
 /* nombres */
 .hnames{
   font-family:var(--gv);
-  font-size:clamp(2.2rem,9vw,6.5rem);
+  font-size:clamp(1.5rem,8vw,5rem);
   line-height:.88;
   background:linear-gradient(110deg,var(--dark) 35%,var(--gold2) 50%,var(--dark) 65%);
   background-size:250%;
@@ -185,7 +185,7 @@ img,svg{display:block;max-width:100%}
   0%,100%{background-position:100% center}
   50%{background-position:-100% center}
 }
-.hamp{font-family:var(--gv);font-size:clamp(1.8rem,7vw,4.5rem);color:var(--gold);-webkit-text-fill-color:var(--gold);line-height:1;display:block;margin:-.15em 0}
+.hamp{font-family:var(--gv);font-size:clamp(1.2rem,5.5vw,3.5rem);color:var(--gold);-webkit-text-fill-color:var(--gold);line-height:1;display:block;margin:-.15em 0}
 /* anillos */
 .hrings{width:clamp(90px,15vw,124px);margin:1.8rem auto}
 .hdate{font-family:var(--pf);font-style:italic;font-size:clamp(.88rem,2.2vw,1.1rem);letter-spacing:.28em;color:var(--ash);margin-top:.3rem}
@@ -417,26 +417,37 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
   <div class="hcorner br" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><path d="M4 4L4 38" stroke="#CCA55A" stroke-width="1"/><path d="M4 4L38 4" stroke="#CCA55A" stroke-width="1"/><ellipse cx="30" cy="13" rx="8" ry="3" transform="rotate(-38 30 13)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="13" cy="30" rx="8" ry="3" transform="rotate(-52 13 30)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="20" cy="20" rx="6" ry="2.5" transform="rotate(-45 20 20)" fill="none" stroke="#CCA55A" stroke-width=".7" opacity=".35"/><circle cx="4" cy="4" r="2.8" fill="#CCA55A" opacity=".45"/></svg></div>
 
   <div class="hcontent">
-    <!-- monograma con laurel -->
-    <svg class="hemblem rv" viewBox="0 0 220 235" fill="none" aria-hidden="true">
-      <path d="M110 20C54 34 20 90 26 152 32 200 68 226 110 232" stroke="#CCA55A" stroke-width="1.2" fill="none" opacity=".6"/>
-      <path d="M110 20C166 34 200 90 194 152 188 200 152 226 110 232" stroke="#CCA55A" stroke-width="1.2" fill="none" opacity=".6"/>
-      <ellipse cx="48"  cy="74"  rx="10" ry="3.8" transform="rotate(-42 48 74)"  fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".62"/>
-      <ellipse cx="36"  cy="102" rx="10" ry="3.8" transform="rotate(-20 36 102)" fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".58"/>
-      <ellipse cx="30"  cy="132" rx="10" ry="3.8" transform="rotate(2  30 132)"  fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".54"/>
-      <ellipse cx="40"  cy="162" rx="10" ry="3.8" transform="rotate(26 40 162)"  fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".50"/>
-      <ellipse cx="62"  cy="188" rx="10" ry="3.8" transform="rotate(48 62 188)"  fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".48"/>
-      <ellipse cx="88"  cy="208" rx="9"  ry="3.5" transform="rotate(66 88 208)"  fill="none" stroke="#CCA55A" stroke-width="1"   opacity=".44"/>
-      <ellipse cx="172" cy="74"  rx="10" ry="3.8" transform="rotate(42 172 74)"  fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".62"/>
-      <ellipse cx="184" cy="102" rx="10" ry="3.8" transform="rotate(20 184 102)" fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".58"/>
-      <ellipse cx="190" cy="132" rx="10" ry="3.8" transform="rotate(-2 190 132)" fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".54"/>
-      <ellipse cx="180" cy="162" rx="10" ry="3.8" transform="rotate(-26 180 162)" fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".50"/>
-      <ellipse cx="158" cy="188" rx="10" ry="3.8" transform="rotate(-48 158 188)" fill="none" stroke="#CCA55A" stroke-width="1.1" opacity=".48"/>
-      <ellipse cx="132" cy="208" rx="9"  ry="3.5" transform="rotate(-66 132 208)" fill="none" stroke="#CCA55A" stroke-width="1"   opacity=".44"/>
-      <path d="M110 8 l8 10-8 10-8-10z" fill="none" stroke="#CCA55A" stroke-width="1.3" opacity=".7"/>
-      <path d="M110 220 l5 7-5 7-5-7z"  fill="none" stroke="#CCA55A" stroke-width="1"   opacity=".55"/>
-      <text x="110" y="136" text-anchor="middle" font-family="Playfair Display,serif" font-size="58" font-style="italic" fill="#1A1613" letter-spacing="-2">V&amp;S</text>
-      <text x="110" y="156" text-anchor="middle" font-family="Jost,sans-serif" font-size="8.5" fill="#B8913F" letter-spacing="10" font-weight="300">2026</text>
+    <!-- anillos de boda -->
+    <svg class="hemblem rv" viewBox="0 0 200 110" fill="none" aria-hidden="true">
+      <!-- rama izquierda -->
+      <path d="M10 55 Q30 30 58 42" stroke="#CCA55A" stroke-width=".9" opacity=".5"/>
+      <ellipse cx="22" cy="42" rx="8" ry="3" transform="rotate(-38 22 42)" fill="none" stroke="#CCA55A" stroke-width=".8" opacity=".55"/>
+      <ellipse cx="36" cy="33" rx="8" ry="3" transform="rotate(-28 36 33)" fill="none" stroke="#CCA55A" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="14" cy="60" rx="7" ry="2.5" transform="rotate(-50 14 60)" fill="none" stroke="#CCA55A" stroke-width=".75" opacity=".45"/>
+      <!-- rama derecha -->
+      <path d="M190 55 Q170 30 142 42" stroke="#CCA55A" stroke-width=".9" opacity=".5"/>
+      <ellipse cx="178" cy="42" rx="8" ry="3" transform="rotate(38 178 42)" fill="none" stroke="#CCA55A" stroke-width=".8" opacity=".55"/>
+      <ellipse cx="164" cy="33" rx="8" ry="3" transform="rotate(28 164 33)" fill="none" stroke="#CCA55A" stroke-width=".8" opacity=".5"/>
+      <ellipse cx="186" cy="60" rx="7" ry="2.5" transform="rotate(50 186 60)" fill="none" stroke="#CCA55A" stroke-width=".75" opacity=".45"/>
+      <!-- anillo izquierdo (novia) -->
+      <circle cx="82" cy="55" r="36" stroke="#CCA55A" stroke-width="2.2"/>
+      <circle cx="82" cy="55" r="29" stroke="#CCA55A" stroke-width=".6" opacity=".3"/>
+      <!-- brillo novia -->
+      <path d="M68 24 Q82 18 96 24" stroke="#CCA55A" stroke-width="1.1" stroke-linecap="round" opacity=".65"/>
+      <circle cx="68" cy="24" r="2.5" fill="#CCA55A" opacity=".55"/>
+      <circle cx="96" cy="24" r="2.5" fill="#CCA55A" opacity=".55"/>
+      <!-- diamante -->
+      <path d="M82 18 l5 5-5 5-5-5z" fill="none" stroke="#CCA55A" stroke-width="1"/>
+      <path d="M82 18 l5 5-5 5-5-5z" fill="#CCA55A" opacity=".12"/>
+      <!-- anillo derecho (novio) -->
+      <circle cx="118" cy="55" r="36" stroke="#CCA55A" stroke-width="2.2"/>
+      <circle cx="118" cy="55" r="29" stroke="#CCA55A" stroke-width=".6" opacity=".3"/>
+      <!-- brillo novio -->
+      <path d="M104 24 Q118 18 132 24" stroke="#CCA55A" stroke-width="1.1" stroke-linecap="round" opacity=".65"/>
+      <!-- zona de intersección (máscara) para que parezcan entrelazados -->
+      <path d="M100 22 Q100 55 100 88" stroke="var(--w)" stroke-width="4.5" opacity="1"/>
+      <!-- V & S entre los anillos -->
+      <text x="100" y="60" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" font-style="italic" fill="#B8913F" letter-spacing="1" opacity=".85">V &amp; S</text>
     </svg>
 
     <!-- bloque familiar -->
