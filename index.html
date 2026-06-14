@@ -118,7 +118,6 @@ img,svg{display:block;max-width:100%}
 .meq.off span{animation-play-state:paused;height:3px !important}
 @keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
 /* YouTube IFrame oculto */
-#yt-holder{position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;bottom:0;right:0}
 @media(max-width:500px){.minfo,.meq{display:none}.mplayer{padding:.55rem}}
 
 /* ─── CURSOR SPARKLE ──────────────────────────────────── */
@@ -339,11 +338,9 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
   Busca el video en YouTube y copia el ID (los 11 caracteres después de v=)
   Reemplaza VIDEO_ID_AQUI en el script al final de este archivo.
 -->
-<iframe id="yt-holder"
-  src="https://www.youtube.com/embed/7HfabBDl_-o?autoplay=1&mute=1&loop=1&playlist=7HfabBDl_-o&controls=0&enablejsapi=1"
-  allow="autoplay; encrypted-media"
-  frameborder="0"
-  style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;bottom:0;right:0"></iframe>
+<audio id="bgmusic" loop preload="auto" style="display:none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 <div class="mplayer" id="mplayer" onclick="toggleMusic()">
   <div class="mbtn" id="mbtn">
     <svg id="mico-play" viewBox="0 0 16 16"><path d="M4 2 L14 8 L4 14 Z"/></svg>
@@ -716,18 +713,11 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
 </footer>
 
 <!-- ── YOUTUBE IFRAME API ─────────────────────── -->
-<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-/* ═══════════════════════════════════════════════════════════
-   CONFIGURACIÓN — reemplaza VIDEO_ID con el ID de YouTube
-   Busca "Fonseca Que Suerte Tenerte" en YouTube y copia los
-   11 caracteres después de v= en la URL.
-   Ejemplo: https://youtube.com/watch?v=XXXXXXXXXXX → "XXXXXXXXXXX"
-══════════════════════════════════════════════════════════ */
-const VIDEO_ID = '7HfabBDl_-o'; // Fonseca - Que Suerte Tenerte
-
-/* ─── YouTube Player ─────────────────── */
-let ytPlayer, musicPlaying = false, userActed = false;
+/* ─── Audio HTML5 ─────────────────────── */
+let musicPlaying = false, userActed = false;
+const bgm = document.getElementById('bgmusic');
+bgm.volume = 0;
 
 function setPlayerUI(playing) {
   musicPlaying = playing;
@@ -736,29 +726,22 @@ function setPlayerUI(playing) {
   document.getElementById('meq').classList.toggle('off', !playing);
 }
 
-function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('yt-holder', {
-    events: {
-      onReady: e => {
-        e.target.mute();
-        e.target.setVolume(0);
-        e.target.playVideo();
-      },
-      onStateChange: e => {
-        if (e.data === YT.PlayerState.PLAYING) setPlayerUI(true);
-        if (e.data === YT.PlayerState.PAUSED)  setPlayerUI(false);
-      }
-    }
-  });
-}
+bgm.addEventListener('play',  () => setPlayerUI(true));
+bgm.addEventListener('pause', () => setPlayerUI(false));
 
-/* Primer gesto del usuario → desmutear */
+/* Intentar autoplay silenciado al cargar */
+window.addEventListener('load', () => {
+  bgm.muted = true;
+  bgm.play().catch(() => {});
+});
+
+/* Primer gesto → desmutear y subir volumen */
 function handleFirstGesture() {
-  if (userActed || !ytPlayer) return;
+  if (userActed) return;
   userActed = true;
-  ytPlayer.unMute();
-  ytPlayer.setVolume(72);
-  ytPlayer.playVideo();
+  bgm.muted = false;
+  bgm.volume = 0.72;
+  bgm.play().catch(() => {});
   ['click','scroll','touchstart'].forEach(ev => document.removeEventListener(ev, handleFirstGesture));
 }
 ['click','scroll','touchstart'].forEach(ev =>
@@ -766,10 +749,9 @@ function handleFirstGesture() {
 );
 
 function toggleMusic() {
-  if (!ytPlayer) return;
   if (!userActed) { handleFirstGesture(); return; }
-  if (musicPlaying) { ytPlayer.pauseVideo(); }
-  else              { ytPlayer.playVideo(); ytPlayer.unMute(); ytPlayer.setVolume(72); }
+  if (musicPlaying) { bgm.pause(); }
+  else { bgm.muted = false; bgm.volume = 0.72; bgm.play(); }
 }
 
 /* ─── Countdown ──────────────────────── */
