@@ -171,21 +171,24 @@ img,svg{display:block;max-width:100%}
 /* nombres */
 .hnames{
   font-family:var(--gv);
-  font-size:clamp(1.5rem,8vw,5rem);
+  font-size:clamp(1rem,6vw,5rem);
   line-height:.88;
   background:linear-gradient(110deg,var(--dark) 35%,var(--gold2) 50%,var(--dark) 65%);
   background-size:250%;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
   animation:nameShimmer 6s ease-in-out infinite;
-  display:inline-block;
+  display:block;
+  text-align:center;
+  /* padding-left empuja el texto a la derecha para que el swash decorativo no quede fuera del viewport */
+  padding-left:clamp(0.8rem,4vw,3rem);
   margin-bottom:.3rem;
 }
 @keyframes nameShimmer{
   0%,100%{background-position:100% center}
   50%{background-position:-100% center}
 }
-.hamp{font-family:var(--gv);font-size:clamp(1.2rem,5.5vw,3.5rem);color:var(--gold);-webkit-text-fill-color:var(--gold);line-height:1;display:block;margin:-.15em 0}
+.hamp{font-family:var(--gv);font-size:clamp(1rem,4.5vw,3.2rem);color:var(--gold);-webkit-text-fill-color:var(--gold);line-height:1;display:block;margin:-.15em 0}
 /* anillos */
 .hrings{width:clamp(90px,15vw,124px);margin:1.8rem auto}
 .hdate{font-family:var(--pf);font-style:italic;font-size:clamp(.88rem,2.2vw,1.1rem);letter-spacing:.28em;color:var(--ash);margin-top:.3rem}
