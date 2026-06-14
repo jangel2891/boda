@@ -156,7 +156,7 @@ img,svg{display:block;max-width:100%}
 .hcorner.bl{bottom:clamp(7px,1.2vw,15px);left:clamp(7px,1.2vw,15px);transform:scaleY(-1)}
 .hcorner.br{bottom:clamp(7px,1.2vw,15px);right:clamp(7px,1.2vw,15px);transform:scale(-1,-1)}
 #petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:9}
-.hcontent{position:relative;z-index:3;max-width:840px;margin:0 auto}
+.hcontent{position:relative;z-index:3;max-width:840px;margin:0 auto;width:100%}
 /* anillos hero */
 .hemblem{width:clamp(160px,28vw,220px);margin:0 auto 2.2rem}
 /* familia */
@@ -180,8 +180,6 @@ img,svg{display:block;max-width:100%}
   animation:nameShimmer 6s ease-in-out infinite;
   display:block;
   text-align:center;
-  /* padding-left empuja el texto a la derecha para que el swash decorativo no quede fuera del viewport */
-  padding-left:clamp(0.8rem,4vw,3rem);
   margin-bottom:.3rem;
 }
 @keyframes nameShimmer{
