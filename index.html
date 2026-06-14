@@ -134,7 +134,7 @@ img,svg{display:block;max-width:100%}
 .hero{
   position:relative;min-height:100vh;
   display:grid;place-items:center;text-align:center;
-  overflow:hidden;
+  overflow:visible;
   background:
     radial-gradient(ellipse 140% 70% at 50% -8%,#fff9f2 0%,var(--w) 42%,var(--ivory) 78%,var(--cream) 100%);
   padding:7rem 1.8rem 5rem;
@@ -339,7 +339,11 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
   Busca el video en YouTube y copia el ID (los 11 caracteres después de v=)
   Reemplaza VIDEO_ID_AQUI en el script al final de este archivo.
 -->
-<div id="yt-holder"></div>
+<iframe id="yt-holder"
+  src="https://www.youtube.com/embed/VPSkMomg8ZU?autoplay=1&mute=1&loop=1&playlist=VPSkMomg8ZU&controls=0&enablejsapi=1"
+  allow="autoplay; encrypted-media"
+  frameborder="0"
+  style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;bottom:0;right:0"></iframe>
 <div class="mplayer" id="mplayer" onclick="toggleMusic()">
   <div class="mbtn" id="mbtn">
     <svg id="mico-play" viewBox="0 0 16 16"><path d="M4 2 L14 8 L4 14 Z"/></svg>
@@ -734,12 +738,10 @@ function setPlayerUI(playing) {
 
 function onYouTubeIframeAPIReady() {
   ytPlayer = new YT.Player('yt-holder', {
-    height: '1', width: '1',
-    videoId: VIDEO_ID,
-    playerVars: { autoplay: 1, loop: 1, playlist: VIDEO_ID, controls: 0, mute: 1 },
     events: {
       onReady: e => {
         e.target.mute();
+        e.target.setVolume(0);
         e.target.playVideo();
       },
       onStateChange: e => {
