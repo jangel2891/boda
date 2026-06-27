@@ -297,7 +297,7 @@ img,svg{display:block;max-width:100%}
 /* ─── SOBRE / ENVELOPE ─── */
 .env-stage{display:flex;flex-direction:column;align-items:center;gap:1.15rem;cursor:pointer;perspective:1400px}
 .env-cap{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold2)}
-.env{position:relative;width:clamp(360px,98vw,770px);aspect-ratio:1.5/1;transition:transform .8s ease-in-out,opacity .6s ease}
+.env{position:relative;width:clamp(350px,99vw,900px);aspect-ratio:1.5/1;transition:transform .8s ease-in-out,opacity .6s ease}
 /* fade in al cargar y pequeña elevacion al tocar */
 .env-stage.intro .env{opacity:0}
 .env-stage.lift .env{transform:translateY(-5px)}
@@ -786,10 +786,6 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
       <div class="env-body"></div>
       <div class="env-flap"></div>
       <div class="env-seal" id="envSeal">
-        <svg class="seal-ring" viewBox="0 0 100 100" aria-hidden="true">
-          <defs><path id="sealArc" d="M50,50 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0"/></defs>
-          <text class="seal-date"><textPath href="#sealArc" startOffset="0">XVIII&#160;&#8226;&#160;IX&#160;&#8226;&#160;MMXXVI&#160;&#8226;&#160;XVIII&#160;&#8226;&#160;IX&#160;&#8226;&#160;MMXXVI&#160;&#8226;&#160;</textPath></text>
-        </svg>
         <span class="ss-mono">V&amp;S</span>
       </div>
     </div>
