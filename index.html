@@ -606,6 +606,19 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .dress-emblem{width:clamp(86px,15.5vw,120px);margin:0 auto 1.5rem;display:block;
   filter:drop-shadow(0 0 5px rgba(204,168,92,.16));animation:goldFoil 12s ease-in-out infinite}
 
+/* reflejo metalico que recorre el borde (como joyeria al cambiar la luz) */
+.glint{fill:none;stroke:rgba(255,248,228,.8);stroke-width:1.1;stroke-linecap:round;
+  stroke-dasharray:14 86;stroke-dashoffset:100;opacity:0;
+  animation:edgeGlint 14s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes edgeGlint{
+  0%{stroke-dashoffset:100;opacity:0}
+  3%{opacity:.55}
+  21%{opacity:.55}
+  25%{stroke-dashoffset:0;opacity:0}
+  100%{stroke-dashoffset:0;opacity:0}
+}
+@media(prefers-reduced-motion:reduce){.glint{display:none}}
+
 /* subtitulo: small caps mas visible, mayor espaciado */
 .dress .cap{color:var(--gold3);text-transform:none;font-variant:small-caps;font-weight:300;
   font-size:clamp(.66rem,1.7vw,.78rem);letter-spacing:.46em;opacity:1;margin-bottom:.5rem}
@@ -1251,6 +1264,8 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
       <!-- escudo -->
       <path d="M24 22 H72 V58 C72 80 60 92 48 98 C36 92 24 80 24 58 Z" stroke-width="1.1"/>
       <path d="M29 27 H67 V57 C67 75 57 84.5 48 89.5 C39 84.5 29 75 29 57 Z" stroke-width=".5" opacity=".5"/>
+      <!-- reflejo que recorre el borde -->
+      <path class="glint" d="M24 22 H72 V58 C72 80 60 92 48 98 C36 92 24 80 24 58 Z" pathLength="100"/>
       <!-- abanico Art Deco superior -->
       <path d="M40 22 V15 M48 22 V12 M56 22 V15" stroke-width=".8" opacity=".7"/>
       <path d="M40 15 L48 12 L56 15" stroke-width=".7" opacity=".55"/>
@@ -1275,6 +1290,7 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
         <svg class="amedal rv" style="transition-delay:.32s" viewBox="0 0 120 130" fill="none" stroke="#E6D2A0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="60" cy="64" r="54" stroke-width="1.1"/>
           <circle cx="60" cy="64" r="48" stroke-width=".55" opacity=".5"/>
+          <circle class="glint" style="animation-delay:5s" cx="60" cy="64" r="54" pathLength="100"/>
           <!-- diamantes cardinales -->
           <path d="M60 5 L63.4 10 L60 15 L56.6 10 Z" stroke-width=".9"/>
           <path d="M60 113 L63.4 118 L60 123 L56.6 118 Z" stroke-width=".9"/>
@@ -1307,6 +1323,7 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
         <svg class="amedal rv" style="transition-delay:.38s" viewBox="0 0 120 130" fill="none" stroke="#E6D2A0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="60" cy="64" r="54" stroke-width="1.1"/>
           <circle cx="60" cy="64" r="48" stroke-width=".55" opacity=".5"/>
+          <circle class="glint" style="animation-delay:10s" cx="60" cy="64" r="54" pathLength="100"/>
           <path d="M60 5 L63.4 10 L60 15 L56.6 10 Z" stroke-width=".9"/>
           <path d="M60 113 L63.4 118 L60 123 L56.6 118 Z" stroke-width=".9"/>
           <path d="M1 64 L6 60.6 L11 64 L6 67.4 Z" stroke-width=".9"/>
