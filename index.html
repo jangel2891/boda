@@ -10,17 +10,17 @@
 <style>
 /* ─── TOKENS ──────────────────────────────────────────── */
 :root{
-  --w:       #F7F2E6;
-  --ivory:   #F0E9D7;
-  --cream:   #E6DBC3;
-  --linen:   #D8C8AC;
-  --gold:    #B68A2E;
-  --gold2:   #C7A152;
-  --gold3:   #E4CF97;
-  --gold4:   #F5EDD6;
+  --w:       #FAF6EE;
+  --ivory:   #F4EEDF;
+  --cream:   #ECE3CF;
+  --linen:   #E0D3BC;
+  --gold:    #C8A45A;
+  --gold2:   #D0B06A;
+  --gold3:   #E6D2A0;
+  --gold4:   #F6EFDA;
   --rose:    #C9928A;
-  --dark:    #1A1613;
-  --dark2:   #2D2520;
+  --dark:    #1C1B1A;
+  --dark2:   #2A2724;
   --ash:     #6B5F55;
   --mist:    #A8998A;
   --pf:      'Playfair Display',serif;
@@ -101,25 +101,23 @@ img,svg{display:block;max-width:100%}
 
 /* ─── MUSIC PLAYER ────────────────────────────────────── */
 .mplayer{
-  position:fixed;bottom:2rem;right:2rem;z-index:400;
-  display:flex;align-items:center;gap:.8rem;
-  background:rgba(244,238,224,.92);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid rgba(182,138,46,.4);border-radius:50px;
-  padding:.6rem 1.2rem .6rem .65rem;
-  box-shadow:0 10px 34px -14px rgba(60,45,20,.3);
-  transition:box-shadow .4s,transform .4s;
+  position:fixed;bottom:1.8rem;right:1.8rem;z-index:400;
+  width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(250,246,238,.55);
+  backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid rgba(200,164,90,.55);
+  box-shadow:0 12px 32px -12px rgba(60,45,20,.3),inset 0 1px 1px rgba(255,255,255,.55);
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;
   cursor:pointer;
 }
-.mplayer:hover{box-shadow:0 18px 50px -16px rgba(60,45,20,.34);transform:translateY(-3px)}
+.mplayer:hover,.mplayer:active{transform:scale(1.05);box-shadow:0 16px 40px -12px rgba(60,45,20,.36),inset 0 1px 1px rgba(255,255,255,.6)}
 .mbtn{
-  width:38px;height:38px;border-radius:50%;
-  border:1px solid var(--gold2);background:var(--ivory);
+  width:auto;height:auto;border:0;background:none;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transition:background .3s,border-color .3s;
 }
-.mbtn svg{width:14px;height:14px;fill:var(--gold)}
-.mplayer:hover .mbtn{background:var(--gold4);border-color:var(--gold)}
+.mbtn svg{width:15px;height:15px;fill:var(--gold)}
+.minfo,.meq{display:none}
 .minfo{line-height:1.35}
 .mtitle{font-family:var(--cor);font-style:italic;font-size:.82rem;color:var(--dark);white-space:nowrap}
 .msub{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
@@ -150,8 +148,8 @@ img,svg{display:block;max-width:100%}
   display:flex;flex-direction:column;align-items:stretch;justify-content:center;text-align:center;
   overflow:visible;
   background:
-    radial-gradient(ellipse 140% 70% at 50% -8%,#fbf6ec 0%,var(--w) 42%,var(--ivory) 78%,var(--cream) 100%);
-  padding:4.5rem 1.8rem 5rem;
+    radial-gradient(ellipse 140% 70% at 50% -8%,#fdfaf3 0%,var(--w) 42%,var(--ivory) 78%,var(--cream) 100%);
+  padding:2.7rem 1.8rem 4.5rem;
 }
 /* bokeh */
 .hero::before{
@@ -161,9 +159,9 @@ img,svg{display:block;max-width:100%}
     radial-gradient(circle 160px at 88% 65%,rgba(201,146,138,.14) 0%,transparent 70%),
     radial-gradient(circle 260px at 50% 90%,rgba(184,145,63,.1)   0%,transparent 70%);
 }
-/* doble marco */
-.hframe{position:absolute;inset:clamp(14px,2.5vw,34px);border:1px solid rgba(232,212,160,.6);pointer-events:none;z-index:1}
-.hframe::after{content:'';position:absolute;inset:8px;border:1px solid rgba(184,145,63,.2)}
+/* doble marco fino y refinado */
+.hframe{position:absolute;inset:clamp(12px,2.1vw,28px);border:.75px solid rgba(200,164,90,.5);pointer-events:none;z-index:1}
+.hframe::after{content:'';position:absolute;inset:7px;border:.5px solid rgba(200,164,90,.26)}
 /* esquinas */
 .hcorner{position:absolute;z-index:2;width:clamp(52px,8.5vw,80px);height:clamp(52px,8.5vw,80px)}
 .hcorner.tl{top:clamp(7px,1.2vw,15px);left:clamp(7px,1.2vw,15px)}
@@ -172,47 +170,93 @@ img,svg{display:block;max-width:100%}
 .hcorner.br{bottom:clamp(7px,1.2vw,15px);right:clamp(7px,1.2vw,15px);transform:scale(-1,-1)}
 #petals{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:9}
 .hcontent{position:relative;z-index:3;max-width:840px;margin:0 auto;width:100%;align-self:center}
-/* anillos hero */
-.hemblem{width:clamp(140px,24vw,190px);margin:0 auto 2.9rem;filter:drop-shadow(0 1px 1px rgba(182,138,46,.25))}
+
+/* ── brillo foil que recorre los dorados cada ~9s ── */
+@keyframes goldFoil{
+  0%,84%,100%{filter:drop-shadow(0 1px 1px rgba(120,90,30,.16)) brightness(1)}
+  92%{filter:drop-shadow(0 0 3px rgba(200,164,90,.5)) brightness(1.28)}
+}
+
+/* ── emblema superior: ovalo + olivo ── */
+.hemblem{width:clamp(74px,13vw,104px);margin:0 auto 1.2rem;animation:goldFoil 9s ease-in-out infinite}
+
+/* ── linea fina con remates ── */
+.hsepline{display:flex;align-items:center;justify-content:center;gap:.55rem;width:min(240px,64%);margin:0 auto 1.4rem;animation:goldFoil 9s ease-in-out .25s infinite}
+.hsepline .l{flex:1;height:.6px;background:linear-gradient(to right,transparent,var(--gold))}
+.hsepline .l.r{background:linear-gradient(to left,transparent,var(--gold))}
+.hsepline .cap{width:4px;height:4px;border:.75px solid var(--gold);transform:rotate(45deg);flex-shrink:0}
+
+/* ── monograma con ornamentos laterales ── */
+.hmono{display:flex;align-items:center;justify-content:center;gap:clamp(.8rem,3vw,1.7rem)}
+.horn{width:clamp(30px,6.5vw,50px);flex-shrink:0;animation:goldFoil 9s ease-in-out .45s infinite}
+.horn.r{transform:scaleX(-1)}
+.hmono-vs{
+  font-family:var(--pf);font-weight:500;line-height:1;color:var(--dark);
+  font-size:clamp(2.7rem,12vw,5.6rem);letter-spacing:.01em;white-space:nowrap;
+  text-shadow:0 1px 0 rgba(255,255,255,.55),0 2px 5px rgba(60,45,20,.14);
+}
+.hmono-vs .amp{
+  font-family:var(--cor);font-style:italic;font-size:.66em;margin:0 .04em;
+  background:linear-gradient(100deg,#9a7526 0%,#e8cd85 40%,#fff4d6 50%,#C8A45A 60%,#8a6420 100%);
+  background-size:240%;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:nameShimmer 9s ease-in-out infinite;
+}
+
+/* ── separador 3 diamantes (reemplaza MMXXVI) ── */
+.hdiam{display:flex;align-items:center;justify-content:center;gap:.4rem;margin:1.3rem auto 0;animation:goldFoil 9s ease-in-out .6s infinite}
+.hdiam .ln{width:clamp(18px,5vw,30px);height:.6px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.hdiam .dm{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.hdiam .dm.mid{width:7.5px;height:7.5px}
+
 /* familia */
-.fblock{margin-bottom:2.8rem}
-.frole{font-family:var(--sans);font-weight:200;font-size:.54rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold2);display:block;margin-top:.9rem;margin-bottom:.15rem}
-.fname{font-family:var(--cor);font-style:italic;font-size:clamp(.9rem,1.9vw,1.1rem);color:var(--dark2);line-height:1.75}
-.fdiv{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:.5rem 0}
-.fdiv span{height:1px;width:28px;background:var(--gold3)}
-.fdiv i{width:5px;height:5px;border:1px solid var(--gold2);transform:rotate(45deg)}
+.fblock{margin-bottom:3.4rem}
+.frole{font-family:var(--sans);font-weight:300;font-size:.52rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold2);display:block;margin-top:1.5rem;margin-bottom:.3rem}
+.fblock .frole:first-child{margin-top:0}
+.fname{font-family:var(--cor);font-style:italic;font-size:clamp(.92rem,1.9vw,1.12rem);color:var(--dark2);line-height:1.7}
+.fdiv{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:1.1rem 0}
+.fdiv span{height:.6px;width:30px;background:var(--gold3)}
+.fdiv i{width:4.5px;height:4.5px;border:.75px solid var(--gold2);transform:rotate(45deg)}
 /* invita */
-.hinvite{font-family:var(--sans);font-weight:200;font-size:.56rem;letter-spacing:.5em;text-transform:uppercase;color:var(--mist);margin-bottom:1.5rem}
-/* nombres */
+.hinvite{font-family:var(--sans);font-weight:300;font-size:.56rem;letter-spacing:.46em;text-transform:uppercase;color:var(--mist);margin-bottom:1.8rem}
+/* nombres — hot foil dorado */
 .hnames{
   font-family:var(--gv);
-  font-size:clamp(1.2rem,7vw,5.9rem);
-  line-height:.9;
-  background:linear-gradient(110deg,var(--dark) 38%,#cdab5e 50%,var(--dark) 62%);
-  background-size:280%;
+  font-size:clamp(1.6rem,8.6vw,7.3rem);
+  line-height:.92;
+  background:linear-gradient(100deg,#8a6420 0%,#c79c4c 22%,#e9d294 40%,#fff6dc 50%,#d8b765 60%,#a87c2c 80%,#8a6420 100%);
+  background-size:260%;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:nameShimmer 8s ease-in-out infinite;
-  display:block;
-  text-align:center;
-  margin-bottom:.5rem;
-  padding-left:.5em;
+  animation:nameShimmer 9s ease-in-out infinite;
+  display:block;text-align:center;margin-bottom:.5rem;padding-left:.5em;
+  filter:drop-shadow(0 1px 2px rgba(70,52,20,.28));
 }
 @keyframes nameShimmer{
   0%,100%{background-position:100% center}
-  50%{background-position:-100% center}
+  50%{background-position:0% center}
 }
-.hamp{font-family:var(--gv);font-size:clamp(1.1rem,5vw,3.6rem);color:var(--gold);-webkit-text-fill-color:var(--gold);line-height:1;display:block;margin:-.1em 0}
+.hamp{
+  font-family:var(--gv);font-size:clamp(1.4rem,5.5vw,4rem);line-height:1;display:block;margin:-.08em 0;
+  background:linear-gradient(100deg,#9a7526,#e8cd85 45%,#fff4d6 52%,#C8A45A 62%,#8a6420);
+  background-size:240%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:nameShimmer 9s ease-in-out infinite;
+}
 /* anillos */
-.hrings{width:clamp(108px,18vw,150px);margin:2.2rem auto;filter:drop-shadow(0 2px 3px rgba(182,138,46,.3))}
-/* fecha inferior */
-.hdate{margin-top:1.6rem;display:flex;flex-direction:column;align-items:center;gap:.35rem}
-.hdate .hd-dow{font-family:var(--sans);font-weight:200;font-size:.56rem;letter-spacing:.5em;text-transform:uppercase;color:var(--mist)}
-.hdate .hd-main{display:flex;align-items:baseline;justify-content:center;gap:.6rem;font-family:var(--pf);color:var(--dark)}
-.hdate .hd-day{font-size:clamp(1.9rem,5vw,2.7rem);font-weight:500;line-height:1;color:var(--gold)}
-.hdate .hd-mon{font-style:italic;font-size:clamp(1.4rem,3.6vw,2rem);line-height:1}
-.hdate .hd-year{font-family:var(--cor);font-size:clamp(.85rem,2vw,1rem);letter-spacing:.42em;color:var(--ash);margin-top:.1rem;padding-left:.42em}
-.hplace{font-family:var(--cor);font-style:italic;font-size:clamp(1rem,1.9vw,1.18rem);color:var(--gold2);margin-top:.4rem}
+.hrings{width:clamp(108px,18vw,150px);margin:2.4rem auto;animation:goldFoil 9s ease-in-out .8s infinite}
+/* ── fecha editorial: VIERNES | 18 | SEPTIEMBRE ── */
+.hdatewrap{margin-top:2.2rem;display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.hdate{display:flex;align-items:center;justify-content:center;gap:clamp(.9rem,3.2vw,1.7rem)}
+.hdate .vline{width:.6px;height:clamp(32px,7vw,52px);background:linear-gradient(to bottom,transparent,var(--gold2),transparent)}
+.hdate .hd-dow,.hdate .hd-mon{font-family:var(--sans);font-weight:300;font-size:clamp(.5rem,1.6vw,.62rem);letter-spacing:.42em;text-transform:uppercase;color:var(--ash)}
+.hdate .hd-day{
+  font-family:var(--pf);font-weight:500;font-size:clamp(2.7rem,9vw,4.4rem);line-height:1;
+  background:linear-gradient(100deg,#9a7526,#e8cd85 42%,#fff4d6 50%,#C8A45A 60%,#8a6420);
+  background-size:240%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:nameShimmer 9s ease-in-out infinite;
+}
+.hdate-foot{display:flex;align-items:center;justify-content:center;gap:.55rem;animation:goldFoil 9s ease-in-out .9s infinite}
+.hdate-foot .dm{width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
+.hdate-foot .hd-year{font-family:var(--cor);font-size:clamp(.8rem,2vw,.95rem);letter-spacing:.42em;color:var(--gold2);padding-left:.42em}
 /* scroll cue */
 .scue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.45rem}
 .scue p{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mist)}
@@ -311,9 +355,9 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .shead.i{font-style:italic}
 .sscript{font-family:var(--gv);font-size:clamp(2.5rem,7vw,3.8rem);color:var(--gold2);line-height:1}
 .sbody{font-family:var(--cor);font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.9;color:var(--ash);max-width:40ch;margin:1.2rem auto 0}
-.orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2.5rem auto}
-.orn .ol{height:1px;width:64px;background:linear-gradient(to right,transparent,var(--gold3),transparent)}
-.orn .og{width:7px;height:7px;border:1px solid var(--gold2);transform:rotate(45deg)}
+.orn{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:2.5rem auto}
+.orn .ol{height:.6px;width:70px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.orn .og{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
 
 /* ─── BOTANICAL DIVIDER SVG (entre secciones) ─────────── */
 .botdiv{display:block;width:100%;max-height:44px;overflow:visible;opacity:.45}
@@ -529,46 +573,56 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
   <div class="hcorner br" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><path d="M4 4L4 38" stroke="#CCA55A" stroke-width="1"/><path d="M4 4L38 4" stroke="#CCA55A" stroke-width="1"/><ellipse cx="30" cy="13" rx="8" ry="3" transform="rotate(-38 30 13)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="13" cy="30" rx="8" ry="3" transform="rotate(-52 13 30)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="20" cy="20" rx="6" ry="2.5" transform="rotate(-45 20 20)" fill="none" stroke="#CCA55A" stroke-width=".7" opacity=".35"/><circle cx="4" cy="4" r="2.8" fill="#CCA55A" opacity=".45"/></svg></div>
 
   <div class="hcontent">
-    <!-- emblema monograma -->
-    <svg class="hemblem rv" viewBox="0 0 200 194" fill="none" aria-hidden="true">
-      <!-- ▲ corona superior ▲ -->
-      <path d="M100 5 L108 15 L100 25 L92 15 Z" fill="#B8913F" opacity=".72"/>
-      <line x1="92" y1="15" x2="16" y2="15" stroke="#B8913F" stroke-width=".75" opacity=".52"/>
-      <line x1="108" y1="15" x2="184" y2="15" stroke="#B8913F" stroke-width=".75" opacity=".52"/>
-      <line x1="50" y1="11" x2="50" y2="19" stroke="#B8913F" stroke-width=".6" opacity=".38"/>
-      <line x1="150" y1="11" x2="150" y2="19" stroke="#B8913F" stroke-width=".6" opacity=".38"/>
-      <ellipse cx="16" cy="15" rx="4.5" ry="2" fill="#B8913F" opacity=".42"/>
-      <ellipse cx="184" cy="15" rx="4.5" ry="2" fill="#B8913F" opacity=".42"/>
-      <line x1="100" y1="25" x2="100" y2="33" stroke="#B8913F" stroke-width=".7" opacity=".45"/>
-      <!-- regla doble superior -->
-      <line x1="14" y1="33" x2="186" y2="33" stroke="#B8913F" stroke-width=".65" opacity=".5"/>
-      <line x1="20" y1="38" x2="180" y2="38" stroke="#B8913F" stroke-width=".35" opacity=".35"/>
-      <!-- ◆ iniciales V & S ◆ -->
-      <text x="55" y="120" text-anchor="middle"
-        font-family="Cormorant Garamond,serif" font-style="normal" font-weight="300"
-        font-size="90" fill="#1A1613" opacity=".9">V</text>
-      <text x="145" y="120" text-anchor="middle"
-        font-family="Cormorant Garamond,serif" font-style="normal" font-weight="300"
-        font-size="90" fill="#1A1613" opacity=".9">S</text>
-      <text x="100" y="106" text-anchor="middle"
-        font-family="Cormorant Garamond,serif" font-style="normal"
-        font-size="21" fill="#B8913F" opacity=".9">&amp;</text>
-      <!-- regla doble inferior -->
-      <line x1="20" y1="133" x2="180" y2="133" stroke="#B8913F" stroke-width=".35" opacity=".35"/>
-      <line x1="14" y1="138" x2="186" y2="138" stroke="#B8913F" stroke-width=".65" opacity=".5"/>
-      <line x1="100" y1="138" x2="100" y2="146" stroke="#B8913F" stroke-width=".7" opacity=".45"/>
-      <!-- ▼ ornamento triple diamante ▼ -->
-      <path d="M88 146 L93 153 L88 160 L83 153 Z" fill="#B8913F" opacity=".36"/>
-      <path d="M100 144 L106 153 L100 162 L94 153 Z" fill="#B8913F" opacity=".62"/>
-      <path d="M112 146 L117 153 L112 160 L107 153 Z" fill="#B8913F" opacity=".36"/>
-      <!-- año -->
-      <text x="100" y="182" text-anchor="middle"
-        font-family="Cormorant Garamond,serif" font-size="10.5" letter-spacing="5.5"
-        fill="#B8913F" opacity=".7">MMXXVI</text>
+    <!-- emblema superior: ovalo + rama de olivo + diamante -->
+    <svg class="hemblem rv" style="transition-delay:0s" viewBox="0 0 110 130" fill="none" aria-hidden="true">
+      <ellipse cx="55" cy="56" rx="33" ry="46" stroke="#C8A45A" stroke-width="1"/>
+      <ellipse cx="55" cy="56" rx="29" ry="42" stroke="#C8A45A" stroke-width=".4" opacity=".4"/>
+      <!-- tallo central -->
+      <path d="M55 33 C55 48 55 66 55 84" stroke="#C8A45A" stroke-width=".9"/>
+      <circle cx="55" cy="32" r="1.8" fill="#C8A45A"/>
+      <!-- hojas simetricas (3 pares) -->
+      <path d="M55 44 C49 41 45 43 46 49 C51 49 55 47 55 44Z" fill="#C8A45A" opacity=".82"/>
+      <path d="M55 44 C61 41 65 43 64 49 C59 49 55 47 55 44Z" fill="#C8A45A" opacity=".82"/>
+      <path d="M55 56 C48 53 44 55 45 61 C51 61 55 59 55 56Z" fill="#C8A45A" opacity=".82"/>
+      <path d="M55 56 C62 53 66 55 65 61 C59 61 55 59 55 56Z" fill="#C8A45A" opacity=".82"/>
+      <path d="M55 68 C49 65 45 67 46 73 C51 73 55 71 55 68Z" fill="#C8A45A" opacity=".82"/>
+      <path d="M55 68 C61 65 65 67 64 73 C59 73 55 71 55 68Z" fill="#C8A45A" opacity=".82"/>
+      <!-- conector y diamante inferior -->
+      <line x1="55" y1="102" x2="55" y2="110" stroke="#C8A45A" stroke-width=".6" opacity=".6"/>
+      <path d="M55 110 L60 117 L55 124 L50 117 Z" fill="#C8A45A"/>
     </svg>
 
+    <!-- linea fina con remates -->
+    <div class="hsepline rv" style="transition-delay:.18s"><span class="cap"></span><span class="l"></span><span class="l r"></span><span class="cap"></span></div>
+
+    <!-- monograma con ornamentos laterales -->
+    <div class="hmono">
+      <svg class="horn rv" style="transition-delay:.4s" viewBox="0 0 50 36" fill="none" aria-hidden="true">
+        <path d="M3 18 H40" stroke="#C8A45A" stroke-width=".9"/>
+        <circle cx="3" cy="18" r="2" stroke="#C8A45A" stroke-width=".9"/>
+        <path d="M12 18 C13 12 18 10 22 12 C19 16 15 18 12 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M22 18 C23 12 28 10 32 12 C29 16 25 18 22 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M12 18 C13 24 18 26 22 24 C19 20 15 18 12 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M22 18 C23 24 28 26 32 24 C29 20 25 18 22 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M40 18 L44 14 L48 18 L44 22 Z" fill="#C8A45A"/>
+      </svg>
+      <span class="hmono-vs rv" style="transition-delay:.6s">V<span class="amp">&amp;</span>S</span>
+      <svg class="horn r rv" style="transition-delay:.4s" viewBox="0 0 50 36" fill="none" aria-hidden="true">
+        <path d="M3 18 H40" stroke="#C8A45A" stroke-width=".9"/>
+        <circle cx="3" cy="18" r="2" stroke="#C8A45A" stroke-width=".9"/>
+        <path d="M12 18 C13 12 18 10 22 12 C19 16 15 18 12 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M22 18 C23 12 28 10 32 12 C29 16 25 18 22 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M12 18 C13 24 18 26 22 24 C19 20 15 18 12 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M22 18 C23 24 28 26 32 24 C29 20 25 18 22 18Z" fill="#C8A45A" opacity=".82"/>
+        <path d="M40 18 L44 14 L48 18 L44 22 Z" fill="#C8A45A"/>
+      </svg>
+    </div>
+
+    <!-- separador 3 diamantes -->
+    <div class="hdiam rv" style="transition-delay:.78s"><span class="dm"></span><span class="ln"></span><span class="dm mid"></span><span class="ln"></span><span class="dm"></span></div>
+
     <!-- bloque familiar -->
-    <div class="fblock rv d1">
+    <div class="fblock rv" style="transition-delay:.98s">
       <span class="frole">Padres de la novia</span>
       <p class="fname">Mar&iacute;a Cenelia &amp; Plinio Pe&ntilde;a</p>
       <div class="fdiv"><span></span><i></i><span></span></div>
@@ -579,17 +633,17 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
       <p class="fname">Alba Marina &amp; Jaime Castellanos</p>
     </div>
 
-    <p class="hinvite rv d2">tienen el honor de invitarles a la boda de</p>
+    <p class="hinvite rv" style="transition-delay:1.12s">tienen el honor de invitarles a la boda de</p>
 
-    <!-- nombres con shimmer -->
-    <h1 class="rv d2">
+    <!-- nombres hot foil -->
+    <h1 class="rv" style="transition-delay:1.3s">
       <span class="hnames">Valentina</span>
       <span class="hamp">&amp;</span>
       <span class="hnames">Sebasti&aacute;n</span>
     </h1>
 
     <!-- anillos SVG -->
-    <svg class="hrings rv d3" viewBox="0 0 140 58" fill="none" aria-hidden="true">
+    <svg class="hrings rv" style="transition-delay:1.55s" viewBox="0 0 140 58" fill="none" aria-hidden="true">
       <defs>
         <linearGradient id="ringMetal" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#F2DD9E"/>
@@ -609,10 +663,15 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
       <path d="M79 20 Q70 29 79 38" stroke="#CCA55A" stroke-width=".75" opacity=".45" fill="none"/>
     </svg>
 
-    <div class="hdate rv d3">
-      <span class="hd-dow">Viernes</span>
-      <span class="hd-main"><span class="hd-day">18</span><span class="hd-mon">Septiembre</span></span>
-      <span class="hd-year">2026</span>
+    <div class="hdatewrap rv" style="transition-delay:1.75s">
+      <div class="hdate">
+        <span class="hd-dow">Viernes</span>
+        <span class="vline"></span>
+        <span class="hd-day">18</span>
+        <span class="vline"></span>
+        <span class="hd-mon">Septiembre</span>
+      </div>
+      <div class="hdate-foot"><span class="dm"></span><span class="hd-year">2026</span><span class="dm"></span></div>
     </div>
   </div>
 
@@ -620,20 +679,12 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
 </section>
 
 <!-- ── BOTANICAL DIVIDER ──────────────────────── -->
-<svg class="botdiv" viewBox="0 0 1200 44" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M0 22 Q150 18 300 22 Q450 26 600 22 Q750 18 900 22 Q1050 26 1200 22" stroke="#E8D4A0" stroke-width="1"/>
-  <ellipse cx="200" cy="16" rx="14" ry="5" transform="rotate(-30 200 16)" fill="none" stroke="#CCA55A" stroke-width=".9" opacity=".6"/>
-  <ellipse cx="200" cy="28" rx="14" ry="5" transform="rotate(30 200 28)"  fill="none" stroke="#CCA55A" stroke-width=".9" opacity=".6"/>
-  <circle cx="200" cy="22" r="3" fill="none" stroke="#CCA55A" stroke-width="1" opacity=".7"/>
-  <ellipse cx="450" cy="16" rx="12" ry="4.5" transform="rotate(-28 450 16)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/>
-  <ellipse cx="450" cy="28" rx="12" ry="4.5" transform="rotate(28 450 28)"  fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/>
-  <circle cx="450" cy="22" r="2.8" fill="none" stroke="#CCA55A" stroke-width=".9" opacity=".65"/>
-  <ellipse cx="750" cy="16" rx="14" ry="5" transform="rotate(-30 750 16)" fill="none" stroke="#CCA55A" stroke-width=".9" opacity=".6"/>
-  <ellipse cx="750" cy="28" rx="14" ry="5" transform="rotate(30 750 28)"  fill="none" stroke="#CCA55A" stroke-width=".9" opacity=".6"/>
-  <circle cx="750" cy="22" r="3" fill="none" stroke="#CCA55A" stroke-width="1" opacity=".7"/>
-  <ellipse cx="1000" cy="16" rx="12" ry="4.5" transform="rotate(-28 1000 16)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/>
-  <ellipse cx="1000" cy="28" rx="12" ry="4.5" transform="rotate(28 1000 28)"  fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/>
-  <circle cx="1000" cy="22" r="2.8" fill="none" stroke="#CCA55A" stroke-width=".9" opacity=".65"/>
+<svg class="botdiv" viewBox="0 0 1200 30" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="120" y1="15" x2="556" y2="15" stroke="#C8A45A" stroke-width=".6"/>
+  <line x1="644" y1="15" x2="1080" y2="15" stroke="#C8A45A" stroke-width=".6"/>
+  <rect x="566" y="11" width="8" height="8" transform="rotate(45 570 15)" fill="#C8A45A" opacity=".6"/>
+  <rect x="596" y="9"  width="12" height="12" transform="rotate(45 602 15)" fill="#C8A45A"/>
+  <rect x="626" y="11" width="8" height="8" transform="rotate(45 630 15)" fill="#C8A45A" opacity=".6"/>
 </svg>
 
 <!-- ── INTRO ──────────────────────────────────── -->
@@ -966,10 +1017,10 @@ function enterInvitation() {
   bgm.volume = 0.72;
   bgm.play().catch(() => {});
   setTimeout(() => stage.classList.add('open'), 200);           // apertura ~0.8s
-  setTimeout(() => document.getElementById('splash').classList.add('gone'), 1150); // fundido del fondo
-  // revelado por etapas: monograma + textos (fade-up) y luego petalos
-  setTimeout(() => document.body.classList.remove('locked'), 1500);
-  setTimeout(spawnPetals, 1800);
+  setTimeout(() => document.getElementById('splash').classList.add('gone'), 1100); // fundido del fondo
+  // secuencia cinematografica: emblema -> ornamentos -> V&S -> textos (fade-up) -> petalos
+  setTimeout(() => document.body.classList.remove('locked'), 1400);
+  setTimeout(spawnPetals, 3900);
 }
 
 function toggleMusic() {
@@ -1026,14 +1077,14 @@ function spawnPetals() {
   const container = $('petals');
   if (!container || container.childElementCount) return;
   const colors = ['rgba(201,146,138,.5)','rgba(228,207,151,.45)','rgba(182,138,46,.35)','rgba(240,220,200,.55)'];
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 12; i++) {
     const p = document.createElement('div');
     p.className = 'petal';
-    const size = 6 + Math.random() * 9;            // mas pequenos
+    const size = 5 + Math.random() * 7;            // mas pequenos
     const color = colors[Math.floor(Math.random() * colors.length)];
     const left  = Math.random() * 100;
-    const dur   = 16 + Math.random() * 14;         // caida mas lenta (16-30s)
-    const delay = Math.random() * 16;
+    const dur   = 18 + Math.random() * 14;         // caida mas lenta (18-32s)
+    const delay = Math.random() * 18;
     const far   = Math.random() < .35;             // ~1/3 al fondo, desenfocados
     p.style.cssText = `
       left:${left}%;
