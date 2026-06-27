@@ -178,7 +178,7 @@ img,svg{display:block;max-width:100%}
 }
 
 /* ── emblema superior: ovalo + olivo ── */
-.hemblem{width:clamp(230px,58vw,380px);margin:0 auto 1.4rem;animation:goldFoil 9s ease-in-out infinite}
+.hemblem{width:clamp(132px,24vw,176px);margin:0 auto 1.5rem;animation:goldFoil 9s ease-in-out infinite}
 
 /* ── linea fina con remates ── */
 .hsepline{display:flex;align-items:center;justify-content:center;gap:.55rem;width:min(240px,64%);margin:0 auto 1.4rem;animation:goldFoil 9s ease-in-out .25s infinite}
@@ -355,15 +355,29 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .shead.i{font-style:italic}
 .sscript{font-family:var(--gv);font-size:clamp(2.5rem,7vw,3.8rem);color:var(--gold2);line-height:1}
 .sbody{font-family:var(--cor);font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.9;color:var(--ash);max-width:40ch;margin:1.2rem auto 0}
-.orn{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:2.5rem auto}
-.orn .ol{height:.6px;width:70px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
-.orn .og{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.orn{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:2.5rem auto;animation:goldFoil 9s ease-in-out 1.2s infinite}
+.orn .ol{position:relative;height:.5px;width:78px}
+.orn .ol:first-of-type{background:linear-gradient(to right,transparent,var(--gold))}
+.orn .ol:last-of-type{background:linear-gradient(to left,transparent,var(--gold))}
+.orn .og{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+.orn .ol:first-of-type::before,.orn .ol:last-of-type::after{content:'';position:absolute;top:50%;width:3.5px;height:3.5px;background:var(--gold2);transform:translateY(-50%) rotate(45deg)}
+.orn .ol:first-of-type::before{left:0}
+.orn .ol:last-of-type::after{right:0}
 
 /* ─── BOTANICAL DIVIDER SVG (entre secciones) ─────────── */
 .botdiv{display:block;width:100%;max-height:44px;overflow:visible;opacity:.45}
 
 /* ─── INTRO ───────────────────────────────────────────── */
 .intro{background:var(--w);border-top:1px solid var(--linen)}
+/* titulo con foil dorado + parrafo mas elegante */
+.intro .sscript{
+  font-size:clamp(2.9rem,8vw,4.4rem);
+  background:linear-gradient(100deg,#9a7526,#e8cd85 42%,#fff4d6 50%,#C8A45A 60%,#8a6420);
+  background-size:240%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:nameShimmer 9s ease-in-out infinite;
+  filter:drop-shadow(0 1px 1px rgba(70,52,20,.18));
+}
+.intro .sbody{max-width:32ch;line-height:2.1}
 
 /* ─── COUNTDOWN ──────────────────────────────────────── */
 .cdown{background:var(--dark);position:relative;overflow:hidden}
@@ -573,53 +587,44 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
   <div class="hcorner br" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><path d="M4 4L4 38" stroke="#CCA55A" stroke-width="1"/><path d="M4 4L38 4" stroke="#CCA55A" stroke-width="1"/><ellipse cx="30" cy="13" rx="8" ry="3" transform="rotate(-38 30 13)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="13" cy="30" rx="8" ry="3" transform="rotate(-52 13 30)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="20" cy="20" rx="6" ry="2.5" transform="rotate(-45 20 20)" fill="none" stroke="#CCA55A" stroke-width=".7" opacity=".35"/><circle cx="4" cy="4" r="2.8" fill="#CCA55A" opacity=".45"/></svg></div>
 
   <div class="hcontent">
-    <!-- emblema: ovalo con sprig de olivo y ramas de laurel simetricas (sello distintivo) -->
-    <svg class="hemblem rv" style="transition-delay:0s" viewBox="0 0 340 200" fill="none" aria-hidden="true">
+    <!-- emblema: cruz latina con ramas de olivo (sacramento del matrimonio) -->
+    <svg class="hemblem rv" style="transition-delay:0s" viewBox="0 0 170 192" fill="none" aria-hidden="true">
       <defs>
         <path id="lf" d="M0 0 C-4 -6 -4 -14 0 -20 C4 -14 4 -6 0 0 Z"/>
       </defs>
-      <!-- ovalo vertical -->
-      <ellipse cx="170" cy="80" rx="52" ry="66" fill="none" stroke="#C8A45A" stroke-width="1.4"/>
-      <!-- cruz catolica -->
+      <!-- cruz latina -->
       <g stroke="#C8A45A" stroke-width="2.4" stroke-linecap="round">
-        <line x1="170" y1="40" x2="170" y2="116"/>
-        <line x1="148" y1="66" x2="192" y2="66"/>
+        <line x1="85" y1="24" x2="85" y2="150"/>
+        <line x1="60" y1="62" x2="110" y2="62"/>
       </g>
-      <circle cx="170" cy="66" r="2.2" fill="#C8A45A"/>
-      <!-- dos anillos entrelazados (matrimonio) -->
-      <g stroke="#C8A45A" stroke-width="1.8" fill="none">
-        <circle cx="162" cy="128" r="10"/>
-        <circle cx="178" cy="128" r="10"/>
-      </g>
-      <!-- ramas horizontales -->
+      <circle cx="85" cy="62" r="2.2" fill="#C8A45A"/>
+      <!-- ramas de olivo desde la base -->
       <g stroke="#C8A45A" stroke-width="1.2" stroke-linecap="round" fill="none">
-        <path d="M172 150 C198 148 222 146 244 146"/>
-        <path d="M244 146 L300 146"/>
-        <path d="M168 150 C142 148 118 146 96 146"/>
-        <path d="M96 146 L40 146"/>
+        <path d="M85 152 C106 148 120 128 121 100"/>
+        <path d="M85 152 C64 148 50 128 49 100"/>
       </g>
-      <g fill="#C8A45A"><circle cx="304" cy="146" r="2.6"/><circle cx="36" cy="146" r="2.6"/></g>
       <!-- hojas rama derecha -->
       <g fill="#C8A45A">
-        <use href="#lf" transform="translate(190,149) rotate(52) scale(.82)"/>
-        <use href="#lf" transform="translate(208,148) rotate(52) scale(.76)"/>
-        <use href="#lf" transform="translate(226,147) rotate(52) scale(.68)"/>
-        <use href="#lf" transform="translate(241,146) rotate(52) scale(.56)"/>
-        <use href="#lf" transform="translate(199,150) rotate(128) scale(.6)"/>
-        <use href="#lf" transform="translate(217,149) rotate(128) scale(.54)"/>
+        <use href="#lf" transform="translate(99,149) rotate(58) scale(.72)"/>
+        <use href="#lf" transform="translate(110,140) rotate(48) scale(.82)"/>
+        <use href="#lf" transform="translate(117,127) rotate(36) scale(.84)"/>
+        <use href="#lf" transform="translate(120,112) rotate(24) scale(.74)"/>
+        <use href="#lf" transform="translate(121,99) rotate(12) scale(.58)"/>
+        <use href="#lf" transform="translate(104,151) rotate(120) scale(.52)"/>
+        <use href="#lf" transform="translate(114,143) rotate(112) scale(.5)"/>
       </g>
-      <!-- hojas rama izquierda -->
+      <!-- hojas rama izquierda (espejo) -->
       <g fill="#C8A45A">
-        <use href="#lf" transform="translate(150,149) rotate(-52) scale(.82)"/>
-        <use href="#lf" transform="translate(132,148) rotate(-52) scale(.76)"/>
-        <use href="#lf" transform="translate(114,147) rotate(-52) scale(.68)"/>
-        <use href="#lf" transform="translate(99,146) rotate(-52) scale(.56)"/>
-        <use href="#lf" transform="translate(141,150) rotate(-128) scale(.6)"/>
-        <use href="#lf" transform="translate(123,149) rotate(-128) scale(.54)"/>
+        <use href="#lf" transform="translate(71,149) rotate(-58) scale(.72)"/>
+        <use href="#lf" transform="translate(60,140) rotate(-48) scale(.82)"/>
+        <use href="#lf" transform="translate(53,127) rotate(-36) scale(.84)"/>
+        <use href="#lf" transform="translate(50,112) rotate(-24) scale(.74)"/>
+        <use href="#lf" transform="translate(49,99) rotate(-12) scale(.58)"/>
+        <use href="#lf" transform="translate(66,151) rotate(-120) scale(.52)"/>
+        <use href="#lf" transform="translate(56,143) rotate(-112) scale(.5)"/>
       </g>
-      <!-- linea inferior + diamante -->
-      <line x1="118" y1="176" x2="222" y2="176" stroke="#C8A45A" stroke-width=".7" opacity=".7"/>
-      <path d="M170 168 L177 176 L170 184 L163 176 Z" fill="#C8A45A"/>
+      <!-- pequeno diamante en la base -->
+      <path d="M85 150 L90 157 L85 164 L80 157 Z" fill="#C8A45A"/>
     </svg>
 
     <!-- monograma con ornamentos laterales -->
@@ -1104,12 +1109,13 @@ function spawnPetals() {
   const container = $('petals');
   if (!container || container.childElementCount) return;
   const colors = ['rgba(201,146,138,.5)','rgba(228,207,151,.45)','rgba(182,138,46,.35)','rgba(240,220,200,.55)'];
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 8; i++) {
     const p = document.createElement('div');
     p.className = 'petal';
-    const size = 5 + Math.random() * 7;            // mas pequenos
+    const size = 5 + Math.random() * 6;            // mas pequenos
     const color = colors[Math.floor(Math.random() * colors.length)];
-    const left  = Math.random() * 100;
+    // solo en los bordes (izq 0-14% / der 86-100%) para no competir con el texto
+    const left  = (i % 2 === 0) ? Math.random() * 14 : 86 + Math.random() * 14;
     const dur   = 18 + Math.random() * 14;         // caida mas lenta (18-32s)
     const delay = Math.random() * 18;
     const far   = Math.random() < .35;             // ~1/3 al fondo, desenfocados
