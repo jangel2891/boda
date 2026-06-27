@@ -178,7 +178,7 @@ img,svg{display:block;max-width:100%}
 }
 
 /* ── emblema superior: ovalo + olivo ── */
-.hemblem{width:clamp(132px,24vw,176px);margin:0 auto 1.5rem;animation:goldFoil 9s ease-in-out infinite}
+.hemblem{width:clamp(230px,58vw,380px);margin:0 auto 1.4rem;animation:goldFoil 9s ease-in-out infinite}
 
 /* ── linea fina con remates ── */
 .hsepline{display:flex;align-items:center;justify-content:center;gap:.55rem;width:min(240px,64%);margin:0 auto 1.4rem;animation:goldFoil 9s ease-in-out .25s infinite}
@@ -587,44 +587,55 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
   <div class="hcorner br" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none"><path d="M4 4L4 38" stroke="#CCA55A" stroke-width="1"/><path d="M4 4L38 4" stroke="#CCA55A" stroke-width="1"/><ellipse cx="30" cy="13" rx="8" ry="3" transform="rotate(-38 30 13)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="13" cy="30" rx="8" ry="3" transform="rotate(-52 13 30)" fill="none" stroke="#CCA55A" stroke-width=".85" opacity=".55"/><ellipse cx="20" cy="20" rx="6" ry="2.5" transform="rotate(-45 20 20)" fill="none" stroke="#CCA55A" stroke-width=".7" opacity=".35"/><circle cx="4" cy="4" r="2.8" fill="#CCA55A" opacity=".45"/></svg></div>
 
   <div class="hcontent">
-    <!-- emblema: cruz latina con ramas de olivo (sacramento del matrimonio) -->
-    <svg class="hemblem rv" style="transition-delay:0s" viewBox="0 0 170 192" fill="none" aria-hidden="true">
+    <!-- emblema: ovalo con sprig de olivo y ramas de laurel simetricas -->
+    <svg class="hemblem rv" style="transition-delay:0s" viewBox="0 0 340 200" fill="none" aria-hidden="true">
       <defs>
         <path id="lf" d="M0 0 C-4 -6 -4 -14 0 -20 C4 -14 4 -6 0 0 Z"/>
       </defs>
-      <!-- cruz latina -->
-      <g stroke="#C8A45A" stroke-width="2.4" stroke-linecap="round">
-        <line x1="85" y1="24" x2="85" y2="150"/>
-        <line x1="60" y1="62" x2="110" y2="62"/>
+      <!-- ovalo vertical -->
+      <ellipse cx="170" cy="80" rx="52" ry="66" fill="none" stroke="#C8A45A" stroke-width="1.4"/>
+      <!-- sprig central -->
+      <path d="M170 140 C170 118 170 92 170 56" fill="none" stroke="#C8A45A" stroke-width="1.2" stroke-linecap="round"/>
+      <g fill="#C8A45A">
+        <use href="#lf" transform="translate(170,54) scale(.9)"/>
+        <use href="#lf" transform="translate(170,66) rotate(-40) scale(.82)"/>
+        <use href="#lf" transform="translate(170,66) rotate(40) scale(.82)"/>
+        <use href="#lf" transform="translate(170,84) rotate(-44) scale(.9)"/>
+        <use href="#lf" transform="translate(170,84) rotate(44) scale(.9)"/>
+        <use href="#lf" transform="translate(170,103) rotate(-46) scale(.92)"/>
+        <use href="#lf" transform="translate(170,103) rotate(46) scale(.92)"/>
+        <use href="#lf" transform="translate(170,122) rotate(-48) scale(.86)"/>
+        <use href="#lf" transform="translate(170,122) rotate(48) scale(.86)"/>
       </g>
-      <circle cx="85" cy="62" r="2.2" fill="#C8A45A"/>
-      <!-- ramas de olivo desde la base -->
+      <!-- ramas horizontales -->
       <g stroke="#C8A45A" stroke-width="1.2" stroke-linecap="round" fill="none">
-        <path d="M85 152 C106 148 120 128 121 100"/>
-        <path d="M85 152 C64 148 50 128 49 100"/>
+        <path d="M172 150 C198 148 222 146 244 146"/>
+        <path d="M244 146 L300 146"/>
+        <path d="M168 150 C142 148 118 146 96 146"/>
+        <path d="M96 146 L40 146"/>
       </g>
+      <g fill="#C8A45A"><circle cx="304" cy="146" r="2.6"/><circle cx="36" cy="146" r="2.6"/></g>
       <!-- hojas rama derecha -->
       <g fill="#C8A45A">
-        <use href="#lf" transform="translate(99,149) rotate(58) scale(.72)"/>
-        <use href="#lf" transform="translate(110,140) rotate(48) scale(.82)"/>
-        <use href="#lf" transform="translate(117,127) rotate(36) scale(.84)"/>
-        <use href="#lf" transform="translate(120,112) rotate(24) scale(.74)"/>
-        <use href="#lf" transform="translate(121,99) rotate(12) scale(.58)"/>
-        <use href="#lf" transform="translate(104,151) rotate(120) scale(.52)"/>
-        <use href="#lf" transform="translate(114,143) rotate(112) scale(.5)"/>
+        <use href="#lf" transform="translate(190,149) rotate(52) scale(.82)"/>
+        <use href="#lf" transform="translate(208,148) rotate(52) scale(.76)"/>
+        <use href="#lf" transform="translate(226,147) rotate(52) scale(.68)"/>
+        <use href="#lf" transform="translate(241,146) rotate(52) scale(.56)"/>
+        <use href="#lf" transform="translate(199,150) rotate(128) scale(.6)"/>
+        <use href="#lf" transform="translate(217,149) rotate(128) scale(.54)"/>
       </g>
-      <!-- hojas rama izquierda (espejo) -->
+      <!-- hojas rama izquierda -->
       <g fill="#C8A45A">
-        <use href="#lf" transform="translate(71,149) rotate(-58) scale(.72)"/>
-        <use href="#lf" transform="translate(60,140) rotate(-48) scale(.82)"/>
-        <use href="#lf" transform="translate(53,127) rotate(-36) scale(.84)"/>
-        <use href="#lf" transform="translate(50,112) rotate(-24) scale(.74)"/>
-        <use href="#lf" transform="translate(49,99) rotate(-12) scale(.58)"/>
-        <use href="#lf" transform="translate(66,151) rotate(-120) scale(.52)"/>
-        <use href="#lf" transform="translate(56,143) rotate(-112) scale(.5)"/>
+        <use href="#lf" transform="translate(150,149) rotate(-52) scale(.82)"/>
+        <use href="#lf" transform="translate(132,148) rotate(-52) scale(.76)"/>
+        <use href="#lf" transform="translate(114,147) rotate(-52) scale(.68)"/>
+        <use href="#lf" transform="translate(99,146) rotate(-52) scale(.56)"/>
+        <use href="#lf" transform="translate(141,150) rotate(-128) scale(.6)"/>
+        <use href="#lf" transform="translate(123,149) rotate(-128) scale(.54)"/>
       </g>
-      <!-- pequeno diamante en la base -->
-      <path d="M85 150 L90 157 L85 164 L80 157 Z" fill="#C8A45A"/>
+      <!-- linea inferior + diamante -->
+      <line x1="118" y1="176" x2="222" y2="176" stroke="#C8A45A" stroke-width=".7" opacity=".7"/>
+      <path d="M170 168 L177 176 L170 184 L163 176 Z" fill="#C8A45A"/>
     </svg>
 
     <!-- monograma con ornamentos laterales -->
@@ -723,36 +734,37 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
 <section class="intro">
   <div class="wrap">
     <div class="rv">
-      <!-- ramo bouquet -->
-      <svg style="width:clamp(72px,13vw,100px);margin:0 auto 2rem" viewBox="0 0 100 128" fill="none" aria-hidden="true">
-        <path d="M50 120 C50 92 50 68 50 46" stroke="#B8913F" stroke-width="1.3"/>
-        <path d="M50 86 C37 75 22 71 14 58" stroke="#B8913F" stroke-width="1.1" opacity=".68"/>
-        <path d="M50 86 C63 75 78 71 86 58" stroke="#B8913F" stroke-width="1.1" opacity=".68"/>
-        <path d="M50 70 C40 58 30 53 22 42" stroke="#B8913F" stroke-width=".9" opacity=".58"/>
-        <path d="M50 70 C60 58 70 53 78 42" stroke="#B8913F" stroke-width=".9" opacity=".58"/>
-        <path d="M50 56 C43 46 36 42 28 33" stroke="#B8913F" stroke-width=".8" opacity=".48"/>
-        <path d="M50 56 C57 46 64 42 72 33" stroke="#B8913F" stroke-width=".8" opacity=".48"/>
-        <ellipse cx="33"  cy="80" rx="9" ry="3.2" transform="rotate(-38 33 80)"  fill="none" stroke="#B8913F" stroke-width=".9"  opacity=".5"/>
-        <ellipse cx="67"  cy="80" rx="9" ry="3.2" transform="rotate(38 67 80)"   fill="none" stroke="#B8913F" stroke-width=".9"  opacity=".5"/>
-        <ellipse cx="24"  cy="63" rx="8" ry="3"   transform="rotate(-50 24 63)"  fill="none" stroke="#B8913F" stroke-width=".85" opacity=".45"/>
-        <ellipse cx="76"  cy="63" rx="8" ry="3"   transform="rotate(50 76 63)"   fill="none" stroke="#B8913F" stroke-width=".85" opacity=".45"/>
-        <!-- rosa central -->
-        <circle cx="50" cy="28" r="13" stroke="#B8913F" stroke-width="1.25"/>
-        <circle cx="50" cy="28" r="8"  stroke="#B8913F" stroke-width=".8" opacity=".5"/>
-        <circle cx="50" cy="28" r="3.5" stroke="#B8913F" stroke-width=".7" opacity=".4"/>
-        <path d="M50 15L52 23 50 28 48 23Z" fill="#B8913F" opacity=".18"/>
-        <path d="M63 28L55 30 50 28 55 26Z" fill="#B8913F" opacity=".18"/>
-        <path d="M37 28L45 30 50 28 45 26Z" fill="#B8913F" opacity=".18"/>
-        <path d="M50 41L52 33 50 28 48 33Z" fill="#B8913F" opacity=".18"/>
-        <!-- rosas laterales -->
-        <circle cx="16" cy="48" r="8"  stroke="#B8913F" stroke-width="1"   opacity=".72"/>
-        <circle cx="16" cy="48" r="4"  stroke="#B8913F" stroke-width=".65" opacity=".42"/>
-        <circle cx="84" cy="48" r="8"  stroke="#B8913F" stroke-width="1"   opacity=".72"/>
-        <circle cx="84" cy="48" r="4"  stroke="#B8913F" stroke-width=".65" opacity=".42"/>
-        <circle cx="27" cy="34" r="6"  stroke="#B8913F" stroke-width=".9"  opacity=".58"/>
-        <circle cx="73" cy="34" r="6"  stroke="#B8913F" stroke-width=".9"  opacity=".58"/>
-        <!-- lazo -->
-        <path d="M40 118C36 113 29 115 31 120 33 125 46 122 50 120 54 122 67 125 69 120 71 115 64 113 60 118" stroke="#B8913F" stroke-width="1.25" fill="none"/>
+      <!-- cruz latina con ramas de olivo (sacramento del matrimonio) -->
+      <svg style="width:clamp(92px,16vw,124px);margin:0 auto 2rem" viewBox="0 0 170 192" fill="none" aria-hidden="true">
+        <defs><path id="lfx" d="M0 0 C-4 -6 -4 -14 0 -20 C4 -14 4 -6 0 0 Z"/></defs>
+        <g stroke="#C8A45A" stroke-width="2.4" stroke-linecap="round">
+          <line x1="85" y1="24" x2="85" y2="150"/>
+          <line x1="60" y1="62" x2="110" y2="62"/>
+        </g>
+        <circle cx="85" cy="62" r="2.2" fill="#C8A45A"/>
+        <g stroke="#C8A45A" stroke-width="1.2" stroke-linecap="round" fill="none">
+          <path d="M85 152 C106 148 120 128 121 100"/>
+          <path d="M85 152 C64 148 50 128 49 100"/>
+        </g>
+        <g fill="#C8A45A">
+          <use href="#lfx" transform="translate(99,149) rotate(58) scale(.72)"/>
+          <use href="#lfx" transform="translate(110,140) rotate(48) scale(.82)"/>
+          <use href="#lfx" transform="translate(117,127) rotate(36) scale(.84)"/>
+          <use href="#lfx" transform="translate(120,112) rotate(24) scale(.74)"/>
+          <use href="#lfx" transform="translate(121,99) rotate(12) scale(.58)"/>
+          <use href="#lfx" transform="translate(104,151) rotate(120) scale(.52)"/>
+          <use href="#lfx" transform="translate(114,143) rotate(112) scale(.5)"/>
+        </g>
+        <g fill="#C8A45A">
+          <use href="#lfx" transform="translate(71,149) rotate(-58) scale(.72)"/>
+          <use href="#lfx" transform="translate(60,140) rotate(-48) scale(.82)"/>
+          <use href="#lfx" transform="translate(53,127) rotate(-36) scale(.84)"/>
+          <use href="#lfx" transform="translate(50,112) rotate(-24) scale(.74)"/>
+          <use href="#lfx" transform="translate(49,99) rotate(-12) scale(.58)"/>
+          <use href="#lfx" transform="translate(66,151) rotate(-120) scale(.52)"/>
+          <use href="#lfx" transform="translate(56,143) rotate(-112) scale(.5)"/>
+        </g>
+        <path d="M85 150 L90 157 L85 164 L80 157 Z" fill="#C8A45A"/>
       </svg>
       <p class="sscript">&iexcl;Nos casamos!</p>
       <p class="sbody">Despu&eacute;s de que Dios uni&oacute; nuestros caminos, hemos decidido unir nuestras vidas para siempre. Con el coraz&oacute;n lleno de amor y gratitud, celebraremos la promesa de un amor que todo lo cree, todo lo espera, todo lo soporta y nunca deja de ser.</p>
