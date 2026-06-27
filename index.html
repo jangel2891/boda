@@ -602,8 +602,9 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 @keyframes gfloat{0%,100%{transform:translateY(0) scale(1);opacity:.22}50%{transform:translateY(-16px) scale(1.18);opacity:.55}}
 @media(prefers-reduced-motion:reduce){.gdust span{animation:none}}
 
-/* emblema black-tie con acabado hot foil */
-.dress-emblem{width:clamp(64px,12vw,92px);margin:0 auto 1.7rem;display:block;animation:goldFoil 12s ease-in-out infinite}
+/* emblema black-tie: escudo Art Deco, mas memorable, acabado hot foil */
+.dress-emblem{width:clamp(86px,15.5vw,120px);margin:0 auto 1.5rem;display:block;
+  filter:drop-shadow(0 0 5px rgba(204,168,92,.16));animation:goldFoil 12s ease-in-out infinite}
 
 /* subtitulo: small caps mas visible, mayor espaciado */
 .dress .cap{color:var(--gold3);text-transform:none;font-variant:small-caps;font-weight:300;
@@ -626,9 +627,11 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 
 /* color sugerido */
 .swrow{display:flex;justify-content:center;gap:1.6rem;flex-wrap:wrap;margin-top:2.6rem}
-.switem{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.switem{display:flex;flex-direction:column;align-items:center;gap:.8rem}
 .swcircle{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(255,255,255,.04),0 4px 14px rgba(0,0,0,.3)}
 .switem span{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
+/* etiqueta NEGRO en versalitas con amplio espaciado */
+.dress .switem span{font-variant:small-caps;text-transform:none;letter-spacing:.4em;font-size:.62rem;color:var(--gold3)}
 
 /* bloques Caballeros / Damas — emblemas line art en composicion simetrica */
 .attire{max-width:680px;margin:3.6rem auto 0;display:grid;grid-template-columns:1fr 1fr;
@@ -641,13 +644,14 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
   background:linear-gradient(125deg,#8a6420,#ecd28f 45%,#fff6dc 50%,#d8b765 60%,#8a6420);
   box-shadow:0 0 7px rgba(236,210,143,.5)}
 .acol{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.05rem;position:relative}
-/* halo metalico suave detras del medallon (como reflejo de luz) */
-.acol::before{content:'';position:absolute;top:clamp(-10px,-1vw,-6px);left:50%;transform:translateX(-50%);
-  width:clamp(150px,32vw,210px);height:clamp(150px,32vw,210px);border-radius:50%;
-  background:radial-gradient(circle,rgba(204,168,92,.13),transparent 64%);filter:blur(10px);
+/* halo metalico suave detras del medallon (refuerza el doble aro como reflejo de luz) */
+.acol::before{content:'';position:absolute;top:clamp(-12px,-1vw,-8px);left:50%;transform:translateX(-50%);
+  width:clamp(168px,35vw,232px);height:clamp(168px,35vw,232px);border-radius:50%;
+  background:radial-gradient(circle,rgba(204,168,92,.16),rgba(204,168,92,.05) 48%,transparent 66%);filter:blur(9px);
   pointer-events:none;z-index:0}
-/* emblema medallon: brillo metalico cada ~12s */
-.amedal{width:clamp(118px,26vw,168px);display:block;position:relative;z-index:1;animation:goldFoil 12s ease-in-out infinite}
+/* emblema medallon (+12%): brillo metalico cada ~12s */
+.amedal{width:clamp(132px,29vw,188px);display:block;position:relative;z-index:1;
+  filter:drop-shadow(0 0 4px rgba(204,168,92,.14));animation:goldFoil 12s ease-in-out infinite}
 .acol:nth-child(2) .amedal{animation-delay:1.2s}
 .arole-wrap{display:flex;align-items:center;justify-content:center;gap:.7rem}
 .arole-wrap .rdot{width:5px;height:5px;flex-shrink:0;
@@ -1236,22 +1240,31 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
 <!-- ── DRESS CODE ─────────────────────────────── -->
 <section class="dress" id="dresscode">
   <div class="gdust" aria-hidden="true">
-    <span style="left:4%;top:16%;width:7px;height:7px;animation-delay:0s"></span>
-    <span style="left:8%;top:62%;width:5px;height:5px;animation-delay:3s"></span>
-    <span style="left:6%;top:84%;width:6px;height:6px;animation-delay:6s"></span>
-    <span style="right:5%;top:22%;width:6px;height:6px;animation-delay:1.5s"></span>
-    <span style="right:9%;top:54%;width:5px;height:5px;animation-delay:4.5s"></span>
-    <span style="right:4%;top:80%;width:7px;height:7px;animation-delay:7.5s"></span>
+    <span style="left:5%;top:18%;width:7px;height:7px;animation-delay:0s"></span>
+    <span style="left:7%;top:74%;width:5px;height:5px;animation-delay:5s"></span>
+    <span style="right:5%;top:26%;width:6px;height:6px;animation-delay:2.5s"></span>
+    <span style="right:6%;top:70%;width:6px;height:6px;animation-delay:7.5s"></span>
   </div>
   <div class="inner wrap">
-    <!-- emblema black-tie: corbatin en marco fino tipo diamante, hot foil -->
-    <svg class="dress-emblem rv" viewBox="0 0 84 64" fill="none" stroke="#E8D4A0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M42 7 L73 32 L42 57 L11 32 Z" stroke-width=".7" opacity=".42"/>
-      <path d="M42 12 L66 32 L42 52 L18 32 Z" stroke-width=".5" opacity=".26"/>
-      <path d="M42 32 L27 24 L27 40 Z" stroke-width="1.1"/>
-      <path d="M42 32 L57 24 L57 40 Z" stroke-width="1.1"/>
-      <rect x="38.5" y="28.5" width="7" height="7" rx="1.4" stroke-width="1.1"/>
-      <path d="M42 15 l.8 2.2 2.2 .8 -2.2 .8 -.8 2.2 -.8-2.2 -2.2-.8 2.2-.8 Z" stroke-width=".7" opacity=".6"/>
+    <!-- emblema black-tie: escudo Art Deco con corbatin, diamantes ornamentales, hot foil -->
+    <svg class="dress-emblem rv" viewBox="0 0 96 108" fill="none" stroke="#E6D2A0" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <!-- escudo -->
+      <path d="M24 22 H72 V58 C72 80 60 92 48 98 C36 92 24 80 24 58 Z" stroke-width="1.1"/>
+      <path d="M29 27 H67 V57 C67 75 57 84.5 48 89.5 C39 84.5 29 75 29 57 Z" stroke-width=".5" opacity=".5"/>
+      <!-- abanico Art Deco superior -->
+      <path d="M40 22 V15 M48 22 V12 M56 22 V15" stroke-width=".8" opacity=".7"/>
+      <path d="M40 15 L48 12 L56 15" stroke-width=".7" opacity=".55"/>
+      <!-- diamantes ornamentales en esquinas superiores -->
+      <path d="M24 22 L27 18.5 L30 22 L27 25.5 Z" stroke-width=".85"/>
+      <path d="M66 22 L69 18.5 L72 22 L69 25.5 Z" stroke-width=".85"/>
+      <!-- gema superior -->
+      <path d="M48 33 L51.5 37 L48 41 L44.5 37 Z" stroke-width=".9"/>
+      <!-- corbatin -->
+      <path d="M48 56 L37 49.5 L37 62.5 Z" stroke-width="1.1"/>
+      <path d="M48 56 L59 49.5 L59 62.5 Z" stroke-width="1.1"/>
+      <rect x="44.5" y="52" width="7" height="8" rx="1.6" stroke-width="1.1"/>
+      <!-- destello inferior -->
+      <path d="M48 70 l.9 2.4 2.4 .9 -2.4 .9 -.9 2.4 -.9-2.4 -2.4-.9 2.4-.9 Z" stroke-width=".7" opacity=".6"/>
     </svg>
     <p class="cap rv" style="transition-delay:.08s">C&oacute;digo de Vestimenta</p>
     <h2 class="shead rv" style="transition-delay:.16s">Black Tie Elegance</h2>
@@ -1287,7 +1300,7 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
           <circle cx="60" cy="66" r="1.1"/><circle cx="60" cy="75" r="1.1"/>
         </svg>
         <div class="arole-wrap rv" style="transition-delay:.42s"><span class="rdot"></span><span class="arole">Caballeros</span><span class="rdot"></span></div>
-        <p class="adesc rv" style="transition-delay:.5s"><span class="k">Esmoquin negro</span>, <span class="k">camisa blanca</span>, <span class="k">corbat&iacute;n negro</span> y zapatos de vestir negros.</p>
+        <p class="adesc rv" style="transition-delay:.5s"><span class="k">Esmoquin negro</span>, camisa blanca, <span class="k">corbat&iacute;n negro</span> y zapatos de vestir negros.</p>
       </div>
       <div class="acol">
         <!-- emblema DAMAS: vestido de gala largo en medallon Art Deco -->
@@ -1316,7 +1329,7 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
     </div>
     <p class="cap rv" style="margin-top:3rem;transition-delay:.4s">Color Sugerido:</p>
     <div class="swrow rv" style="margin-top:1.4rem;transition-delay:.5s">
-      <div class="switem"><div class="swcircle" style="background:#090909;width:64px;height:64px;box-shadow:0 0 0 1px var(--gold3),0 0 0 5px rgba(184,145,63,.08)"></div><span>Negro</span></div>
+      <div class="switem"><div class="swcircle" style="background:#0a0a0a;width:64px;height:64px;box-shadow:0 0 0 1px rgba(230,205,150,.6),0 8px 22px rgba(0,0,0,.5)"></div><span>negro</span></div>
     </div>
   </div>
 </section>
