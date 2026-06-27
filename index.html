@@ -306,6 +306,12 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .switem{display:flex;flex-direction:column;align-items:center;gap:.6rem}
 .swcircle{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.1);box-shadow:0 0 0 4px rgba(255,255,255,.04),0 4px 14px rgba(0,0,0,.3)}
 .switem span{font-family:var(--sans);font-weight:200;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
+.attire{display:flex;justify-content:center;gap:clamp(1.4rem,4vw,3rem);flex-wrap:wrap;margin-top:3rem}
+.acard{flex:1 1 300px;max-width:360px;display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.02);border:1px solid rgba(232,212,160,.14);padding:1.4rem 1.4rem 2rem}
+.acard .aphoto{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(18%) brightness(.94);border:1px solid rgba(232,212,160,.18)}
+.acard .arole{font-family:var(--sans);font-weight:200;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold3);margin-top:1.4rem}
+.acard .atitle{font-family:var(--pf);font-style:italic;font-size:1.3rem;color:var(--ivory);margin:.5rem 0 .8rem}
+.acard .adesc{font-family:var(--sans);font-weight:200;font-size:.72rem;line-height:1.75;letter-spacing:.02em;color:rgba(240,229,211,.6);text-align:center}
 
 /* ─── REGALOS ─────────────────────────────────────────── */
 .gifts{background:var(--cream)}
@@ -722,9 +728,22 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
       <path d="M38 23C35 19 31 23 34 27 37 31 44 27 46 26 48 27 55 31 58 27 61 23 57 19 54 23 51 27 48 26 46 26Z" stroke="#E8D4A0" stroke-width=".95" fill="none" opacity=".78"/>
     </svg>
     <p class="cap">C&oacute;digo de Vestimenta</p>
-    <h2 class="shead">Total Black</h2>
-    <p class="sbody">Caballeros: esmoquin negro, camisa blanca y corbata negra.</p>
-    <p class="sbody" style="margin-top:.6rem">Damas: vestido de c&oacute;ctel en color negro.</p>
+    <h2 class="shead">Black Tie Elegance</h2>
+    <p class="sbody">Una noche de gala en clave de negro. Te invitamos a lucir tu mejor versi&oacute;n.</p>
+    <div class="attire">
+      <div class="acard">
+        <img class="aphoto" loading="lazy" src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop" alt="Vestido de gala negro para dama">
+        <p class="arole">Ellas</p>
+        <h3 class="atitle">Damas</h3>
+        <p class="adesc">Vestido largo o de c&oacute;ctel en color negro. Telas fluidas, brillos sutiles y accesorios en dorado o plateado para un toque de glamour.</p>
+      </div>
+      <div class="acard">
+        <img class="aphoto" loading="lazy" src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?q=80&w=800&auto=format&fit=crop" alt="Esmoquin negro para caballero">
+        <p class="arole">Ellos</p>
+        <h3 class="atitle">Caballeros</h3>
+        <p class="adesc">Esmoquin o traje negro con camisa blanca y corbata o corbat&iacute;n negro. Zapatos de vestir negros para completar el look de gala.</p>
+      </div>
+    </div>
     <div class="swrow">
       <div class="switem"><div class="swcircle" style="background:#090909"></div><span>Negro</span></div>
     </div>
