@@ -1,0 +1,16 @@
+{
+  "urls": ["http://localhost:3000/", "http://localhost:3000/slow"],
+  "method": "GET",
+  "connections": 100,
+  "workers": 4,
+  "duration": 60,
+  "rate": 0,
+  "rampUp": 5,
+  "timeout": 10000,
+  "headers": {
+    "Accept": "application/json"
+  },
+  "dashboard": true,
+  "port": 8787,
+  "json": "reporte.json"
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>estres · dashboard</title>
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --border: #30363d;
+    --text: #e6edf3; --muted: #8b949e;
+    --accent: #58a6ff; --ok: #3fb950; --warn: #d29922; --err: #f85149;
+    --grid: #21262d;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  header {
+    padding: 16px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  header h1 { margin: 0; font-size: 18px; font-weight: 700; letter-spacing: .5px; }
+  .badge {
+    font-size: 12px; padding: 3px 10px; border-radius: 999px;
+    background: var(--panel); border: 1px solid var(--border); color: var(--muted);
+  }
+  .badge.live { color: var(--ok); border-color: var(--ok); }
+  .badge.done { color: var(--warn); border-color: var(--warn); }
+  .target { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  main { padding: 24px; max-width: 1200px; margin: 0 auto; }
+  .cards {
+    display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-bottom: 24px;
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+  }
+  .card .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .6px; }
+  .card .value { font-size: 28px; font-weight: 700; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .card .unit { font-size: 14px; color: var(--muted); font-weight: 400; }
+  .card.err .value { color: var(--err); }
+  .grid2 { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 820px) { .grid2 { grid-template-columns: 1fr; } }
+  .chart-panel {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px;
+  }
+  .chart-panel h2 { margin: 0 0 12px; font-size: 14px; color: var(--muted); font-weight: 600; }
+  canvas { width: 100%; height: 220px; display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  th { color: var(--muted); font-weight: 600; }
+  .code-2xx { color: var(--ok); } .code-3xx { color: var(--accent); }
+  .code-4xx { color: var(--warn); } .code-5xx, .code-err { color: var(--err); }
+  .foot { color: var(--muted); font-size: 12px; margin-top: 20px; text-align: center; }
+  .legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .legend span::before { content: "■ "; }
+</style>
+</head>
+<body>
+<header>
+  <h1>estres</h1>
+  <span id="status" class="badge">conectando…</span>
+  <span id="target" class="target"></span>
+</header>
+<main>
+  <div class="cards">
+    <div class="card"><div class="label">RPS actual</div><div class="value" id="rps">—</div></div>
+    <div class="card"><div class="label">Peticiones</div><div class="value" id="reqs">—</div></div>
+    <div class="card"><div class="label">Latencia p50</div><div class="value" id="p50">—</div></div>
+    <div class="card"><div class="label">Latencia p95</div><div class="value" id="p95">—</div></div>
+    <div class="card"><div class="label">Latencia p99</div><div class="value" id="p99">—</div></div>
+    <div class="card err"><div class="label">Errores</div><div class="value" id="errors">—</div></div>
+  </div>
+
+  <div class="chart-panel">
+    <h2>Peticiones por segundo</h2>
+    <canvas id="rpsChart"></canvas>
+  </div>
+
+  <div class="grid2">
+    <div class="chart-panel">
+      <h2>Latencia (ms) · p50 / p95 / p99</h2>
+      <div class="legend">
+        <span style="color:var(--accent)">p50</span>
+        <span style="color:var(--warn)">p95</span>
+        <span style="color:var(--err)">p99</span>
+      </div>
+      <canvas id="latChart"></canvas>
+    </div>
+    <div class="chart-panel">
+      <h2>Códigos de estado / errores</h2>
+      <table id="statusTable"><thead><tr><th>Código</th><th>Conteo</th></tr></thead><tbody></tbody></table>
+      <div style="margin-top:14px; color:var(--muted); font-size:13px;">
+        <div>Transferido: <span id="bytes">—</span></div>
+        <div>Latencia media: <span id="mean">—</span> · máx: <span id="max">—</span></div>
+        <div>Conexiones: <span id="conns">—</span> · workers: <span id="workers">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">estres · pruebas de estrés HTTP · datos en vivo vía SSE</div>
+</main>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  function fmt(n) { return (n || 0).toLocaleString('es'); }
+  function fmtMs(ms) {
+    if (ms == null) return '—';
+    if (ms >= 1000) return (ms / 1000).toFixed(2) + 's';
+    if (ms >= 10) return Math.round(ms) + 'ms';
+    return ms.toFixed(2) + 'ms';
+  }
+  function fmtBytes(b) {
+    const u = ['B','KB','MB','GB','TB']; let i = 0; b = b || 0;
+    while (b >= 1024 && i < u.length - 1) { b /= 1024; i++; }
+    return b.toFixed(i ? 2 : 0) + u[i];
+  }
+
+  // ---- Dibujo de gráficas de líneas en canvas (sin librerías) ----
+  function drawLines(canvas, series, accessors, colors, opts) {
+    opts = opts || {};
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+
+    const padL = 48, padR = 10, padT = 10, padB = 22;
+    const plotW = w - padL - padR, plotH = h - padT - padB;
+
+    let max = 0;
+    for (const s of series) for (const acc of accessors) max = Math.max(max, acc(s));
+    max = max <= 0 ? 1 : max * 1.15;
+
+    // Grid + etiquetas Y
+    ctx.strokeStyle = getVar('--grid'); ctx.fillStyle = getVar('--muted');
+    ctx.lineWidth = 1; ctx.font = '11px ui-monospace, monospace';
+    const rows = 4;
+    for (let i = 0; i <= rows; i++) {
+      const y = padT + (plotH * i) / rows;
+      ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
+      const val = max * (1 - i / rows);
+      ctx.fillText(opts.fmt ? opts.fmt(val) : Math.round(val), 4, y + 3);
+    }
+
+    if (series.length < 2) return;
+    const n = series.length;
+    const x = (i) => padL + (plotW * i) / (n - 1);
+    const y = (v) => padT + plotH * (1 - v / max);
+
+    accessors.forEach((acc, idx) => {
+      ctx.beginPath();
+      ctx.strokeStyle = colors[idx]; ctx.lineWidth = 2;
+      series.forEach((s, i) => {
+        const px = x(i), py = y(acc(s));
+        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+      });
+      ctx.stroke();
+      if (opts.fill && accessors.length === 1) {
+        ctx.lineTo(x(n - 1), padT + plotH);
+        ctx.lineTo(x(0), padT + plotH);
+        ctx.closePath();
+        ctx.fillStyle = colors[idx] + '22';
+        ctx.fill();
+      }
+    });
+  }
+  function getVar(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim() || '#888';
+  }
+
+  let latest = null;
+  function render(d) {
+    latest = d;
+    $('rps').textContent = fmt(d.rps);
+    $('reqs').textContent = fmt(d.totalReqs);
+    $('p50').innerHTML = fmtMs(d.latency.p50);
+    $('p95').innerHTML = fmtMs(d.latency.p95);
+    $('p99').innerHTML = fmtMs(d.latency.p99);
+    $('errors').textContent = fmt(d.totalErrors + d.totalNon2xx);
+    $('bytes').textContent = fmtBytes(d.totalBytes);
+    $('mean').textContent = fmtMs(d.latency.mean);
+    $('max').textContent = fmtMs(d.latency.max);
+    $('conns').textContent = d.config.connections;
+    $('workers').textContent = d.config.workers;
+    $('target').textContent = d.config.method + ' ' + d.config.urls.join(', ');
+
+    const st = $('status');
+    if (d.finished) { st.textContent = 'finalizado'; st.className = 'badge done'; }
+    else { st.textContent = '● en vivo'; st.className = 'badge live'; }
+
+    // Tabla de estados
+    const tbody = $('statusTable').querySelector('tbody');
+    tbody.innerHTML = '';
+    Object.entries(d.statusCounts).sort((a, b) => b[1] - a[1]).forEach(([code, cnt]) => {
+      const tr = document.createElement('tr');
+      let cls = 'code-err';
+      if (/^\d/.test(code)) cls = 'code-' + code[0] + 'xx';
+      tr.innerHTML = `<td class="${cls}">${code}</td><td>${fmt(cnt)}</td>`;
+      tbody.appendChild(tr);
+    });
+
+    const s = d.series || [];
+    drawLines($('rpsChart'), s, [(p) => p.rps], [getVar('--accent')], { fill: true });
+    drawLines($('latChart'), s,
+      [(p) => p.p50, (p) => p.p95, (p) => p.p99],
+      [getVar('--accent'), getVar('--warn'), getVar('--err')],
+      { fmt: (v) => Math.round(v) + 'ms' });
+  }
+
+  window.addEventListener('resize', () => { if (latest) render(latest); });
+
+  const es = new EventSource('/events');
+  es.onmessage = (ev) => { try { render(JSON.parse(ev.data)); } catch (e) {} };
+  es.onerror = () => {
+    const st = $('status');
+    if (!latest || !latest.finished) { st.textContent = 'desconectado'; st.className = 'badge'; }
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "estres",
+  "version": "1.0.0",
+  "description": "Herramienta de pruebas de estrés HTTP(S) para tu infraestructura: CLI + dashboard web en vivo, sin dependencias externas.",
+  "bin": {
+    "estres": "bin/estres.js"
+  },
+  "main": "src/runner.js",
+  "scripts": {
+    "start": "node bin/estres.js",
+    "demo:target": "node examples/target-server.js",
+    "test": "node test/smoke.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "private": true
+}
