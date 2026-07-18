@@ -735,6 +735,7 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .rmono-line span{height:.5px;width:38px;background:linear-gradient(to right,transparent,var(--gold))}
 .rmono-line span:last-child{background:linear-gradient(to left,transparent,var(--gold))}
 .rmono-line i{width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.rmono-date{font-family:var(--sans);font-weight:300;font-size:.54rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold2)}
 /* titulo focal */
 .rsvp .sscript{font-size:clamp(2.75rem,7.7vw,4.2rem);
   background:linear-gradient(100deg,#7a5618,#b88f38 26%,#e2c069 46%,#fff0c8 52%,#c79c4c 60%,#7a5618);
@@ -758,8 +759,9 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .rsvpbtn:hover{transform:translateY(-3px);box-shadow:0 16px 34px -14px rgba(90,65,20,.5),inset 0 1px 1px rgba(255,255,255,.55);filter:brightness(1.04)}
 .rsvpbtn:active{transform:translateY(-1px) scale(.985);box-shadow:0 8px 20px -12px rgba(90,65,20,.45)}
 .rsvpbtn svg{width:19px;height:19px;flex-shrink:0;position:relative;z-index:1}
-.rsvpnote{font-family:var(--cor);font-size:1rem;color:var(--ash);margin-top:1.8rem}
-.rsvpnote strong{font-weight:500;font-style:italic;color:var(--ash)}
+.rsvpnote{display:flex;flex-direction:column;align-items:center;gap:.55rem;margin-top:1.9rem}
+.rc-label{font-family:var(--sans);font-weight:300;font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold2)}
+.rc-nums{font-family:var(--cor);font-size:1.08rem;letter-spacing:.05em;color:var(--ash)}
 
 /* ─── FOOTER ──────────────────────────────────────────── */
 footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5rem 2rem 5rem;position:relative}
@@ -1464,16 +1466,20 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
     <div class="rmono">
       <span class="rmono-vs">V<span class="amp">&amp;</span>S</span>
       <span class="rmono-line"><span></span><i></i><span></span></span>
+      <span class="rmono-date">18 &middot; SEPT &middot; 2026</span>
     </div>
     <p class="cap">Confirma tu asistencia</p>
-    <h2 class="sscript">&iquest;Nos acompa&ntilde;as?</h2>
-    <p class="sbody">Ser&aacute; un honor contar con tu presencia. Te agradecemos confirmar tu asistencia antes del <strong>15 de agosto de 2026</strong>. Con un solo clic podr&aacute;s escribirnos directamente por WhatsApp para reservar tu lugar.</p>
+    <h2 class="sscript">Esperamos contar con tu presencia</h2>
+    <p class="sbody">Ser&aacute; un honor contar con tu presencia en este d&iacute;a tan especial. Agradecemos confirmar tu asistencia antes del <strong>15 de agosto de 2026</strong>. Con un solo clic podr&aacute;s escribirnos directamente por WhatsApp para reservar tu lugar.</p>
     <br>
     <a class="rsvpbtn" id="rsvpBtn" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      Confirmar por WhatsApp
+      Confirmar asistencia
     </a>
-    <p class="rsvpnote">Tambi&eacute;n puedes comunicarte al &nbsp;<strong>313 888 4908</strong> &nbsp;&middot;&nbsp; <strong>350 685 4907</strong></p>
+    <div class="rsvpnote">
+      <span class="rc-label">Contacto</span>
+      <span class="rc-nums">313 888 4908 &nbsp;&middot;&nbsp; 350 685 4907</span>
+    </div>
   </div>
 </section>
 
@@ -1493,9 +1499,9 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
     <text x="80" y="54" text-anchor="middle" font-family="Playfair Display,serif" font-size="26" font-style="italic" fill="#CCA55A" opacity=".88" letter-spacing="1">V&amp;S</text>
     <text x="80" y="68" text-anchor="middle" font-family="Jost,sans-serif" font-size="7.5" fill="#B8913F" letter-spacing="8" font-weight="300" opacity=".65">2026</text>
   </svg>
-  <p class="fhash">#ValentinaYSebastian2026</p>
-  <p class="fmsg">Te esperamos con todo el coraz&oacute;n</p>
-  <p class="fyear">18 · IX · MMXXVI &nbsp;·&nbsp; Tenjo, Cundinamarca</p>
+  <p class="fhash">Valentina &amp; Sebasti&aacute;n</p>
+  <p class="fmsg">18 &middot; Septiembre &middot; 2026</p>
+  <p class="fyear">Tenjo &middot; Cundinamarca</p>
 </footer>
 
 <!-- ── YOUTUBE IFRAME API ─────────────────────── -->
