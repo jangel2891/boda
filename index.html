@@ -233,13 +233,14 @@ img,svg{display:block;max-width:100%}
 .hnames{
   font-family:var(--gv);
   font-size:clamp(1.6rem,8.6vw,7.3rem);
-  line-height:.92;
+  line-height:1.16;
   background:linear-gradient(100deg,#8a6420 0%,#c79c4c 22%,#e9d294 40%,#fff6dc 50%,#d8b765 60%,#a87c2c 80%,#8a6420 100%);
   background-size:260%;
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
   animation:nameShimmer 9s ease-in-out infinite;
-  display:block;text-align:center;margin-bottom:.5rem;padding-left:.5em;
+  display:block;text-align:center;margin-bottom:.35rem;padding:.08em .35em .2em;
+  overflow:visible;
   filter:drop-shadow(0 1px 2px rgba(70,52,20,.28));
 }
 @keyframes nameShimmer{
@@ -247,7 +248,7 @@ img,svg{display:block;max-width:100%}
   50%{background-position:0% center}
 }
 .hamp{
-  font-family:var(--gv);font-size:clamp(1.4rem,5.5vw,4rem);line-height:1;display:block;margin:-.08em 0;
+  font-family:var(--gv);font-size:clamp(1.4rem,5.5vw,4rem);line-height:1.2;display:block;margin:-.02em 0;padding:.04em .12em;
   background:linear-gradient(100deg,#9a7526,#e8cd85 45%,#fff4d6 52%,#C8A45A 62%,#8a6420);
   background-size:240%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   animation:nameShimmer 9s ease-in-out infinite;
@@ -382,7 +383,7 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
 .cap{font-family:var(--sans);font-weight:200;font-size:.56rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold2);margin-bottom:.55rem}
 .shead{font-family:var(--pf);font-size:clamp(1.8rem,5vw,2.8rem);font-weight:400;color:var(--dark);line-height:1.2}
 .shead.i{font-style:italic}
-.sscript{font-family:var(--gv);font-size:clamp(2.5rem,7vw,3.8rem);color:var(--gold2);line-height:1}
+.sscript{font-family:var(--gv);font-size:clamp(2.5rem,7vw,3.8rem);color:var(--gold2);line-height:1.32;padding:.12em .28em .18em;display:block;overflow:visible}
 .sbody{font-family:var(--cor);font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.9;color:var(--ash);max-width:40ch;margin:1.2rem auto 0}
 .orn{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:2.5rem auto;animation:goldFoil 9s ease-in-out 1.2s infinite}
 .orn .ol{position:relative;height:.5px;width:78px}
