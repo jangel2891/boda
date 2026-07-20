@@ -1544,33 +1544,54 @@ function setPlayerUI(playing) {
 bgm.addEventListener('play',  () => setPlayerUI(true));
 bgm.addEventListener('pause', () => setPlayerUI(false));
 
-/* ─── Personalizacion por enlace (?invitado=...&saludo=...) ─── */
+/* ─── Personalizacion por CODIGO unico (?c=xxxxxx) con lista blanca ─── */
+const CODES = {
+    "mb2qqu": {n:"Nelly Ángel Hidalgo", s:"Bienvenida"},
+    "qd63j6": {n:"Jaime Ángel", s:"Bienvenido"},
+    "gcp98q": {n:"Carmen Ángel", s:"Bienvenida"},
+    "uf5tjw": {n:"Familia Ordóñez Tinjacá", s:"Bienvenidos"},
+    "5v5wje": {n:"Fernando Ángel y Sandra Pulgarín", s:"Bienvenidos"},
+    "q6nbni": {n:"Cristina Ángel, Mónica Portela y Alejandro", s:"Bienvenidos"},
+    "t8y8tw": {n:"María Cenelia Correa", s:"Bienvenida"},
+    "a7vyiv": {n:"Familia Castellanos Gutiérrez", s:"Bienvenidos"},
+    "4332a9": {n:"Luz Dary Cárdenas", s:"Bienvenida"},
+    "xax5zc": {n:"Familia Cárdenas Correa", s:"Bienvenidos"},
+    "8pfwk4": {n:"Magaleys Peña, Claudia Murillo y Maribel Murillo", s:"Bienvenidos"},
+    "2vcr7y": {n:"Luis Fernando Padilla, esposa e hija", s:"Bienvenidos"},
+    "spt4nh": {n:"Carlos Andrés Guzmán, esposa e hijos", s:"Bienvenidos"},
+    "cdrtfk": {n:"Viviana García y Jonathan Serna", s:"Bienvenidos"},
+    "7evs4a": {n:"Marcela Ordóñez y Felipe", s:"Bienvenidos"},
+    "yswv6e": {n:"María Vanessa y Simón Hoyos", s:"Bienvenidos"}
+};
 const GUEST = (function () {
   const p = new URLSearchParams(location.search);
-  let name   = (p.get('invitado') || '').trim();
-  const saludo = (p.get('saludo') || '').trim();   // URLSearchParams ya decodifica %XX, tildes y ñ
-  if (!name) name = 'Invitado especial';
+  const code = (p.get('c') || '').trim().toLowerCase();
+  const g = CODES[code];
+  if (!g) return { valid:false };
+  const name = g.n, saludo = g.s;
   const low = name.toLowerCase();
-  // grupo/pareja/familia: "Familia ...", " y ", " e ", comas, o roles multiples
   const isGroup = /(^familia\b|\sy\s|\se\s|,|esposa|esposo|hij[ao]s?|novi[oa])/.test(low);
-  let greet = saludo;                              // si viene saludo, se usa tal cual
-  if (!greet) {
-    if (isGroup) greet = 'Bienvenidos';
-    else {
-      const first = low.split(/\s+/)[0];
-      greet = /a$/.test(first) ? 'Bienvenida' : 'Bienvenido';  // heuristica de genero
-    }
-  }
+  let greet = saludo || (isGroup ? 'Bienvenidos'
+    : (/a$/.test(low.split(/\s+/)[0]) ? 'Bienvenida' : 'Bienvenido'));
   const plural = isGroup || /^bienvenidos$/i.test(greet.trim());
-  return { name, greet, plural };
+  return { valid:true, name, greet, plural };
 })();
 
-/* pintar saludo y nombre en la portada */
+/* pintar saludo/nombre; si el codigo no es valido, bloquear la invitacion */
 (function paintGuest() {
   const hi = document.getElementById('egHi');
   const nm = document.getElementById('egName');
-  if (hi) hi.textContent = GUEST.greet.replace(/[,\s]+$/, '') + ',';
-  if (nm) nm.textContent = GUEST.name;
+  const stage = document.getElementById('envStage');
+  if (GUEST.valid) {
+    if (hi) hi.textContent = GUEST.greet.replace(/[,\s]+$/, '') + ',';
+    if (nm) nm.textContent = GUEST.name;
+  } else {
+    if (hi) hi.style.display = 'none';
+    if (nm) nm.textContent = 'Invitación no válida';
+    const pr = document.querySelector('.env-prompt');
+    if (pr) pr.textContent = 'Verifica el enlace que recibiste';
+    if (stage) { stage.onclick = null; stage.style.cursor = 'default'; }  // no permite abrir
+  }
 })();
 
 /* Splash: al hacer clic se activa la música CON sonido (gesto del usuario = autoplay permitido) */
@@ -1653,9 +1674,11 @@ tick(); setInterval(tick, 1000);
 
 /* ─── WhatsApp ───────────────────────── */
 const NUM = '573138884908';
-const MSG = GUEST.plural
-  ? `Hola, somos ${GUEST.name} y confirmamos nuestra asistencia a la boda de Valentina y Sebastián.`
-  : `Hola, soy ${GUEST.name} y confirmo mi asistencia a la boda de Valentina y Sebastián.`;
+const MSG = !GUEST.valid
+  ? 'Hola, quiero confirmar mi asistencia a la boda de Valentina y Sebastián.'
+  : (GUEST.plural
+    ? `Hola, somos ${GUEST.name} y confirmamos nuestra asistencia a la boda de Valentina y Sebastián.`
+    : `Hola, soy ${GUEST.name} y confirmo mi asistencia a la boda de Valentina y Sebastián.`);
 $('rsvpBtn').href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(MSG);
 
 /* ─── Nav scroll + Progress bar ─────── */
