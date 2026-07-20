@@ -771,11 +771,12 @@ section{padding:clamp(5.5rem,12vw,10rem) clamp(1.5rem,5vw,3.5rem)}
   background-size:260%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   animation:foilSweep 13s ease-in-out infinite;filter:drop-shadow(0 1px 1px rgba(70,52,20,.18))}
 /* boton premium */
+.rsvpbtns{display:flex;flex-direction:column;align-items:center;gap:1rem}
 .rsvpbtn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.8rem;position:relative;overflow:hidden;
-  font-family:var(--pf);font-style:italic;font-size:1.02rem;letter-spacing:.04em;color:#4a3410;
+  display:inline-flex;align-items:center;justify-content:center;gap:.7rem;position:relative;overflow:hidden;
+  font-family:var(--pf);font-style:italic;font-size:1rem;letter-spacing:.04em;color:#4a3410;
   background:linear-gradient(135deg,#f4dd9e 0%,#e2bf6b 45%,#d9b25a 55%,#eccd82 100%);
-  padding:1.1rem 2.8rem;border:1px solid rgba(160,120,40,.55);border-radius:44px;
+  padding:1rem 2.2rem;border:1px solid rgba(160,120,40,.55);border-radius:44px;min-width:min(88vw,340px);
   box-shadow:0 10px 26px -12px rgba(90,65,20,.45),inset 0 1px 1px rgba(255,255,255,.5);
   transition:transform .6s ease-in-out,box-shadow .6s ease-in-out,filter .4s;
 }
@@ -1495,14 +1496,17 @@ footer{background:var(--dark);color:var(--ivory);text-align:center;padding:5.5re
     <h2 class="sscript">Esperamos contar con tu presencia</h2>
     <p class="sbody">Ser&aacute; un honor compartir contigo este d&iacute;a tan especial. Agradecemos confirmar tu asistencia antes del <strong>15 de agosto de 2026</strong>. Con un solo clic podr&aacute;s escribirnos directamente por WhatsApp para reservar tu lugar.</p>
     <br>
-    <a class="rsvpbtn" id="rsvpBtn" href="#" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      Confirmar asistencia
-    </a>
-    <div class="rsvpnote">
-      <span class="rc-label">Contacto</span>
-      <span class="rc-nums">313 888 4908 &nbsp;&middot;&nbsp; 350 685 4907</span>
+    <div class="rsvpbtns">
+      <a class="rsvpbtn" id="rsvpBtn1" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        Confirmar &middot; 313 888 4908
+      </a>
+      <a class="rsvpbtn" id="rsvpBtn2" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        Confirmar &middot; 350 685 4907
+      </a>
     </div>
+    <p class="rsvpnote"><span class="rc-nums">Con un toque conf&iacute;rmanos por WhatsApp</span></p>
   </div>
 </section>
 
@@ -1672,14 +1676,17 @@ function setNum(el, val) {
 }
 tick(); setInterval(tick, 1000);
 
-/* ─── WhatsApp ───────────────────────── */
-const NUM = '573138884908';
+/* ─── WhatsApp (confirmacion a los dos numeros) ───────────────────────── */
+const NUMS = ['573138884908', '573506854907'];
 const MSG = !GUEST.valid
   ? 'Hola, quiero confirmar mi asistencia a la boda de Valentina y Sebastián.'
   : (GUEST.plural
     ? `Hola, somos ${GUEST.name} y confirmamos nuestra asistencia a la boda de Valentina y Sebastián.`
     : `Hola, soy ${GUEST.name} y confirmo mi asistencia a la boda de Valentina y Sebastián.`);
-$('rsvpBtn').href = 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(MSG);
+const waText = encodeURIComponent(MSG);
+const b1 = $('rsvpBtn1'), b2 = $('rsvpBtn2');
+if (b1) b1.href = 'https://wa.me/' + NUMS[0] + '?text=' + waText;
+if (b2) b2.href = 'https://wa.me/' + NUMS[1] + '?text=' + waText;
 
 /* ─── Nav scroll + Progress bar ─────── */
 const nav = $('nav');
