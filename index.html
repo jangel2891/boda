@@ -348,15 +348,15 @@ img,svg{display:block;max-width:100%}
 .env-seal.flash{animation:sealFlash 1.1s ease}
 @keyframes sealFlash{0%{filter:brightness(1)}40%{filter:brightness(1.3) saturate(1.05)}100%{filter:brightness(1)}}
 /* saludo personalizado por enlace */
-.env-greet{display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;overflow:visible;padding:.15em .6em .2em;margin-top:-.4rem;max-width:min(94vw,640px)}
-.eg-hi{font-family:var(--cor);font-style:italic;font-size:clamp(1rem,3vw,1.35rem);letter-spacing:.04em;color:var(--gold2);
+.env-greet{display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;overflow:visible;box-sizing:border-box;padding:.15em 1rem .2em;margin:-.4rem auto 0;width:100%;max-width:min(90vw,560px)}
+.eg-hi{font-family:var(--cor);font-style:italic;font-size:clamp(1rem,3vw,1.35rem);letter-spacing:.04em;color:var(--gold2);max-width:100%;
   opacity:0;transform:translateY(8px);transition:opacity .8s ease-in-out,transform .8s ease-in-out}
-.eg-name{font-family:var(--pf);font-weight:500;font-size:clamp(1.35rem,5vw,2.15rem);line-height:1.28;letter-spacing:.01em;color:var(--dark);
-  overflow:visible;padding:.04em .1em .08em;text-wrap:balance;
+.eg-name{font-family:var(--pf);font-weight:500;font-size:clamp(1.2rem,4.4vw,1.95rem);line-height:1.26;letter-spacing:.01em;color:var(--dark);
+  max-width:100%;overflow-wrap:break-word;word-break:break-word;overflow:visible;padding:.04em .1em .1em;text-wrap:balance;
   opacity:0;transform:translateY(8px);transition:opacity .8s ease-in-out,transform .8s ease-in-out}
 .env-greet.hi-in .eg-hi{opacity:1;transform:none}
 .env-greet.name-in .eg-name{opacity:1;transform:none}
-.env-prompt{font-family:var(--pf);font-style:italic;font-weight:500;font-size:1.32rem;color:#B68A2E;letter-spacing:.03em;margin-top:.2rem;opacity:0;text-shadow:0 1px 1px rgba(255,250,235,.5)}
+.env-prompt{font-family:var(--pf);font-style:italic;font-weight:500;font-size:clamp(1.05rem,4.2vw,1.32rem);color:#B68A2E;letter-spacing:.03em;margin-top:.2rem;opacity:0;text-shadow:0 1px 1px rgba(255,250,235,.5);max-width:92vw;text-align:center}
 .env-prompt.show{animation:promptIn 1s ease forwards,breathe 3.6s ease-in-out 1s infinite}
 @keyframes promptIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:.9;transform:translateY(0)}}
 @keyframes breathe{0%,100%{opacity:.7}50%{opacity:1}}
