@@ -45,6 +45,21 @@ header{text-align:center;padding:clamp(3rem,7vw,4.6rem) 1rem 2.2rem}
 .b-d{background:linear-gradient(135deg,#e8cd85,#c8a45a);color:#4a3410}
 .legend .note{font-family:var(--cor);font-style:italic;font-size:.98rem;color:var(--muted);text-align:center;margin-top:1rem}
 
+/* detalles esenciales (pre-día) */
+.essentials{background:linear-gradient(160deg,#fbf3df,#f6ecd4);border:1px solid var(--gold);border-radius:16px;padding:1.4rem 1.5rem;margin-top:1.5rem}
+.essentials h2{font-family:var(--pf);font-weight:500;font-size:1.35rem;text-align:center;margin-bottom:.3rem}
+.essentials .sc{font-family:var(--cor);font-style:italic;font-size:1rem;color:var(--muted);text-align:center;margin-bottom:1.1rem}
+.echecks{display:grid;grid-template-columns:1fr;gap:.6rem}
+@media(min-width:640px){.echecks{grid-template-columns:1fr 1fr;gap:.6rem 1.6rem}}
+.echecks li{list-style:none;position:relative;padding-left:1.7rem;font-size:1.04rem;color:var(--ink)}
+.echecks li::before{content:'✦';position:absolute;left:0;top:.05em;color:var(--gold-deep);font-size:.9rem}
+.echecks li b{color:var(--gold-deep);font-weight:600}
+
+/* toque experto */
+.tip{margin-top:.9rem;display:flex;gap:.55rem;align-items:flex-start;font-family:var(--cor);font-style:italic;font-size:1.02rem;color:var(--gold-deep);
+  background:rgba(200,164,90,.08);border-radius:8px;padding:.6rem .8rem}
+.tip::before{content:'✦';font-style:normal;flex-shrink:0}
+
 /* timeline block */
 .block{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;
   padding:1.5rem clamp(1.1rem,3vw,1.8rem);margin-top:1.5rem;box-shadow:0 14px 40px -28px rgba(60,45,20,.4)}
@@ -128,6 +143,19 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
     <p class="note">Las damas trabajan en dos parejas: <b>D1 y D2</b> (primera pareja) · <b>D3 y D4</b> (segunda pareja).</p>
   </section>
 
+  <section class="essentials">
+    <h2>Detalles que marcan la diferencia</h2>
+    <p class="sc">Para preparar <em>antes</em> del gran día — el sello de una boda elegante.</p>
+    <ul class="echecks">
+      <li><b>Coreografía de la hora loca:</b> las 4 damas ensayan una rutina <b>sencilla</b> (3–4 pasos) para abrir la pista y contagiar a los invitados.</li>
+      <li><b>Kit de emergencia</b> (una dama lo lleva): alfileres, hilo y aguja, curitas, pañuelos, labial neutro, toallitas, pinzas y desodorante.</li>
+      <li><b>El ramo de la novia:</b> una dama designada lo sostiene durante los votos y en el vals, y se lo devuelve para las fotos.</li>
+      <li><b>Lista de grupos para foto</b> impresa (por familia) para que las fotos fluyan sin demoras.</li>
+      <li><b>Señales discretas con el WP</b>: acordar un gesto para "listas", "esperar" y "avanzar".</li>
+      <li><b>Cuidar a la novia:</b> agua a la mano, revisar vestido, velo y maquillaje antes de cada entrada.</li>
+    </ul>
+  </section>
+
   <!-- 1 -->
   <article class="block">
     <div class="bhead"><span class="hora">3:30 – 4:00 p.m.</span><span class="item">Recepción &amp; cóctel de bienvenida</span></div>
@@ -186,6 +214,7 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <div class="tk"><span class="who"><span class="chip">D3</span><span class="chip">D4</span></span><div>Entran en pareja (posición 6).</div></div>
           <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Apoyar a la novia con el vestido y el ramo; salida ordenada del cortejo.</div></div>
         </div>
+        <p class="tip">Al llegar al altar, una dama recibe el <b>ramo de la novia</b> y acomoda la cola del vestido antes de que se gire; se lo devuelve al finalizar. Entren con paso pausado y sonrisa serena.</p>
       </div>
     </div>
   </article>
@@ -209,6 +238,7 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <div class="tk"><span class="who"><span class="chip">D3</span><span class="chip">D4</span></span><div>Dirigir el <b>libro de fotografías</b> y el <b>cuaderno de mensajes</b> (invitar a los asistentes a firmar).</div></div>
           <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Organizar los grupos <b>por familia</b> para agilizar las fotos del stand.</div></div>
         </div>
+        <p class="tip">Tengan a mano la <b>lista de grupos</b> impresa y llamen a la siguiente familia mientras se fotografía la anterior: cero tiempos muertos. Cuiden que el vestido y el ramo se vean impecables en cada toma.</p>
       </div>
     </div>
   </article>
@@ -233,6 +263,7 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <div class="tk"><span class="who"><span class="chip wp">WP · MC</span></span><div>Ubican a los invitados y conducen palabras, brindis y vals.</div></div>
           <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Apoyar a ubicar invitados y ayudar a que <b>las copas estén listas</b> para el brindis.</div></div>
         </div>
+        <p class="tip">Servir la copa <b>justo antes</b> del brindis para que conserve la burbuja. Durante el vals, una dama sostiene el ramo y despeja la pista para que la pareja luzca sola.</p>
       </div>
     </div>
   </article>
@@ -302,15 +333,18 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
       <div>
         <p class="lab">Detalle</p>
         <ul class="det">
+          <li>Apertura con <b>coreografía</b> de las damas y damos para prender la pista.</li>
           <li>Hora loca con cotillón; cócteles y "pociones".</li>
-          <li>Máxima energía en la pista para cerrar la celebración.</li>
+          <li>Máxima energía para cerrar la celebración.</li>
         </ul>
       </div>
       <div>
         <p class="lab">Tareas · momento clave de las damas</p>
         <div class="tareas">
-          <div class="tk"><span class="who"><span class="chip">D1</span><span class="chip">D2</span><span class="chip">D3</span><span class="chip">D4</span></span><div><b>Dirigir y animar la hora loca</b> junto con los damos de honor; repartir el cotillón, cócteles y pociones; encender la fiesta.</div></div>
+          <div class="tk"><span class="who"><span class="chip">D1</span><span class="chip">D2</span><span class="chip">D3</span><span class="chip">D4</span></span><div>Abrir la hora loca con una <b>coreografía sencilla</b> (3–4 pasos) <b>ensayada con anticipación</b>; salir en formación e invitar a los novios y a los invitados a la pista.</div></div>
+          <div class="tk"><span class="who"><span class="chip">D1</span><span class="chip">D2</span><span class="chip">D3</span><span class="chip">D4</span></span><div>Repartir el <b>cotillón</b>, cócteles y pociones; mantener la energía junto con los damos de honor.</div></div>
         </div>
+        <p class="tip">Definan la canción y los pasos <b>días antes</b> y hagan un ensayo corto. Ubiquen a los novios al centro: la coreografía es la chispa que enciende la fiesta.</p>
       </div>
     </div>
   </article>
@@ -326,7 +360,7 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <li>Entra en la <b>posición 4</b> junto a D2.</li>
           <li>Fotos: acompaña a la novia — vestido e ideas de poses.</li>
           <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
-          <li>Dirige la hora loca (cotillón).</li>
+          <li>Abre la hora loca con la <b>coreografía ensayada</b> y el cotillón.</li>
         </ul>
       </div>
       <div class="dcard">
@@ -335,7 +369,7 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <li>Entra en la <b>posición 4</b> junto a D1.</li>
           <li>Fotos: acompaña a la novia — vestido e ideas de poses.</li>
           <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
-          <li>Dirige la hora loca (cotillón).</li>
+          <li>Abre la hora loca con la <b>coreografía ensayada</b> y el cotillón.</li>
         </ul>
       </div>
       <div class="dcard">
@@ -344,7 +378,7 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <li>Entra en la <b>posición 6</b> junto a D4.</li>
           <li>Fotos: dirige el <b>libro de fotografías</b> y el cuaderno de mensajes.</li>
           <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
-          <li>Dirige la hora loca (cotillón).</li>
+          <li>Abre la hora loca con la <b>coreografía ensayada</b> y el cotillón.</li>
         </ul>
       </div>
       <div class="dcard">
@@ -353,15 +387,16 @@ footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;f
           <li>Entra en la <b>posición 6</b> junto a D3.</li>
           <li>Fotos: dirige el <b>libro de fotografías</b> y el cuaderno de mensajes.</li>
           <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
-          <li>Dirige la hora loca (cotillón).</li>
+          <li>Abre la hora loca con la <b>coreografía ensayada</b> y el cotillón.</li>
         </ul>
       </div>
       <div class="dcard todas">
         <h3><span class="chip all">Todas</span> Durante todo el día</h3>
         <ul>
+          <li><b>Antes del día:</b> ensayar la coreografía de la hora loca (3–4 pasos) y alistar el kit de emergencia.</li>
           <li>3:50 p.m. — revisar ramos, argollas y elementos antes de entrar.</li>
-          <li>Apoyar a la novia con el vestido y el ramo en cada traslado.</li>
-          <li>Brindis: ayudar a que las copas estén listas.</li>
+          <li>Apoyar a la novia con el vestido y el ramo en cada traslado (una dama es la "guardiana del ramo").</li>
+          <li>Brindis: servir las copas justo antes; despejar la pista para el vals.</li>
           <li>Cena: apoyar el turno de mesas para las fotos.</li>
           <li>Ponqué y actividad del ramo/liga: reunir y organizar a los invitados.</li>
         </ul>
