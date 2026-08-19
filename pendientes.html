@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendientes · Valentina &amp; Sebastián · 18·IX·2026</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F2E7; --panel:#FCFAF3; --panel2:#FFFFFF;
+  --ink:#1C1B1A; --muted:#6B5F55; --soft:#8a7d6c;
+  --gold:#C8A45A; --gold-deep:#9c7526; --line:rgba(180,144,60,.28); --line2:rgba(180,144,60,.14);
+  --ok:#4f7d3a; --ok-bg:rgba(120,170,80,.14); --pend:#a8802e; --pend-bg:rgba(200,164,90,.14);
+  --pf:'Playfair Display',serif; --cor:'Cormorant Garamond',serif; --jt:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--cor);background:radial-gradient(ellipse 120% 60% at 50% -8%,#FCF9F0,transparent 60%),var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 0 80px}
+.sheet{max-width:920px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+header{text-align:center;padding:clamp(2.6rem,6vw,4rem) 1rem 1.6rem}
+.emb{width:66px;margin:0 auto 1rem;display:block}
+.eyebrow{font-family:var(--jt);font-weight:400;font-size:.62rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold-deep)}
+.names{font-family:var(--pf);font-weight:500;font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.1;margin:.5rem 0 .1rem}
+.subline{font-family:var(--jt);font-weight:300;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+.doc{font-family:var(--cor);font-style:italic;font-size:1.2rem;color:var(--gold-deep);margin-top:.9rem}
+.rule{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:1.4rem auto 0}
+.rule .l{height:1px;width:64px;background:linear-gradient(to right,transparent,var(--gold))}
+.rule .l.r{background:linear-gradient(to left,transparent,var(--gold))}
+.rule i{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+/* claves */
+.keydates{background:linear-gradient(160deg,#fbf3df,#f6ecd4);border:1px solid var(--gold);border-radius:16px;padding:1.3rem 1.4rem;margin-top:1.4rem}
+.keydates h2{font-family:var(--pf);font-weight:500;font-size:1.3rem;text-align:center;margin-bottom:1rem}
+.kd{display:grid;grid-template-columns:1fr;gap:.55rem}
+@media(min-width:640px){.kd{grid-template-columns:1fr 1fr;gap:.55rem 1.4rem}}
+.kd li{list-style:none;display:flex;gap:.7rem;align-items:baseline;font-size:1.05rem}
+.kd .d{font-family:var(--jt);font-weight:600;font-size:.72rem;letter-spacing:.04em;color:#4a3410;background:linear-gradient(135deg,#f1dd9f,#e2bf6b);border-radius:999px;padding:.28rem .6rem;white-space:nowrap;flex-shrink:0;min-width:98px;text-align:center}
+.kd b{color:var(--gold-deep)}
+
+.legend{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:1.6rem 0 .2rem}
+.st{font-family:var(--jt);font-weight:600;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:.28rem .7rem;border-radius:999px}
+.st.ok{color:var(--ok);background:var(--ok-bg)}
+.st.pend{color:var(--pend);background:var(--pend-bg)}
+.st.resp{color:#5a4a8a;background:rgba(120,100,180,.14)}
+
+/* secciones */
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.3rem clamp(1rem,3vw,1.6rem);margin-top:1.3rem;box-shadow:0 14px 40px -30px rgba(60,45,20,.4)}
+.sec h2{font-family:var(--jt);font-weight:600;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.sec h2::after{content:'';flex:1;height:1px;background:var(--line2)}
+.row{display:flex;gap:.8rem;align-items:flex-start;padding:.7rem 0}
+.row+.row{border-top:1px solid var(--line2)}
+.box{width:22px;height:22px;border:1.6px solid var(--gold);border-radius:5px;flex-shrink:0;margin-top:.15rem;position:relative}
+.row.done .box{background:linear-gradient(135deg,#e8cd85,#c8a45a);border-color:var(--gold)}
+.row.done .box::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#4a3410;font-size:.85rem;font-weight:700;font-family:var(--jt)}
+.rc{flex:1;min-width:0}
+.rt{font-family:var(--cor);font-weight:600;font-size:1.14rem;color:var(--ink)}
+.rd{font-family:var(--cor);font-size:1.02rem;color:var(--muted);margin-top:.1rem}
+.rmeta{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.45rem;align-items:center}
+.qty{font-family:var(--jt);font-weight:500;font-size:.64rem;letter-spacing:.08em;color:var(--soft);background:var(--panel2);border:1px solid var(--line2);border-radius:999px;padding:.22rem .55rem}
+.tag{font-family:var(--jt);font-weight:600;font-size:.62rem;letter-spacing:.06em;color:#4a3410;background:linear-gradient(135deg,#f1dd9f,#e2bf6b);border-radius:999px;padding:.24rem .6rem}
+.chip-r{font-family:var(--jt);font-weight:600;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#5a4a8a;background:rgba(120,100,180,.14);border-radius:999px;padding:.24rem .6rem}
+footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--soft)}
+.print{position:fixed;right:16px;bottom:16px;z-index:10;font-family:var(--jt);font-weight:500;font-size:.72rem;letter-spacing:.08em;background:var(--ink);color:#f4ead4;border:none;border-radius:999px;padding:.8rem 1.3rem;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+@media print{body{background:#fff;padding:0}.print{display:none}.sec,.keydates{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<button class="print" onclick="window.print()">Imprimir / PDF</button>
+<div class="sheet">
+  <header>
+    <svg class="emb" viewBox="0 0 110 130" fill="none" stroke="#C8A45A" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <ellipse cx="55" cy="56" rx="33" ry="46" stroke-width="1.4"/><path d="M55 33 C55 48 55 66 55 84" stroke-width="1.3"/><circle cx="55" cy="31" r="2.2" fill="#C8A45A"/>
+      <g fill="#C8A45A" stroke="none"><path d="M55 44 C49 41 45 43 46 49 C51 49 55 47 55 44Z"/><path d="M55 44 C61 41 65 43 64 49 C59 49 55 47 55 44Z"/><path d="M55 56 C48 53 44 55 45 61 C51 61 55 59 55 56Z"/><path d="M55 56 C62 53 66 55 65 61 C59 61 55 59 55 56Z"/><path d="M55 68 C49 65 45 67 46 73 C51 73 55 71 55 68Z"/><path d="M55 68 C61 65 65 67 64 73 C59 73 55 71 55 68Z"/></g>
+      <path d="M55 110 L60 117 L55 124 L50 117 Z" fill="#C8A45A" stroke="none"/>
+    </svg>
+    <p class="eyebrow">Lista de pendientes</p>
+    <h1 class="names">Valentina &amp; Sebastián</h1>
+    <p class="subline">Faltan pocos días · 18 de Septiembre de 2026</p>
+    <p class="doc">Detalles finales, pagos y encargos</p>
+    <div class="rule"><span class="l"></span><i></i><span class="l r"></span></div>
+  </header>
+
+  <section class="keydates">
+    <h2>Fechas &amp; tareas clave</h2>
+    <ul class="kd">
+      <li><span class="d">20 Ago</span><span>Recoger los <b>recordatorios</b> (vela, cámara/rollo · Fotojapón)</span></li>
+      <li><span class="d">21 Ago · 2:00 pm</span><span>Prueba de <b>maquillaje</b> (Opulene) + pago final</span></li>
+      <li><span class="d">25 Ago</span><span>Recoger <b>argollas</b> (Juli &amp; Co) + saldo final</span></li>
+      <li><span class="d">Pronto</span><span>Comprar <b>champaña</b> (damas de honor)</span></li>
+      <li><span class="d">5 Sep</span><span>Comprar <b>zapatos de Pipe y Sebastián</b> (citas)</span></li>
+      <li><span class="d">11 Sep</span><span>Cita <b>traje de Pipe</b></span></li>
+      <li><span class="d">16 Sep</span><span>Medidas finales <b>traje Sebastián</b> + pago ($420)</span></li>
+      <li><span class="d">Encargo</span><span><b>Viviana</b> (dama): lista de invitados y organización por mesa</span></li>
+      <li><span class="d">Encargo</span><span>Una dama: <b>archivo final</b> con la canción de entrada a la parroquia y últimos detalles, <b>con foto y nombre</b></span></li>
+    </ul>
+  </section>
+
+  <div class="legend">
+    <span class="st ok">✓ Listo</span>
+    <span class="st pend">Pendiente</span>
+    <span class="st resp">Responsable</span>
+  </div>
+
+  <!-- PAGOS Y PROVEEDORES -->
+  <section class="sec">
+    <h2>Pagos &amp; proveedores</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Hacienda</div><div class="rd">Último pago pendiente · prueba de menú y reunión de diseño</div><div class="rmeta"><span class="tag">Último pago</span><span class="qty">Diseño OK</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Argollas — Juli &amp; Co</div><div class="rd">Recoger y pagar saldo final</div><div class="rmeta"><span class="tag">25 Ago · saldo</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Maquillaje novia — Opulene</div><div class="rd">Prueba de maquillaje + pago 50% final</div><div class="rmeta"><span class="tag">21 Ago · 2:00 pm</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Traje Sebastián</div><div class="rd">Medidas finales y pago final</div><div class="rmeta"><span class="tag">16 Sep</span><span class="qty">$420</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Transporte — Bus</div><div class="rmeta"><span class="st ok">✓ Listo</span></div></div></div>
+  </section>
+
+  <!-- IGLESIA -->
+  <section class="sec">
+    <h2>Papeles de la iglesia</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Autenticar la licencia</div><div class="rd">Con el Padre de Tenjo</div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Música litúrgica</div><div class="rd">Pago Diócesis de Facatativá</div><div class="rmeta"><span class="qty">$320.000</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Arras</div><div class="rmeta"><span class="st ok">✓ Listo</span></div></div></div>
+  </section>
+
+  <!-- RECORDATORIOS -->
+  <section class="sec">
+    <h2>Recordatorios</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Recoger los recordatorios</div><div class="rd">Vela en flor / vidrio · cámara instantánea + rollo (Fotojapón)</div><div class="rmeta"><span class="tag">Recoger · 20 Ago</span><span class="qty">Vela 19</span></div></div></div>
+  </section>
+
+  <!-- HORA LOCA -->
+  <section class="sec">
+    <h2>Hora loca · cotillón</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Cotillón LED</div><div class="rd">Collares · anillos mujeres · manillas reloj · barras · alas luminosas novia · corbata novio</div><div class="rmeta"><span class="qty">Collares 37</span><span class="qty">Anillos 37</span><span class="qty">Manillas 37</span><span class="qty">Barras 45</span><span class="qty">Alas 1</span><span class="qty">Corbata 1</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Gafas corazón (mujeres)</div><div class="rmeta"><span class="qty">24</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Gafas negras (hombres)</div><div class="rmeta"><span class="qty">15</span><span class="st ok">✓ Listo</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Comprar champaña</div><div class="rd">Para el brindis de las damas de honor</div><div class="rmeta"><span class="tag">Comprar</span><span class="qty">1</span></div></div></div>
+  </section>
+
+  <!-- VESTUARIO -->
+  <section class="sec">
+    <h2>Vestuario</h2>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Vestido de novia</div><div class="rd">Prueba de vestido y zapatos — sábado 15 de agosto</div><div class="rmeta"><span class="st ok">✓ Listo</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Vestido de cambio</div><div class="rd">Arreglo listo para recoger</div><div class="rmeta"><span class="st ok">✓ Listo</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Zapatos novia</div><div class="rd">Decoración de zapatos</div><div class="rmeta"><span class="st ok">✓ Listo</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Comprar zapatos Sebastián</div><div class="rmeta"><span class="tag">5 Sep</span><span class="qty">$150</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Comprar zapatos Pipe</div><div class="rmeta"><span class="tag">5 Sep</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Traje Pipe</div><div class="rd">Cita viernes 11 de septiembre</div><div class="rmeta"><span class="tag">11 Sep</span></div></div></div>
+  </section>
+
+  <!-- DAMAS -->
+  <section class="sec">
+    <h2>Damas de honor · detalles</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Kit de las damas (×4)</div><div class="rd">Bata negra · pijama vestido satín · babuchas · moñas satín</div><div class="rmeta"><span class="qty">Bata 4</span><span class="qty">Pijama 4</span><span class="qty">Babuchas 4</span><span class="qty">Moñas 4</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Champaña</div><div class="rmeta"><span class="qty">1</span><span class="tag">Comprar</span></div></div></div>
+  </section>
+
+  <!-- MUSICA Y DEFINICIONES -->
+  <section class="sec">
+    <h2>Música &amp; definiciones</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Canción de entrada del novio</div><div class="rmeta"><span class="st pend">Por definir</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Canción de entrada de la novia</div><div class="rd">Marcha nupcial / “Up”</div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Canción de entrada al salón</div><div class="rmeta"><span class="st pend">Por definir</span></div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Canción del vals</div><div class="rd">“Mi bendición”</div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Paleta de colores</div><div class="rd">Blanco / Negro</div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Palabras del brindis</div><div class="rd">Marina y Jaime</div></div></div>
+    <div class="row done"><div class="box"></div><div class="rc"><div class="rt">Escenario para fotos</div><div class="rd">Afuera</div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Centros de mesa</div><div class="rmeta"><span class="st pend">Por definir</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Diseño de la torta</div><div class="rmeta"><span class="st pend">Por definir</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Diseño del ramo de novia</div><div class="rmeta"><span class="st pend">Por definir</span></div></div></div>
+  </section>
+
+  <!-- INVITADOS / ENCARGOS -->
+  <section class="sec">
+    <h2>Invitados &amp; encargos</h2>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Lista de invitados y organización por mesa</div><div class="rd">Consolidar confirmaciones y ubicar por mesa</div><div class="rmeta"><span class="chip-r">Viviana</span></div></div></div>
+    <div class="row"><div class="box"></div><div class="rc"><div class="rt">Archivo final para la coordinación</div><div class="rd">Canción de entrada a la parroquia y últimos detalles, organizado <b>con foto y nombre</b></div><div class="rmeta"><span class="chip-r">Una dama</span></div></div></div>
+  </section>
+
+  <footer>Valentina &amp; Sebastián · 18 · IX · 2026</footer>
+</div>
+</body>
+</html>
