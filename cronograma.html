@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cronograma · Valentina &amp; Sebastián · 18·IX·2026</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F2E7; --panel:#FCFAF3; --panel2:#FFFFFF;
+  --ink:#1C1B1A; --muted:#6B5F55; --soft:#8a7d6c;
+  --gold:#C8A45A; --gold-deep:#9c7526; --line:rgba(180,144,60,.28); --line2:rgba(180,144,60,.16);
+  --pf:'Playfair Display',serif; --cor:'Cormorant Garamond',serif; --jt:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--cor);background:
+  radial-gradient(ellipse 120% 60% at 50% -8%,#FCF9F0,transparent 60%),
+  var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding:0 0 80px}
+.sheet{max-width:900px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+
+/* header */
+header{text-align:center;padding:clamp(3rem,7vw,4.6rem) 1rem 2.2rem}
+.emb{width:74px;margin:0 auto 1.1rem;display:block}
+.eyebrow{font-family:var(--jt);font-weight:400;font-size:.62rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold-deep)}
+.names{font-family:var(--pf);font-weight:500;font-size:clamp(1.9rem,5.5vw,2.9rem);line-height:1.1;margin:.5rem 0 .1rem}
+.subline{font-family:var(--jt);font-weight:300;font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+.doc{font-family:var(--cor);font-style:italic;font-size:1.25rem;color:var(--gold-deep);margin-top:1rem}
+.rule{display:flex;align-items:center;justify-content:center;gap:.6rem;margin:1.6rem auto 0}
+.rule .l{height:1px;width:70px;background:linear-gradient(to right,transparent,var(--gold))}
+.rule .l.r{background:linear-gradient(to left,transparent,var(--gold))}
+.rule i{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+/* legend */
+.legend{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.4rem;margin:1.8rem 0 .6rem}
+.legend h2{font-family:var(--jt);font-weight:500;font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1rem;text-align:center}
+.roles{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.role{display:flex;align-items:center;gap:.55rem;font-family:var(--jt);font-weight:400;font-size:.82rem;color:var(--ink);background:var(--panel2);border:1px solid var(--line2);border-radius:999px;padding:.4rem .85rem .4rem .5rem}
+.badge{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--jt);font-weight:600;font-size:.72rem;flex-shrink:0}
+.b-wp{background:#2a2724;color:#f0e5d0}
+.b-mc{background:#7a6a44;color:#fff}
+.b-d{background:linear-gradient(135deg,#e8cd85,#c8a45a);color:#4a3410}
+.legend .note{font-family:var(--cor);font-style:italic;font-size:.98rem;color:var(--muted);text-align:center;margin-top:1rem}
+
+/* timeline block */
+.block{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+  padding:1.5rem clamp(1.1rem,3vw,1.8rem);margin-top:1.5rem;box-shadow:0 14px 40px -28px rgba(60,45,20,.4)}
+.block::before{content:'';position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:linear-gradient(to bottom,var(--gold),var(--gold-deep));opacity:.85}
+.bhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;padding-bottom:.9rem;margin-bottom:1rem;border-bottom:1px solid var(--line2)}
+.hora{font-family:var(--jt);font-weight:600;font-size:.78rem;letter-spacing:.06em;color:#4a3410;background:linear-gradient(135deg,#f1dd9f,#e2bf6b);border-radius:999px;padding:.35rem .8rem;white-space:nowrap}
+.item{font-family:var(--pf);font-weight:500;font-size:clamp(1.25rem,3.2vw,1.6rem);line-height:1.15;color:var(--ink);text-wrap:balance}
+.cols{display:grid;grid-template-columns:1fr;gap:1.2rem}
+@media(min-width:680px){.cols{grid-template-columns:1fr 1fr;gap:1.6rem}}
+.lab{font-family:var(--jt);font-weight:500;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.55rem}
+ul.det{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+ul.det li{position:relative;padding-left:1.1rem;font-size:1.06rem;color:var(--ink)}
+ul.det li::before{content:'';position:absolute;left:2px;top:.62em;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+/* tarea callouts */
+.tareas{display:flex;flex-direction:column;gap:.7rem}
+.tk{background:var(--panel2);border:1px solid var(--line2);border-left:3px solid var(--gold);border-radius:8px;padding:.7rem .85rem;font-size:1.04rem;color:var(--ink);display:flex;gap:.6rem;align-items:flex-start}
+.tk .who{display:inline-flex;gap:.25rem;flex-shrink:0;margin-top:.05rem}
+.chip{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--jt);font-weight:600;font-size:.66rem;background:linear-gradient(135deg,#e8cd85,#c8a45a);color:#4a3410}
+.chip.all{width:auto;padding:0 .6rem;border-radius:999px;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase}
+.chip.wp{background:#2a2724;color:#f0e5d0;width:auto;padding:0 .55rem;border-radius:999px;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase}
+.tk b{font-weight:600;color:var(--gold-deep);font-family:var(--cor)}
+
+/* orden cortejo */
+.orden{margin-top:1.1rem;background:var(--panel2);border:1px dashed var(--line);border-radius:10px;padding:1rem 1.1rem}
+.orden .lab{text-align:center}
+.orden ol{list-style:none;counter-reset:c;display:grid;grid-template-columns:1fr;gap:.35rem;max-width:520px;margin:0 auto}
+@media(min-width:560px){.orden ol{grid-template-columns:1fr}}
+.orden li{counter-increment:c;display:flex;align-items:center;gap:.7rem;font-size:1.05rem;padding:.25rem 0}
+.orden li::before{content:counter(c);font-family:var(--jt);font-weight:600;font-size:.72rem;width:24px;height:24px;flex-shrink:0;border-radius:50%;background:#efe6d2;color:#7a5f24;display:flex;align-items:center;justify-content:center}
+.orden li.hl{font-weight:600}
+.orden li.hl::before{background:linear-gradient(135deg,#e8cd85,#c8a45a);color:#4a3410}
+
+/* resumen damas */
+.summary{margin-top:2.6rem}
+.summary h2{font-family:var(--pf);font-weight:500;font-size:clamp(1.5rem,4vw,2rem);text-align:center;margin-bottom:.4rem}
+.summary .sc{font-family:var(--cor);font-style:italic;color:var(--muted);text-align:center;margin-bottom:1.4rem}
+.dgrid{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:640px){.dgrid{grid-template-columns:1fr 1fr}}
+.dcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem}
+.dcard h3{display:flex;align-items:center;gap:.6rem;font-family:var(--pf);font-weight:500;font-size:1.2rem;margin-bottom:.8rem}
+.dcard ul{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.dcard li{position:relative;padding-left:1.1rem;font-size:1.02rem}
+.dcard li::before{content:'';position:absolute;left:2px;top:.62em;width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.dcard.todas{grid-column:1/-1;background:linear-gradient(160deg,#fbf3df,#f6ecd4);border-color:var(--gold)}
+
+footer{text-align:center;margin-top:3rem;font-family:var(--jt);font-weight:300;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--soft)}
+
+.print{position:fixed;right:16px;bottom:16px;z-index:10;font-family:var(--jt);font-weight:500;font-size:.72rem;letter-spacing:.08em;
+  background:var(--ink);color:#f4ead4;border:none;border-radius:999px;padding:.8rem 1.3rem;cursor:pointer;box-shadow:0 10px 24px -8px rgba(0,0,0,.4)}
+@media print{
+  body{background:#fff;padding:0}
+  .print{display:none}
+  .block,.dcard,.legend{box-shadow:none;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<button class="print" onclick="window.print()">Imprimir / PDF</button>
+<div class="sheet">
+
+  <header>
+    <svg class="emb" viewBox="0 0 110 130" fill="none" stroke="#C8A45A" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <ellipse cx="55" cy="56" rx="33" ry="46" stroke-width="1.4"/><path d="M55 33 C55 48 55 66 55 84" stroke-width="1.3"/><circle cx="55" cy="31" r="2.2" fill="#C8A45A"/>
+      <g fill="#C8A45A" stroke="none"><path d="M55 44 C49 41 45 43 46 49 C51 49 55 47 55 44Z"/><path d="M55 44 C61 41 65 43 64 49 C59 49 55 47 55 44Z"/><path d="M55 56 C48 53 44 55 45 61 C51 61 55 59 55 56Z"/><path d="M55 56 C62 53 66 55 65 61 C59 61 55 59 55 56Z"/><path d="M55 68 C49 65 45 67 46 73 C51 73 55 71 55 68Z"/><path d="M55 68 C61 65 65 67 64 73 C59 73 55 71 55 68Z"/></g>
+      <path d="M55 110 L60 117 L55 124 L50 117 Z" fill="#C8A45A" stroke="none"/>
+    </svg>
+    <p class="eyebrow">Cronograma del día</p>
+    <h1 class="names">Valentina &amp; Sebastián</h1>
+    <p class="subline">Viernes · 18 de Septiembre · 2026</p>
+    <p class="doc">Guía de coordinación &amp; tareas de las damas de honor</p>
+    <div class="rule"><span class="l"></span><i></i><span class="l r"></span></div>
+  </header>
+
+  <section class="legend">
+    <h2>Equipo del día</h2>
+    <div class="roles">
+      <span class="role"><span class="badge b-wp">WP</span> Wedding&nbsp;planner · coordinación general</span>
+      <span class="role"><span class="badge b-mc">MC</span> Maestro de ceremonia</span>
+      <span class="role"><span class="badge b-d">D1</span><span class="badge b-d">D2</span><span class="badge b-d">D3</span><span class="badge b-d">D4</span> Damas de honor</span>
+    </div>
+    <p class="note">Las damas trabajan en dos parejas: <b>D1 y D2</b> (primera pareja) · <b>D3 y D4</b> (segunda pareja).</p>
+  </section>
+
+  <!-- 1 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">3:30 – 4:00 p.m.</span><span class="item">Recepción &amp; cóctel de bienvenida</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>Llegada de invitados; el personal recibe y orienta.</li>
+          <li>Cóctel de bienvenida y música ambiental suave.</li>
+          <li>Fotógrafo: tomas espontáneas de llegada, decoración y detalles.</li>
+          <li>El cortejo debe estar presente y listo.</li>
+          <li><b>3:50 p.m.</b> — El WP avisa: ~10 min para la ceremonia. Padrinos, damas, caballeros y pajecito se reúnen en el punto establecido. La novia permanece reservada.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Estar listas y presentes; recibir y orientar a los invitados con calidez.</div></div>
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>A las 3:50 reunirse en el punto y <b>revisar ramos, argollas y elementos</b> antes de entrar.</div></div>
+          <div class="tk"><span class="who"><span class="chip wp">WP · MC</span></span><div>Dan la señal de inicio y organizan el orden del cortejo.</div></div>
+        </div>
+        <div class="orden">
+          <p class="lab">Orden de entrada (cortejo)</p>
+          <ol>
+            <li>Novio con su mamá</li>
+            <li>Padrino y madrina</li>
+            <li>Caballero de honor 1 (solo)</li>
+            <li class="hl">Damas 1 y 2 (juntas)</li>
+            <li>Caballero de honor 2 (solo)</li>
+            <li class="hl">Damas 3 y 4 (juntas)</li>
+            <li>Pajecito con las argollas 💍</li>
+            <li>Novia (cierre del cortejo)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">4:00 – 5:00 p.m.</span><span class="item">Ceremonia</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>Liturgia, lecturas, homilía y consentimiento matrimonial.</li>
+          <li>Bendición y entrega de argollas; arras; bendición de los esposos.</li>
+          <li>Firma de documentos; fotos de los momentos principales.</li>
+          <li>Presentación y salida de los esposos; salida del cortejo e invitados.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip">D1</span><span class="chip">D2</span></span><div>Entran en pareja (posición 4); mantener ritmo y distancia.</div></div>
+          <div class="tk"><span class="who"><span class="chip">D3</span><span class="chip">D4</span></span><div>Entran en pareja (posición 6).</div></div>
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Apoyar a la novia con el vestido y el ramo; salida ordenada del cortejo.</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">5:00 – 5:40 p.m.</span><span class="item">Fotos en el stand &amp; de los esposos</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>Los invitados regresan a la recepción; bebidas, pasabocas y música ambiental.</li>
+          <li>Fotos por grupos en el stand.</li>
+          <li>Los novios: primero fotos con familia, padrinos y cortejo; luego solos.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas · momento clave de las damas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip">D1</span><span class="chip">D2</span></span><div>Acompañar a la novia: <b>acomodar el vestido</b> y proponer ideas / poses para las fotos.</div></div>
+          <div class="tk"><span class="who"><span class="chip">D3</span><span class="chip">D4</span></span><div>Dirigir el <b>libro de fotografías</b> y el <b>cuaderno de mensajes</b> (invitar a los asistentes a firmar).</div></div>
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Organizar los grupos <b>por familia</b> para agilizar las fotos del stand.</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">5:45 – 6:00 p.m.</span><span class="item">Entrada de los esposos · Palabras · Brindis · Vals</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>El WP ubica a los invitados en el salón.</li>
+          <li>Entrada de Sebastián y Valentina con canción especial; presentación y recibimiento.</li>
+          <li>Palabras breves de los padrinos.</li>
+          <li>Brindis: copas servidas, palabras y brindis general (foto del momento).</li>
+          <li>Primer baile (vals) con la canción elegida por los novios.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip wp">WP · MC</span></span><div>Ubican a los invitados y conducen palabras, brindis y vals.</div></div>
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Apoyar a ubicar invitados y ayudar a que <b>las copas estén listas</b> para el brindis.</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 5 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">6:00 – 7:00 p.m.</span><span class="item">Cena + fotografías por mesa</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>Servicio de cena; música ambiental; los novios comen los primeros minutos.</li>
+          <li>El fotógrafo hace fotos por mesa; el MC llama <b>una mesa a la vez</b>.</li>
+          <li><b>6:50</b> — cierre progresivo de la cena; se prepara música e iluminación; invitación a la pista.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Apoyar al MC organizando el turno de las mesas para las fotos; animar a los invitados.</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 6 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">7:10 – 7:50 p.m.</span><span class="item">Sorpresa</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det"><li>Momento sorpresa preparado por los novios y el WP.</li></ul>
+      </div>
+      <div>
+        <p class="lab">Tareas</p>
+        <div class="tareas"><div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Atentas para apoyar según indique el WP.</div></div></div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 7 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">8:00 – 8:20 p.m.</span><span class="item">Apertura de pista · Actividad · Ponqué</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>Pausa corta de música para reunir a los invitados.</li>
+          <li>Actividad de solteros y solteras (liga / ramo); entrega del ramo con cinta y baile alrededor. Breve.</li>
+          <li>Ponqué: anuncio, corte simbólico, fotos y brindis/beso; inicia el servicio.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Reunir a los invitados y organizar la actividad del <b>ramo y la liga</b>.</div></div>
+          <div class="tk"><span class="who"><span class="chip all">Todas</span></span><div>Apoyar en el momento del ponqué (orden y fotos).</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 8 -->
+  <article class="block">
+    <div class="bhead"><span class="hora">8:30 – 9:00 p.m.</span><span class="item">Hora loca · Final rumba</span></div>
+    <div class="cols">
+      <div>
+        <p class="lab">Detalle</p>
+        <ul class="det">
+          <li>Hora loca con cotillón; cócteles y "pociones".</li>
+          <li>Máxima energía en la pista para cerrar la celebración.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lab">Tareas · momento clave de las damas</p>
+        <div class="tareas">
+          <div class="tk"><span class="who"><span class="chip">D1</span><span class="chip">D2</span><span class="chip">D3</span><span class="chip">D4</span></span><div><b>Dirigir y animar la hora loca</b> junto con los damos de honor; repartir el cotillón, cócteles y pociones; encender la fiesta.</div></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- resumen -->
+  <section class="summary">
+    <h2>Tareas por dama · de un vistazo</h2>
+    <p class="sc">Referencia rápida para cada una durante todo el día.</p>
+    <div class="dgrid">
+      <div class="dcard">
+        <h3><span class="chip">D1</span> Dama 1</h3>
+        <ul>
+          <li>Entra en la <b>posición 4</b> junto a D2.</li>
+          <li>Fotos: acompaña a la novia — vestido e ideas de poses.</li>
+          <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
+          <li>Dirige la hora loca (cotillón).</li>
+        </ul>
+      </div>
+      <div class="dcard">
+        <h3><span class="chip">D2</span> Dama 2</h3>
+        <ul>
+          <li>Entra en la <b>posición 4</b> junto a D1.</li>
+          <li>Fotos: acompaña a la novia — vestido e ideas de poses.</li>
+          <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
+          <li>Dirige la hora loca (cotillón).</li>
+        </ul>
+      </div>
+      <div class="dcard">
+        <h3><span class="chip">D3</span> Dama 3</h3>
+        <ul>
+          <li>Entra en la <b>posición 6</b> junto a D4.</li>
+          <li>Fotos: dirige el <b>libro de fotografías</b> y el cuaderno de mensajes.</li>
+          <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
+          <li>Dirige la hora loca (cotillón).</li>
+        </ul>
+      </div>
+      <div class="dcard">
+        <h3><span class="chip">D4</span> Dama 4</h3>
+        <ul>
+          <li>Entra en la <b>posición 6</b> junto a D3.</li>
+          <li>Fotos: dirige el <b>libro de fotografías</b> y el cuaderno de mensajes.</li>
+          <li>Recibe invitados y ayuda a organizar grupos por familia.</li>
+          <li>Dirige la hora loca (cotillón).</li>
+        </ul>
+      </div>
+      <div class="dcard todas">
+        <h3><span class="chip all">Todas</span> Durante todo el día</h3>
+        <ul>
+          <li>3:50 p.m. — revisar ramos, argollas y elementos antes de entrar.</li>
+          <li>Apoyar a la novia con el vestido y el ramo en cada traslado.</li>
+          <li>Brindis: ayudar a que las copas estén listas.</li>
+          <li>Cena: apoyar el turno de mesas para las fotos.</li>
+          <li>Ponqué y actividad del ramo/liga: reunir y organizar a los invitados.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>Valentina &amp; Sebastián · 18 · IX · 2026 · Hacienda Campestre San Sebastián</footer>
+</div>
+</body>
+</html>
